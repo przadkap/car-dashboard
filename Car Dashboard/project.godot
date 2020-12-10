@@ -16,7 +16,14 @@ _global_script_class_icons={
 [application]
 
 config/name="Car Dashboard"
+run/main_scene="res://BehindTheWheelScreen.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1500
+window/size/height=800
+window/size/resizable=false
 
 [rendering]
 
