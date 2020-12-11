@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="Car Dashboard"
 run/main_scene="res://BehindTheWheelScreen.tscn"
-config/icon="res://icon.png"
+config/icon="res://images/icon.png"
 
 [display]
 
