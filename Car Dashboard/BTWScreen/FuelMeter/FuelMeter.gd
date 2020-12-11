@@ -8,19 +8,20 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	rpm_changed(50)
+	fuel_changed(5)
 	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-func rpm_changed(new_rpm):
+func fuel_changed(new_fuel):
 	for segment in get_children():
-		if new_rpm > (segment.get_index() + 1) * 20:
+		print(segment.get_index())
+		if new_fuel >= (segment.get_index() + 1) * 20:
 			segment.value = 20
-		elif ((segment.get_index() + 1) * 20) - new_rpm < 20:
-			segment.value = new_rpm -  (segment.get_index() * 20)
+		elif ((segment.get_index() + 1) * 20) - new_fuel < 20:
+			segment.value = new_fuel -  (segment.get_index() * 20) 
 		else:
 			 break # not sure if good idea
 	pass
