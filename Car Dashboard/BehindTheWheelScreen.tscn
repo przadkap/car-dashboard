@@ -1,0 +1,693 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://images/BTWMask.png" type="Texture" id=1]
+[ext_resource path="res://images/icon.png" type="Texture" id=2]
+[ext_resource path="res://BTWScreen/Accelerometer/Accelerometer.gd" type="Script" id=3]
+[ext_resource path="res://BTWScreen/Tachometer/Tachometer.gd" type="Script" id=4]
+[ext_resource path="res://BTWScreen/FuelMeter/FuelMeter.gd" type="Script" id=5]
+[ext_resource path="res://App.gd" type="Script" id=6]
+
+[node name="App" type="Control"]
+margin_right = 3000.0
+margin_bottom = 800.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 750, 400 )
+current = true
+smoothing_enabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BTWScreen" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Panel" parent="BTWScreen"]
+margin_right = 1500.0
+margin_bottom = 800.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Mask" type="TextureRect" parent="BTWScreen"]
+margin_right = 1500.0
+margin_bottom = 800.0
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CentralDisplay" type="PanelContainer" parent="BTWScreen"]
+anchor_left = 0.181993
+anchor_top = 0.494385
+anchor_right = 0.333327
+anchor_bottom = 0.806885
+margin_top = -3.05176e-05
+rect_pivot_offset = Vector2( 200, 125 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="SpeedDigits" type="PanelContainer" parent="BTWScreen"]
+anchor_left = 0.096661
+anchor_top = 0.539381
+anchor_right = 0.164661
+anchor_bottom = 0.789381
+margin_top = -3.05176e-05
+rect_pivot_offset = Vector2( 200, 125 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="LEDs" type="PanelContainer" parent="BTWScreen"]
+anchor_left = 0.249783
+anchor_top = 0.222475
+anchor_right = 0.249783
+anchor_bottom = 0.222475
+margin_left = -190.0
+margin_top = 80.5355
+margin_right = 228.0
+margin_bottom = 158.536
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/LEDs"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 411.0
+margin_bottom = 71.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
+margin_right = 64.0
+margin_bottom = 64.0
+texture = ExtResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
+margin_left = 136.0
+margin_right = 200.0
+margin_bottom = 64.0
+texture = ExtResource( 2 )
+
+[node name="TextureRect4" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
+margin_left = 204.0
+margin_right = 268.0
+margin_bottom = 64.0
+texture = ExtResource( 2 )
+
+[node name="TextureRect5" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
+margin_left = 272.0
+margin_right = 336.0
+margin_bottom = 64.0
+texture = ExtResource( 2 )
+
+[node name="TextureRect6" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
+margin_left = 340.0
+margin_right = 404.0
+margin_bottom = 64.0
+texture = ExtResource( 2 )
+
+[node name="Accelerometer" type="Control" parent="BTWScreen"]
+anchor_right = 0.31
+anchor_bottom = 1.006
+margin_right = 3.0
+margin_bottom = -1.80005
+rect_rotation = 0.2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Segment1" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 20.3466
+margin_top = 793.34
+margin_right = 70.3466
+margin_bottom = 923.34
+rect_rotation = 270.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment2" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 20.9765
+margin_top = 730.508
+margin_right = 70.9765
+margin_bottom = 860.508
+rect_rotation = 273.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment3" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 26.6334
+margin_top = 666.868
+margin_right = 76.6334
+margin_bottom = 796.868
+rect_rotation = 277.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment4" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 37.0164
+margin_top = 603.42
+margin_right = 87.0164
+margin_bottom = 733.42
+rect_rotation = 281.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment5" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 53.9367
+margin_top = 539.316
+margin_right = 103.937
+margin_bottom = 669.316
+rect_rotation = 287.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment6" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 76.7552
+margin_top = 476.458
+margin_right = 126.755
+margin_bottom = 606.458
+rect_rotation = 295.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment7" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 105.193
+margin_top = 417.234
+margin_right = 155.193
+margin_bottom = 547.234
+rect_rotation = 301.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment8" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 136.575
+margin_top = 365.924
+margin_right = 186.575
+margin_bottom = 495.924
+rect_rotation = 303.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment9" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 170.111
+margin_top = 318.044
+margin_right = 220.111
+margin_bottom = 448.044
+rect_rotation = 305.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment10" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 208.415
+margin_top = 271.428
+margin_right = 258.415
+margin_bottom = 401.428
+rect_rotation = 307.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment11" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 248.647
+margin_top = 225.893
+margin_right = 298.647
+margin_bottom = 355.893
+rect_rotation = 311.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment12" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 293.715
+margin_top = 183.821
+margin_right = 343.715
+margin_bottom = 313.821
+rect_rotation = 315.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment13" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 343.985
+margin_top = 144.375
+margin_right = 393.985
+margin_bottom = 274.375
+rect_rotation = 321.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tachometer" type="Control" parent="BTWScreen"]
+margin_left = 1032.0
+margin_right = 1500.0
+margin_bottom = 803.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Segment1" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 317.653
+margin_top = 793.34
+margin_right = 367.653
+margin_bottom = 923.34
+rect_rotation = 270.0
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment2" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 447.023
+margin_top = 600.508
+margin_right = 497.023
+margin_bottom = 730.508
+rect_rotation = 267.0
+rect_pivot_offset = Vector2( 0, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment3" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 441.367
+margin_top = 536.868
+margin_right = 491.367
+margin_bottom = 666.868
+rect_rotation = 263.0
+rect_pivot_offset = Vector2( 0, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment4" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 430.0
+margin_top = 473.42
+margin_right = 480.0
+margin_bottom = 603.42
+rect_rotation = 259.0
+rect_pivot_offset = Vector2( 0, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment5" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 414.0
+margin_top = 409.316
+margin_right = 464.0
+margin_bottom = 539.316
+rect_rotation = 253.0
+rect_pivot_offset = Vector2( 0, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment6" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 391.0
+margin_top = 346.458
+margin_right = 441.0
+margin_bottom = 476.458
+rect_rotation = 245.0
+rect_pivot_offset = Vector2( 0, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment7" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 362.0
+margin_top = 287.234
+margin_right = 412.0
+margin_bottom = 417.234
+rect_rotation = 239.0
+rect_pivot_offset = Vector2( 3.05176e-05, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment8" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 331.0
+margin_top = 235.924
+margin_right = 381.0
+margin_bottom = 365.924
+rect_rotation = 237.0
+rect_pivot_offset = Vector2( 3.05176e-05, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment9" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 297.889
+margin_top = 188.044
+margin_right = 347.889
+margin_bottom = 318.044
+rect_rotation = 235.0
+rect_pivot_offset = Vector2( 3.05176e-05, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment10" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 259.585
+margin_top = 141.428
+margin_right = 309.585
+margin_bottom = 271.428
+rect_rotation = 233.0
+rect_pivot_offset = Vector2( 3.05176e-05, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment11" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 219.353
+margin_top = 95.893
+margin_right = 269.353
+margin_bottom = 225.893
+rect_rotation = 229.0
+rect_pivot_offset = Vector2( 1.52588e-05, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment12" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 174.285
+margin_top = 53.821
+margin_right = 224.285
+margin_bottom = 183.821
+rect_rotation = 225.0
+rect_pivot_offset = Vector2( 0, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment13" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 124.015
+margin_top = 14.375
+margin_right = 174.015
+margin_bottom = 144.375
+rect_rotation = 219.0
+rect_pivot_offset = Vector2( 0, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TurnLeft" type="PanelContainer" parent="BTWScreen"]
+margin_left = 568.0
+margin_top = 56.0
+margin_right = 646.0
+margin_bottom = 134.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="BTWScreen/TurnLeft"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 71.0
+margin_bottom = 71.0
+texture = ExtResource( 2 )
+
+[node name="TurnRight" type="PanelContainer" parent="BTWScreen"]
+margin_left = 848.0
+margin_top = 56.0
+margin_right = 926.0
+margin_bottom = 134.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="BTWScreen/TurnRight"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 71.0
+margin_bottom = 71.0
+texture = ExtResource( 2 )
+
+[node name="WarningLED" type="PanelContainer" parent="BTWScreen"]
+margin_left = 712.0
+margin_top = 56.0
+margin_right = 790.0
+margin_bottom = 134.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="BTWScreen/WarningLED"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 71.0
+margin_bottom = 71.0
+texture = ExtResource( 2 )
+
+[node name="AccelerateButton" type="Button" parent="BTWScreen"]
+margin_left = 568.621
+margin_top = 685.884
+margin_right = 730.621
+margin_bottom = 776.884
+text = "ACCELERATE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AccelerateButton2" type="Button" parent="BTWScreen"]
+margin_left = 767.896
+margin_top = 685.884
+margin_right = 929.896
+margin_bottom = 776.884
+text = "SLOW DOWN"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FuelMeter" type="Control" parent="BTWScreen"]
+margin_left = 1128.03
+margin_top = 500.502
+margin_right = 1261.03
+margin_bottom = 729.502
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Segment1" type="ProgressBar" parent="BTWScreen/FuelMeter"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -80.0452
+margin_top = -3.91412
+margin_right = -40.0452
+margin_bottom = 76.0859
+rect_rotation = 270.0
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment2" type="ProgressBar" parent="BTWScreen/FuelMeter"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -79.9714
+margin_top = -46.1556
+margin_right = -39.9714
+margin_bottom = 33.8444
+rect_rotation = 267.0
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment3" type="ProgressBar" parent="BTWScreen/FuelMeter"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -81.2524
+margin_top = -87.8118
+margin_right = -41.2524
+margin_bottom = -7.81183
+rect_rotation = 263.0
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment4" type="ProgressBar" parent="BTWScreen/FuelMeter"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -87.3188
+margin_top = -129.32
+margin_right = -47.3188
+margin_bottom = -49.3199
+rect_rotation = 260.0
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment5" type="ProgressBar" parent="BTWScreen/FuelMeter"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -94.4622
+margin_top = -170.592
+margin_right = -54.4622
+margin_bottom = -90.5923
+rect_rotation = 257.0
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MultimediaScreen" type="Control" parent="."]
+margin_left = 1500.0
+margin_right = 3000.0
+margin_bottom = 800.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="MultimediaScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background2" type="Panel" parent="MultimediaScreen/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1493.0
+margin_bottom = 793.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="BTWScreen/AccelerateButton" to="BTWScreen/Accelerometer" method="_on_Accelerate_pressed"]
+[connection signal="pressed" from="BTWScreen/AccelerateButton2" to="BTWScreen/Accelerometer" method="_on_Decelerate_pressed"]
