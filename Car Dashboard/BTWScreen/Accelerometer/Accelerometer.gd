@@ -8,9 +8,17 @@ var current_speed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	speed_changed(75)
+	speed_changed(300)
+	load_segment_styleboxes()
 	pass # Replace with function body.
 
+
+func load_segment_styleboxes():
+	for segment in get_children():
+		var level_no = segment.get_index() + 1
+		var path = "res://styleboxes/level-%s.tres"
+		var level_stylebox = load(path % str(level_no))
+		segment.add_stylebox_override("fg", level_stylebox)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

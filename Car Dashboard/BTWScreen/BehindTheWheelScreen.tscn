@@ -1,16 +1,29 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://images/BTWMask.png" type="Texture" id=1]
-[ext_resource path="res://images/icon.png" type="Texture" id=2]
-[ext_resource path="res://BTWScreen/Accelerometer/Accelerometer.gd" type="Script" id=3]
+[ext_resource path="res://BTWScreen/Accelerometer/Accelerometer.gd" type="Script" id=1]
+[ext_resource path="res://App.gd" type="Script" id=2]
+[ext_resource path="res://BTWScreen/FuelMeter/FuelMeter.gd" type="Script" id=3]
 [ext_resource path="res://BTWScreen/Tachometer/Tachometer.gd" type="Script" id=4]
-[ext_resource path="res://BTWScreen/FuelMeter/FuelMeter.gd" type="Script" id=5]
-[ext_resource path="res://App.gd" type="Script" id=6]
+[ext_resource path="res://images/icon.png" type="Texture" id=5]
+[ext_resource path="res://images/BTWMask.png" type="Texture" id=6]
+[ext_resource path="res://fonts/Inter-V.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://styleboxes/level-1.tres" type="StyleBox" id=8]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 50.0
+content_margin_right = 50.0
+content_margin_top = 50.0
+content_margin_bottom = 50.0
+bg_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 7 )
 
 [node name="App" type="Control"]
 margin_right = 3000.0
 margin_bottom = 800.0
-script = ExtResource( 6 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -44,7 +57,7 @@ __meta__ = {
 [node name="Mask" type="TextureRect" parent="BTWScreen"]
 margin_right = 1500.0
 margin_bottom = 800.0
-texture = ExtResource( 1 )
+texture = ExtResource( 6 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -92,7 +105,7 @@ __meta__ = {
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 411.0
-margin_bottom = 71.0
+margin_bottom = 71.0005
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -100,37 +113,37 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
 margin_right = 64.0
 margin_bottom = 64.0
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
 
 [node name="TextureRect2" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
 margin_left = 68.0
 margin_right = 132.0
 margin_bottom = 64.0
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
 
 [node name="TextureRect3" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
 margin_left = 136.0
 margin_right = 200.0
 margin_bottom = 64.0
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
 
 [node name="TextureRect4" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
 margin_left = 204.0
 margin_right = 268.0
 margin_bottom = 64.0
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
 
 [node name="TextureRect5" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
 margin_left = 272.0
 margin_right = 336.0
 margin_bottom = 64.0
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
 
 [node name="TextureRect6" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
 margin_left = 340.0
 margin_right = 404.0
 margin_bottom = 64.0
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
 
 [node name="Accelerometer" type="Control" parent="BTWScreen"]
 anchor_right = 0.31
@@ -138,7 +151,7 @@ anchor_bottom = 1.006
 margin_right = 3.0
 margin_bottom = -1.80005
 rect_rotation = 0.2
-script = ExtResource( 3 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true,
@@ -151,7 +164,9 @@ margin_top = 793.34
 margin_right = 70.3466
 margin_bottom = 923.34
 rect_rotation = 270.0
+custom_styles/fg = ExtResource( 8 )
 max_value = 20.0
+value = 20.0
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -509,7 +524,7 @@ margin_left = 7.0
 margin_top = 7.0
 margin_right = 71.0
 margin_bottom = 71.0
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
 
 [node name="TurnRight" type="PanelContainer" parent="BTWScreen"]
 margin_left = 848.0
@@ -527,7 +542,7 @@ margin_left = 7.0
 margin_top = 7.0
 margin_right = 71.0
 margin_bottom = 71.0
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
 
 [node name="WarningLED" type="PanelContainer" parent="BTWScreen"]
 margin_left = 712.0
@@ -545,7 +560,7 @@ margin_left = 7.0
 margin_top = 7.0
 margin_right = 71.0
 margin_bottom = 71.0
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
 
 [node name="AccelerateButton" type="Button" parent="BTWScreen"]
 margin_left = 568.621
@@ -572,7 +587,7 @@ margin_left = 1128.03
 margin_top = 500.502
 margin_right = 1261.03
 margin_bottom = 729.502
-script = ExtResource( 5 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true,
@@ -675,19 +690,80 @@ __meta__ = {
 [node name="PanelContainer" type="PanelContainer" parent="MultimediaScreen"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background2" type="Panel" parent="MultimediaScreen/PanelContainer"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 1493.0
-margin_bottom = 793.0
+[node name="GridContainer" type="GridContainer" parent="MultimediaScreen/PanelContainer"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 1450.0
+margin_bottom = 750.0
+custom_constants/vseparation = 90
+custom_constants/hseparation = 90
+columns = 3
+
+[node name="GPS" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
+margin_right = 406.0
+margin_bottom = 305.0
+rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_fonts/font = SubResource( 2 )
+text = "GPS"
+
+[node name="Music" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
+margin_left = 496.0
+margin_right = 902.0
+margin_bottom = 305.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "Music"
+
+[node name="Settings" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
+margin_left = 992.0
+margin_right = 1398.0
+margin_bottom = 305.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "Settings"
+
+[node name="Phone" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
+margin_top = 395.0
+margin_right = 406.0
+margin_bottom = 700.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "Phone"
+
+[node name="Statistics" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
+margin_left = 496.0
+margin_top = 395.0
+margin_right = 902.0
+margin_bottom = 700.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "Statistics"
+
+[node name="Button6" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
+visible = false
+margin_left = 992.0
+margin_top = 395.0
+margin_right = 1398.0
+margin_bottom = 700.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "GPS"
 [connection signal="pressed" from="BTWScreen/AccelerateButton" to="BTWScreen/Accelerometer" method="_on_Accelerate_pressed"]
 [connection signal="pressed" from="BTWScreen/AccelerateButton2" to="BTWScreen/Accelerometer" method="_on_Decelerate_pressed"]
