@@ -1,16 +1,39 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://images/BTWMask.png" type="Texture" id=1]
-[ext_resource path="res://images/icon.png" type="Texture" id=2]
-[ext_resource path="res://BTWScreen/Accelerometer/Accelerometer.gd" type="Script" id=3]
+[ext_resource path="res://BTWScreen/Accelerometer/Accelerometer.gd" type="Script" id=1]
+[ext_resource path="res://App.gd" type="Script" id=2]
+[ext_resource path="res://BTWScreen/FuelMeter/FuelMeter.gd" type="Script" id=3]
 [ext_resource path="res://BTWScreen/Tachometer/Tachometer.gd" type="Script" id=4]
-[ext_resource path="res://BTWScreen/FuelMeter/FuelMeter.gd" type="Script" id=5]
-[ext_resource path="res://App.gd" type="Script" id=6]
+[ext_resource path="res://images/icon.png" type="Texture" id=5]
+[ext_resource path="res://images/BTWMask.png" type="Texture" id=6]
+[ext_resource path="res://fonts/Inter-V.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://styleboxes/level-1.tres" type="StyleBox" id=8]
+[ext_resource path="res://images/turn_active.png" type="Texture" id=9]
+[ext_resource path="res://images/turn_idle.png" type="Texture" id=10]
+[ext_resource path="res://BTWScreen/TurnLeft.gd" type="Script" id=11]
+[ext_resource path="res://BTWScreen/TurnRight.gd" type="Script" id=12]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 50.0
+content_margin_right = 50.0
+content_margin_top = 50.0
+content_margin_bottom = 50.0
+bg_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+font_data = ExtResource( 7 )
 
 [node name="App" type="Control"]
-margin_right = 3000.0
-margin_bottom = 800.0
-script = ExtResource( 6 )
+margin_left = 2.1189
+margin_top = 1.05946
+margin_right = 3002.12
+margin_bottom = 801.059
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -44,7 +67,7 @@ __meta__ = {
 [node name="Mask" type="TextureRect" parent="BTWScreen"]
 margin_right = 1500.0
 margin_bottom = 800.0
-texture = ExtResource( 1 )
+texture = ExtResource( 6 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
@@ -92,7 +115,7 @@ __meta__ = {
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 411.0
-margin_bottom = 71.0
+margin_bottom = 71.0005
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -100,37 +123,37 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
 margin_right = 64.0
 margin_bottom = 64.0
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
 
 [node name="TextureRect2" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
 margin_left = 68.0
 margin_right = 132.0
 margin_bottom = 64.0
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
 
 [node name="TextureRect3" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
 margin_left = 136.0
 margin_right = 200.0
 margin_bottom = 64.0
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
 
 [node name="TextureRect4" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
 margin_left = 204.0
 margin_right = 268.0
 margin_bottom = 64.0
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
 
 [node name="TextureRect5" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
 margin_left = 272.0
 margin_right = 336.0
 margin_bottom = 64.0
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
 
 [node name="TextureRect6" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
 margin_left = 340.0
 margin_right = 404.0
 margin_bottom = 64.0
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
 
 [node name="Accelerometer" type="Control" parent="BTWScreen"]
 anchor_right = 0.31
@@ -138,7 +161,7 @@ anchor_bottom = 1.006
 margin_right = 3.0
 margin_bottom = -1.80005
 rect_rotation = 0.2
-script = ExtResource( 3 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true,
@@ -151,7 +174,10 @@ margin_top = 793.34
 margin_right = 70.3466
 margin_bottom = 923.34
 rect_rotation = 270.0
+custom_styles/fg = ExtResource( 8 )
 max_value = 20.0
+step = 0.01
+value = 20.0
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -164,6 +190,7 @@ margin_right = 70.9765
 margin_bottom = 860.508
 rect_rotation = 273.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -176,6 +203,7 @@ margin_right = 76.6334
 margin_bottom = 796.868
 rect_rotation = 277.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -188,6 +216,7 @@ margin_right = 87.0164
 margin_bottom = 733.42
 rect_rotation = 281.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -200,6 +229,7 @@ margin_right = 103.937
 margin_bottom = 669.316
 rect_rotation = 287.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -212,6 +242,7 @@ margin_right = 126.755
 margin_bottom = 606.458
 rect_rotation = 295.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -224,6 +255,7 @@ margin_right = 155.193
 margin_bottom = 547.234
 rect_rotation = 301.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -236,6 +268,7 @@ margin_right = 186.575
 margin_bottom = 495.924
 rect_rotation = 303.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -248,6 +281,7 @@ margin_right = 220.111
 margin_bottom = 448.044
 rect_rotation = 305.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -260,6 +294,7 @@ margin_right = 258.415
 margin_bottom = 401.428
 rect_rotation = 307.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -272,6 +307,7 @@ margin_right = 298.647
 margin_bottom = 355.893
 rect_rotation = 311.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -284,6 +320,7 @@ margin_right = 343.715
 margin_bottom = 313.821
 rect_rotation = 315.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -296,6 +333,7 @@ margin_right = 393.985
 margin_bottom = 274.375
 rect_rotation = 321.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -494,40 +532,44 @@ __meta__ = {
 }
 
 [node name="TurnLeft" type="PanelContainer" parent="BTWScreen"]
-margin_left = 568.0
-margin_top = 56.0
-margin_right = 646.0
-margin_bottom = 134.0
+margin_left = 510.0
+margin_top = 95.0
+margin_right = 610.0
+margin_bottom = 156.0
+custom_styles/panel = SubResource( 3 )
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_group_": true,
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="TextureRect" type="TextureRect" parent="BTWScreen/TurnLeft"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 71.0
-margin_bottom = 71.0
-texture = ExtResource( 2 )
+margin_right = 100.0
+margin_bottom = 61.0
+texture = ExtResource( 9 )
+stretch_mode = 1
+
+[node name="TurnTimer" type="Timer" parent="BTWScreen/TurnLeft"]
 
 [node name="TurnRight" type="PanelContainer" parent="BTWScreen"]
-margin_left = 848.0
-margin_top = 56.0
-margin_right = 926.0
-margin_bottom = 134.0
+margin_left = 890.0
+margin_top = 95.0
+margin_right = 990.0
+margin_bottom = 156.0
+custom_styles/panel = SubResource( 4 )
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true,
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="TextureRect" type="TextureRect" parent="BTWScreen/TurnRight"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 71.0
-margin_bottom = 71.0
-texture = ExtResource( 2 )
+margin_right = 100.0
+margin_bottom = 61.0
+texture = ExtResource( 10 )
+flip_h = true
+
+[node name="TurnTimer" type="Timer" parent="BTWScreen/TurnRight"]
 
 [node name="WarningLED" type="PanelContainer" parent="BTWScreen"]
 margin_left = 712.0
@@ -545,7 +587,7 @@ margin_left = 7.0
 margin_top = 7.0
 margin_right = 71.0
 margin_bottom = 71.0
-texture = ExtResource( 2 )
+texture = ExtResource( 5 )
 
 [node name="AccelerateButton" type="Button" parent="BTWScreen"]
 margin_left = 568.621
@@ -572,7 +614,7 @@ margin_left = 1128.03
 margin_top = 500.502
 margin_right = 1261.03
 margin_bottom = 729.502
-script = ExtResource( 5 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true,
@@ -664,6 +706,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="SpeedCheck" type="Timer" parent="BTWScreen"]
+wait_time = 0.01
+autostart = true
+
 [node name="MultimediaScreen" type="Control" parent="."]
 margin_left = 1500.0
 margin_right = 3000.0
@@ -675,19 +721,90 @@ __meta__ = {
 [node name="PanelContainer" type="PanelContainer" parent="MultimediaScreen"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Background2" type="Panel" parent="MultimediaScreen/PanelContainer"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 1493.0
-margin_bottom = 793.0
+[node name="GridContainer" type="GridContainer" parent="MultimediaScreen/PanelContainer"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 1450.0
+margin_bottom = 750.0
+custom_constants/vseparation = 90
+custom_constants/hseparation = 90
+columns = 3
+
+[node name="GPS" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
+margin_right = 406.0
+margin_bottom = 305.0
+rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
+custom_fonts/font = SubResource( 2 )
+text = "GPS"
+
+[node name="Music" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
+margin_left = 496.0
+margin_right = 902.0
+margin_bottom = 305.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "Music"
+
+[node name="Settings" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
+margin_left = 992.0
+margin_right = 1398.0
+margin_bottom = 305.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "Settings"
+
+[node name="Phone" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
+margin_top = 395.0
+margin_right = 406.0
+margin_bottom = 700.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "Phone"
+
+[node name="Statistics" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
+margin_left = 496.0
+margin_top = 395.0
+margin_right = 902.0
+margin_bottom = 700.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "Statistics"
+
+[node name="Button6" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
+visible = false
+margin_left = 992.0
+margin_top = 395.0
+margin_right = 1398.0
+margin_bottom = 700.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+text = "GPS"
+[connection signal="turn_left" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_left"]
+[connection signal="turn_left" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
+[connection signal="turn_off" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
+[connection signal="turn_off" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
+[connection signal="turn_right" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
+[connection signal="turn_right" from="." to="BTWScreen/TurnRight" method="_on_App_turn_right"]
+[connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/Tachometer" method="_on_Accelerometer_speed_changed"]
+[connection signal="timeout" from="BTWScreen/TurnLeft/TurnTimer" to="BTWScreen/TurnLeft" method="_on_TurnTimer_timeout"]
+[connection signal="timeout" from="BTWScreen/TurnRight/TurnTimer" to="BTWScreen/TurnRight" method="_on_TurnTimer_timeout"]
 [connection signal="pressed" from="BTWScreen/AccelerateButton" to="BTWScreen/Accelerometer" method="_on_Accelerate_pressed"]
 [connection signal="pressed" from="BTWScreen/AccelerateButton2" to="BTWScreen/Accelerometer" method="_on_Decelerate_pressed"]
+[connection signal="timeout" from="BTWScreen/SpeedCheck" to="BTWScreen/Accelerometer" method="_on_SpeedCheck_timeout"]
