@@ -166,6 +166,7 @@ margin_bottom = 923.34
 rect_rotation = 270.0
 custom_styles/fg = ExtResource( 8 )
 max_value = 20.0
+step = 0.01
 value = 20.0
 percent_visible = false
 __meta__ = {
@@ -179,6 +180,7 @@ margin_right = 70.9765
 margin_bottom = 860.508
 rect_rotation = 273.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -191,6 +193,7 @@ margin_right = 76.6334
 margin_bottom = 796.868
 rect_rotation = 277.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -203,6 +206,7 @@ margin_right = 87.0164
 margin_bottom = 733.42
 rect_rotation = 281.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -215,6 +219,7 @@ margin_right = 103.937
 margin_bottom = 669.316
 rect_rotation = 287.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -227,6 +232,7 @@ margin_right = 126.755
 margin_bottom = 606.458
 rect_rotation = 295.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -239,6 +245,7 @@ margin_right = 155.193
 margin_bottom = 547.234
 rect_rotation = 301.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -251,6 +258,7 @@ margin_right = 186.575
 margin_bottom = 495.924
 rect_rotation = 303.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -263,6 +271,7 @@ margin_right = 220.111
 margin_bottom = 448.044
 rect_rotation = 305.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -275,6 +284,7 @@ margin_right = 258.415
 margin_bottom = 401.428
 rect_rotation = 307.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -287,6 +297,7 @@ margin_right = 298.647
 margin_bottom = 355.893
 rect_rotation = 311.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -299,6 +310,7 @@ margin_right = 343.715
 margin_bottom = 313.821
 rect_rotation = 315.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -311,6 +323,7 @@ margin_right = 393.985
 margin_bottom = 274.375
 rect_rotation = 321.0
 max_value = 20.0
+step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -679,6 +692,10 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="SpeedCheck" type="Timer" parent="BTWScreen"]
+wait_time = 0.01
+autostart = true
+
 [node name="MultimediaScreen" type="Control" parent="."]
 margin_left = 1500.0
 margin_right = 3000.0
@@ -765,5 +782,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
 text = "GPS"
+[connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/Tachometer" method="_on_Accelerometer_speed_changed"]
 [connection signal="pressed" from="BTWScreen/AccelerateButton" to="BTWScreen/Accelerometer" method="_on_Accelerate_pressed"]
 [connection signal="pressed" from="BTWScreen/AccelerateButton2" to="BTWScreen/Accelerometer" method="_on_Decelerate_pressed"]
+[connection signal="timeout" from="BTWScreen/SpeedCheck" to="BTWScreen/Accelerometer" method="_on_SpeedCheck_timeout"]
