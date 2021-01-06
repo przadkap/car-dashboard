@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://BTWScreen/Accelerometer/Accelerometer.gd" type="Script" id=1]
 [ext_resource path="res://App.gd" type="Script" id=2]
@@ -8,6 +8,14 @@
 [ext_resource path="res://images/BTWMask.png" type="Texture" id=6]
 [ext_resource path="res://fonts/Inter-V.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://styleboxes/level-1.tres" type="StyleBox" id=8]
+[ext_resource path="res://images/turn_active.png" type="Texture" id=9]
+[ext_resource path="res://images/turn_idle.png" type="Texture" id=10]
+[ext_resource path="res://BTWScreen/TurnLeft.gd" type="Script" id=11]
+[ext_resource path="res://BTWScreen/TurnRight.gd" type="Script" id=12]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 50.0
@@ -21,8 +29,10 @@ size = 50
 font_data = ExtResource( 7 )
 
 [node name="App" type="Control"]
-margin_right = 3000.0
-margin_bottom = 800.0
+margin_left = 2.1189
+margin_top = 1.05946
+margin_right = 3002.12
+margin_bottom = 801.059
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -522,40 +532,44 @@ __meta__ = {
 }
 
 [node name="TurnLeft" type="PanelContainer" parent="BTWScreen"]
-margin_left = 568.0
-margin_top = 56.0
-margin_right = 646.0
-margin_bottom = 134.0
+margin_left = 510.0
+margin_top = 95.0
+margin_right = 610.0
+margin_bottom = 156.0
+custom_styles/panel = SubResource( 3 )
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_group_": true,
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="TextureRect" type="TextureRect" parent="BTWScreen/TurnLeft"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 71.0
-margin_bottom = 71.0
-texture = ExtResource( 5 )
+margin_right = 100.0
+margin_bottom = 61.0
+texture = ExtResource( 9 )
+stretch_mode = 1
+
+[node name="TurnTimer" type="Timer" parent="BTWScreen/TurnLeft"]
 
 [node name="TurnRight" type="PanelContainer" parent="BTWScreen"]
-margin_left = 848.0
-margin_top = 56.0
-margin_right = 926.0
-margin_bottom = 134.0
+margin_left = 890.0
+margin_top = 95.0
+margin_right = 990.0
+margin_bottom = 156.0
+custom_styles/panel = SubResource( 4 )
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true,
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="TextureRect" type="TextureRect" parent="BTWScreen/TurnRight"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 71.0
-margin_bottom = 71.0
-texture = ExtResource( 5 )
+margin_right = 100.0
+margin_bottom = 61.0
+texture = ExtResource( 10 )
+flip_h = true
+
+[node name="TurnTimer" type="Timer" parent="BTWScreen/TurnRight"]
 
 [node name="WarningLED" type="PanelContainer" parent="BTWScreen"]
 margin_left = 712.0
@@ -782,7 +796,15 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
 text = "GPS"
+[connection signal="turn_left" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_left"]
+[connection signal="turn_left" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
+[connection signal="turn_off" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
+[connection signal="turn_off" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
+[connection signal="turn_right" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
+[connection signal="turn_right" from="." to="BTWScreen/TurnRight" method="_on_App_turn_right"]
 [connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/Tachometer" method="_on_Accelerometer_speed_changed"]
+[connection signal="timeout" from="BTWScreen/TurnLeft/TurnTimer" to="BTWScreen/TurnLeft" method="_on_TurnTimer_timeout"]
+[connection signal="timeout" from="BTWScreen/TurnRight/TurnTimer" to="BTWScreen/TurnRight" method="_on_TurnTimer_timeout"]
 [connection signal="pressed" from="BTWScreen/AccelerateButton" to="BTWScreen/Accelerometer" method="_on_Accelerate_pressed"]
 [connection signal="pressed" from="BTWScreen/AccelerateButton2" to="BTWScreen/Accelerometer" method="_on_Decelerate_pressed"]
 [connection signal="timeout" from="BTWScreen/SpeedCheck" to="BTWScreen/Accelerometer" method="_on_SpeedCheck_timeout"]
