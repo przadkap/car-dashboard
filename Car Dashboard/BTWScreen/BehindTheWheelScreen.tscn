@@ -13,18 +13,18 @@
 [ext_resource path="res://BTWScreen/TurnLeft.gd" type="Script" id=11]
 [ext_resource path="res://BTWScreen/TurnRight.gd" type="Script" id=12]
 
-[sub_resource type="StyleBoxEmpty" id=3]
+[sub_resource type="StyleBoxEmpty" id=1]
 
-[sub_resource type="StyleBoxEmpty" id=4]
+[sub_resource type="StyleBoxEmpty" id=2]
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="StyleBoxFlat" id=3]
 content_margin_left = 50.0
 content_margin_right = 50.0
 content_margin_top = 50.0
 content_margin_bottom = 50.0
 bg_color = Color( 0.145098, 0.145098, 0.164706, 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 size = 50
 font_data = ExtResource( 7 )
 
@@ -176,7 +176,6 @@ margin_bottom = 923.34
 rect_rotation = 270.0
 custom_styles/fg = ExtResource( 8 )
 max_value = 20.0
-step = 0.01
 value = 20.0
 percent_visible = false
 __meta__ = {
@@ -190,7 +189,6 @@ margin_right = 70.9765
 margin_bottom = 860.508
 rect_rotation = 273.0
 max_value = 20.0
-step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -203,7 +201,6 @@ margin_right = 76.6334
 margin_bottom = 796.868
 rect_rotation = 277.0
 max_value = 20.0
-step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -216,7 +213,6 @@ margin_right = 87.0164
 margin_bottom = 733.42
 rect_rotation = 281.0
 max_value = 20.0
-step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -229,7 +225,6 @@ margin_right = 103.937
 margin_bottom = 669.316
 rect_rotation = 287.0
 max_value = 20.0
-step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -242,7 +237,6 @@ margin_right = 126.755
 margin_bottom = 606.458
 rect_rotation = 295.0
 max_value = 20.0
-step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -255,7 +249,6 @@ margin_right = 155.193
 margin_bottom = 547.234
 rect_rotation = 301.0
 max_value = 20.0
-step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -268,7 +261,6 @@ margin_right = 186.575
 margin_bottom = 495.924
 rect_rotation = 303.0
 max_value = 20.0
-step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -281,7 +273,6 @@ margin_right = 220.111
 margin_bottom = 448.044
 rect_rotation = 305.0
 max_value = 20.0
-step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -294,7 +285,6 @@ margin_right = 258.415
 margin_bottom = 401.428
 rect_rotation = 307.0
 max_value = 20.0
-step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -307,7 +297,6 @@ margin_right = 298.647
 margin_bottom = 355.893
 rect_rotation = 311.0
 max_value = 20.0
-step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -320,7 +309,6 @@ margin_right = 343.715
 margin_bottom = 313.821
 rect_rotation = 315.0
 max_value = 20.0
-step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -333,7 +321,6 @@ margin_right = 393.985
 margin_bottom = 274.375
 rect_rotation = 321.0
 max_value = 20.0
-step = 0.01
 percent_visible = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -536,7 +523,7 @@ margin_left = 510.0
 margin_top = 95.0
 margin_right = 610.0
 margin_bottom = 156.0
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = SubResource( 1 )
 script = ExtResource( 11 )
 __meta__ = {
 "_edit_group_": true,
@@ -556,7 +543,7 @@ margin_left = 890.0
 margin_top = 95.0
 margin_right = 990.0
 margin_bottom = 156.0
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 2 )
 script = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true,
@@ -721,7 +708,7 @@ __meta__ = {
 [node name="PanelContainer" type="PanelContainer" parent="MultimediaScreen"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -741,7 +728,7 @@ margin_bottom = 305.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "GPS"
 
 [node name="Music" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
@@ -751,7 +738,7 @@ margin_bottom = 305.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "Music"
 
 [node name="Settings" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
@@ -761,7 +748,7 @@ margin_bottom = 305.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "Settings"
 
 [node name="Phone" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
@@ -771,7 +758,7 @@ margin_bottom = 700.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "Phone"
 
 [node name="Statistics" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
@@ -782,7 +769,7 @@ margin_bottom = 700.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "Statistics"
 
 [node name="Button6" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
@@ -794,7 +781,7 @@ margin_bottom = 700.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "GPS"
 [connection signal="turn_left" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_left"]
 [connection signal="turn_left" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
