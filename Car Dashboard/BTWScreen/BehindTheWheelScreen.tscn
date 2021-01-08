@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://BTWScreen/Accelerometer/Accelerometer.gd" type="Script" id=1]
 [ext_resource path="res://App.gd" type="Script" id=2]
@@ -12,21 +12,31 @@
 [ext_resource path="res://images/turn_idle.png" type="Texture" id=10]
 [ext_resource path="res://BTWScreen/TurnLeft.gd" type="Script" id=11]
 [ext_resource path="res://BTWScreen/TurnRight.gd" type="Script" id=12]
+[ext_resource path="res://MMScreen/styleboxes/multimedia_tiles.tres" type="StyleBox" id=13]
+[ext_resource path="res://MMScreen/PanelContainer.gd" type="Script" id=14]
+[ext_resource path="res://fonts/BaseFont.tres" type="DynamicFont" id=15]
+[ext_resource path="res://MMScreen/styleboxes/multimedia_sidebar.tres" type="StyleBox" id=16]
+[ext_resource path="res://MMScreen/MusicPlayer.gd" type="Script" id=17]
+[ext_resource path="res://BTWScreen/MultimediaScreen.gd" type="Script" id=19]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
-[sub_resource type="StyleBoxFlat" id=3]
-content_margin_left = 50.0
-content_margin_right = 50.0
-content_margin_top = 50.0
-content_margin_bottom = 50.0
-bg_color = Color( 0.145098, 0.145098, 0.164706, 1 )
-
 [sub_resource type="DynamicFont" id=4]
 size = 50
 font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 30
+font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+content_margin_left = 150.0
+content_margin_right = 150.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color( 0.145098, 0.145098, 0.164706, 1 )
 
 [node name="App" type="Control"]
 margin_left = 2.1189
@@ -701,6 +711,7 @@ autostart = true
 margin_left = 1500.0
 margin_right = 3000.0
 margin_bottom = 800.0
+script = ExtResource( 19 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -708,12 +719,14 @@ __meta__ = {
 [node name="PanelContainer" type="PanelContainer" parent="MultimediaScreen"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 3 )
+custom_styles/panel = ExtResource( 16 )
+script = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="GridContainer" type="GridContainer" parent="MultimediaScreen/PanelContainer"]
+visible = false
 margin_left = 50.0
 margin_top = 50.0
 margin_right = 1450.0
@@ -783,6 +796,215 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 4 )
 text = "GPS"
+
+[node name="SideSeparator" type="HBoxContainer" parent="MultimediaScreen/PanelContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1495.0
+margin_bottom = 795.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Sidebar" type="VBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator"]
+margin_right = 297.0
+margin_bottom = 790.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GPS" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
+margin_right = 297.0
+margin_bottom = 154.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+text = "GPS"
+
+[node name="Music" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
+margin_top = 158.0
+margin_right = 297.0
+margin_bottom = 313.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+text = "Music"
+
+[node name="Settings" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
+margin_top = 317.0
+margin_right = 297.0
+margin_bottom = 472.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+text = "Settings"
+
+[node name="Phone" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
+margin_top = 476.0
+margin_right = 297.0
+margin_bottom = 631.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+text = "Phone"
+
+[node name="Statistics" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
+margin_top = 635.0
+margin_right = 297.0
+margin_bottom = 790.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+text = "Statistics"
+
+[node name="Button6" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
+visible = false
+margin_top = 670.0
+margin_right = 299.0
+margin_bottom = 800.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 5 )
+text = "GPS"
+
+[node name="Content" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator"]
+margin_left = 301.0
+margin_right = 1490.0
+margin_bottom = 790.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+custom_styles/panel = ExtResource( 13 )
+
+[node name="MusicPlayer" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 1139.0
+margin_bottom = 740.0
+script = ExtResource( 17 )
+
+[node name="MasterHBox" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1082.0
+margin_bottom = 683.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PreviousSong" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox"]
+margin_right = 266.0
+margin_bottom = 676.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PreviousSong" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/PreviousSong"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 259.0
+margin_bottom = 669.0
+text = "Previous"
+
+[node name="VBoxMiddle" type="VBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox"]
+margin_left = 270.0
+margin_right = 804.0
+margin_bottom = 676.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="AlbumCover" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle"]
+margin_right = 534.0
+margin_bottom = 332.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="TextureRect" type="TextureRect" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/AlbumCover"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 527.0
+margin_bottom = 325.0
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+
+[node name="SongTitle" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle"]
+margin_top = 336.0
+margin_right = 534.0
+margin_bottom = 419.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/SongTitle"]
+margin_left = 7.0
+margin_top = 31.0
+margin_right = 527.0
+margin_bottom = 51.0
+custom_fonts/font = ExtResource( 15 )
+text = "This will be a song title eventually"
+
+[node name="SongProgress" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle"]
+margin_top = 423.0
+margin_right = 534.0
+margin_bottom = 506.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="ProgressBar" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/SongProgress"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 527.0
+margin_bottom = 21.0
+percent_visible = false
+
+[node name="PlayPause" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle"]
+margin_top = 510.0
+margin_right = 534.0
+margin_bottom = 676.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 6 )
+
+[node name="PlayPause" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/PlayPause"]
+margin_left = 150.0
+margin_top = 10.0
+margin_right = 384.0
+margin_bottom = 156.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/PlayPause/PlayPause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 32.0
+margin_bottom = 32.0
+texture = ExtResource( 5 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextSong" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox"]
+margin_left = 808.0
+margin_right = 1075.0
+margin_bottom = 676.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NextSong" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/NextSong"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 260.0
+margin_bottom = 669.0
+text = "Next"
+
+[node name="MusicAudio" type="AudioStreamPlayer" parent="MultimediaScreen"]
+volume_db = -10.0
 [connection signal="turn_left" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
 [connection signal="turn_left" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_left"]
 [connection signal="turn_off" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
@@ -795,3 +1017,5 @@ text = "GPS"
 [connection signal="pressed" from="BTWScreen/AccelerateButton" to="BTWScreen/Accelerometer" method="_on_Accelerate_pressed"]
 [connection signal="pressed" from="BTWScreen/AccelerateButton2" to="BTWScreen/Accelerometer" method="_on_Decelerate_pressed"]
 [connection signal="timeout" from="BTWScreen/SpeedCheck" to="BTWScreen/Accelerometer" method="_on_SpeedCheck_timeout"]
+[connection signal="music_toggle" from="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" to="MultimediaScreen" method="_on_MusicPlayer_music_toggle"]
+[connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/PlayPause/PlayPause" to="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" method="_on_PlayPause_pressed"]

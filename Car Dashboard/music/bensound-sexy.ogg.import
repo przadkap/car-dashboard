@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bensound-sexy.ogg-af228f5d4001e3497b413d908eb92ca4.oggstr"
+
+[deps]
+
+source_file="res://music/bensound-sexy.ogg"
+dest_files=[ "res://.import/bensound-sexy.ogg-af228f5d4001e3497b413d908eb92ca4.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
