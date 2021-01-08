@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://BTWScreen/Accelerometer/Accelerometer.gd" type="Script" id=1]
 [ext_resource path="res://App.gd" type="Script" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://fonts/BaseFont.tres" type="DynamicFont" id=15]
 [ext_resource path="res://MMScreen/styleboxes/multimedia_sidebar.tres" type="StyleBox" id=16]
 [ext_resource path="res://MMScreen/MusicPlayer.gd" type="Script" id=17]
+[ext_resource path="res://MMScreen/SongProgress.gd" type="Script" id=18]
 [ext_resource path="res://BTWScreen/MultimediaScreen.gd" type="Script" id=19]
 
 [sub_resource type="StyleBoxEmpty" id=1]
@@ -30,6 +31,13 @@ font_data = ExtResource( 7 )
 [sub_resource type="DynamicFont" id=4]
 size = 30
 font_data = ExtResource( 7 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+content_margin_top = 20.0
+bg_color = Color( 0.227451, 0.219608, 0.258824, 1 )
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.0784314, 0.423529, 0.607843, 1 )
 
 [sub_resource type="StyleBoxFlat" id=5]
 content_margin_left = 150.0
@@ -727,17 +735,17 @@ __meta__ = {
 
 [node name="GridContainer" type="GridContainer" parent="MultimediaScreen/PanelContainer"]
 visible = false
-margin_left = 50.0
-margin_top = 50.0
-margin_right = 1450.0
-margin_bottom = 750.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1495.0
+margin_bottom = 795.0
 custom_constants/vseparation = 90
 custom_constants/hseparation = 90
 columns = 3
 
 [node name="GPS" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
-margin_right = 406.0
-margin_bottom = 305.0
+margin_right = 436.0
+margin_bottom = 350.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -745,9 +753,9 @@ custom_fonts/font = SubResource( 3 )
 text = "GPS"
 
 [node name="Music" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
-margin_left = 496.0
-margin_right = 902.0
-margin_bottom = 305.0
+margin_left = 526.0
+margin_right = 962.0
+margin_bottom = 350.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -755,9 +763,9 @@ custom_fonts/font = SubResource( 3 )
 text = "Music"
 
 [node name="Settings" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
-margin_left = 992.0
-margin_right = 1398.0
-margin_bottom = 305.0
+margin_left = 1052.0
+margin_right = 1488.0
+margin_bottom = 350.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -765,9 +773,9 @@ custom_fonts/font = SubResource( 3 )
 text = "Settings"
 
 [node name="Phone" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
-margin_top = 395.0
-margin_right = 406.0
-margin_bottom = 700.0
+margin_top = 440.0
+margin_right = 436.0
+margin_bottom = 790.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -775,10 +783,10 @@ custom_fonts/font = SubResource( 3 )
 text = "Phone"
 
 [node name="Statistics" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
-margin_left = 496.0
-margin_top = 395.0
-margin_right = 902.0
-margin_bottom = 700.0
+margin_left = 526.0
+margin_top = 440.0
+margin_right = 962.0
+margin_bottom = 790.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -941,6 +949,7 @@ margin_right = 527.0
 margin_bottom = 51.0
 custom_fonts/font = ExtResource( 15 )
 text = "This will be a song title eventually"
+align = 1
 
 [node name="SongProgress" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle"]
 margin_top = 423.0
@@ -949,13 +958,93 @@ margin_bottom = 506.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
+custom_styles/panel = SubResource( 6 )
+script = ExtResource( 18 )
 
-[node name="ProgressBar" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/SongProgress"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 527.0
-margin_bottom = 9.0
+[node name="VBoxContainer" type="VBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/SongProgress"]
+margin_top = 20.0
+margin_right = 534.0
+margin_bottom = 83.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/SongProgress/VBoxContainer"]
+margin_right = 534.0
+margin_bottom = 10.0
+
+[node name="Control" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/SongProgress/VBoxContainer/HBoxContainer"]
+margin_right = 75.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/SongProgress/VBoxContainer/HBoxContainer"]
+margin_left = 79.0
+margin_right = 454.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 0, 10 )
+size_flags_horizontal = 3
+size_flags_vertical = 2
+size_flags_stretch_ratio = 5.0
+custom_styles/fg = SubResource( 7 )
+step = 0.1
+value = 70.0
 percent_visible = false
+
+[node name="Control2" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/SongProgress/VBoxContainer/HBoxContainer"]
+margin_left = 458.0
+margin_right = 534.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/SongProgress/VBoxContainer"]
+margin_top = 14.0
+margin_right = 534.0
+margin_bottom = 28.0
+
+[node name="Control3" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/SongProgress/VBoxContainer/HBoxContainer2"]
+margin_top = 7.0
+margin_right = 51.0
+margin_bottom = 7.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+
+[node name="SongBegin" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/SongProgress/VBoxContainer/HBoxContainer2"]
+margin_left = 55.0
+margin_right = 107.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "0:00"
+align = 1
+
+[node name="Control" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/SongProgress/VBoxContainer/HBoxContainer2"]
+margin_left = 111.0
+margin_top = 7.0
+margin_right = 422.0
+margin_bottom = 7.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 6.0
+
+[node name="SongEnd" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/SongProgress/VBoxContainer/HBoxContainer2"]
+margin_left = 426.0
+margin_right = 478.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "4:20"
+align = 1
+
+[node name="Control2" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/SongProgress/VBoxContainer/HBoxContainer2"]
+margin_left = 482.0
+margin_top = 7.0
+margin_right = 534.0
+margin_bottom = 7.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+
+[node name="ProgressTimer" type="Timer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/SongProgress"]
+wait_time = 0.1
 
 [node name="PlayPause" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle"]
 margin_top = 510.0
@@ -1017,8 +1106,12 @@ volume_db = -10.0
 [connection signal="pressed" from="BTWScreen/AccelerateButton" to="BTWScreen/Accelerometer" method="_on_Accelerate_pressed"]
 [connection signal="pressed" from="BTWScreen/AccelerateButton2" to="BTWScreen/Accelerometer" method="_on_Decelerate_pressed"]
 [connection signal="timeout" from="BTWScreen/SpeedCheck" to="BTWScreen/Accelerometer" method="_on_SpeedCheck_timeout"]
+[connection signal="music_toggled" from="MultimediaScreen" to="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/SongProgress" method="_on_MultimediaScreen_music_toggled"]
+[connection signal="song_data_changed" from="MultimediaScreen" to="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" method="_on_MultimediaScreen_song_data_changed"]
 [connection signal="music_toggle" from="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" to="MultimediaScreen" method="_on_MusicPlayer_music_toggle"]
 [connection signal="switch_song" from="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" to="MultimediaScreen" method="_on_MusicPlayer_switch_song"]
 [connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/PreviousSong/PreviousSong" to="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" method="_on_PreviousSong_pressed"]
+[connection signal="timeout" from="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/SongProgress/ProgressTimer" to="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/SongProgress" method="_on_ProgressTimer_timeout"]
 [connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/PlayPause/PlayPause" to="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" method="_on_PlayPause_pressed"]
 [connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/NextSong/NextSong" to="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" method="_on_NextSong_pressed"]
+[connection signal="finished" from="MultimediaScreen/MusicAudio" to="MultimediaScreen" method="_on_MusicAudio_finished"]
