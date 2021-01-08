@@ -7,7 +7,7 @@
 [ext_resource path="res://images/icon.png" type="Texture" id=5]
 [ext_resource path="res://images/BTWMask.png" type="Texture" id=6]
 [ext_resource path="res://fonts/Inter-V.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://styleboxes/level-1.tres" type="StyleBox" id=8]
+[ext_resource path="res://BTWScreen/styleboxes/level-1.tres" type="StyleBox" id=8]
 [ext_resource path="res://images/turn_active.png" type="Texture" id=9]
 [ext_resource path="res://images/turn_idle.png" type="Texture" id=10]
 [ext_resource path="res://BTWScreen/TurnLeft.gd" type="Script" id=11]
@@ -783,12 +783,12 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 4 )
 text = "GPS"
-[connection signal="turn_left" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_left"]
 [connection signal="turn_left" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
-[connection signal="turn_off" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
+[connection signal="turn_left" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_left"]
 [connection signal="turn_off" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
-[connection signal="turn_right" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
+[connection signal="turn_off" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
 [connection signal="turn_right" from="." to="BTWScreen/TurnRight" method="_on_App_turn_right"]
+[connection signal="turn_right" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
 [connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/Tachometer" method="_on_Accelerometer_speed_changed"]
 [connection signal="timeout" from="BTWScreen/TurnLeft/TurnTimer" to="BTWScreen/TurnLeft" method="_on_TurnTimer_timeout"]
 [connection signal="timeout" from="BTWScreen/TurnRight/TurnTimer" to="BTWScreen/TurnRight" method="_on_TurnTimer_timeout"]

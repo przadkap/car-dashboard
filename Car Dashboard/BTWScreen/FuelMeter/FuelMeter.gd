@@ -32,6 +32,6 @@ func fuel_changed(new_fuel):
 func load_segment_styleboxes():
 	for segment in get_children():
 		var level_no = meter_levels[segment.get_index()]
-		var path = "res://styleboxes/level-%s.tres"
+		var path = "res://BTWScreen/styleboxes/level-%s.tres"
 		var level_stylebox = load(path % str(level_no))
 		segment.add_stylebox_override("fg", level_stylebox)
