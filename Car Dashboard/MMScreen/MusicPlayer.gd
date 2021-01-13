@@ -2,6 +2,7 @@ extends PanelContainer
 
 signal music_toggle
 signal switch_song
+signal music_toggled
 
 func _ready():
 	pass # Replace with function body.
@@ -31,3 +32,7 @@ func _on_MultimediaScreen_song_data_changed(title, length):
 	$MasterHBox/VBoxMiddle/SongProgress/VBoxContainer/HBoxContainer/ProgressBar.max_value = int(length)
 	$MasterHBox/VBoxMiddle/SongProgress/VBoxContainer/HBoxContainer/ProgressBar.value = 0
 	
+
+
+func _on_MultimediaScreen_music_toggled(song_stopped):
+	emit_signal("music_toggled", song_stopped)
