@@ -13,6 +13,7 @@ var current_song_index = 0
 
 signal song_data_changed
 signal music_toggled
+signal content_changed
 
 func _ready():
 	for song in song_info:
@@ -72,3 +73,31 @@ func _on_MusicAudio_finished():
 	emit_signal("song_data_changed", songs[current_song_index]["title"], songs[current_song_index]["stream"].get_length())
 	$MusicAudio.stream = songs[current_song_index]["stream"]
 	$MusicAudio.play()
+
+
+func _on_Phone_call_toggled(calling):
+	if(calling && !$MusicAudio.stream_paused):
+		$MusicAudio.stream_paused = true
+	else:
+#		$MusicAudio.stream_paused = false
+		pass
+
+
+func _on_GPS_pressed():
+	pass # Replace with function body.
+
+
+func _on_Music_pressed():
+	emit_signal("content_changed", "music")
+
+
+func _on_Settings_pressed():
+	pass # Replace with function body.
+
+
+func _on_Phone_pressed():
+	emit_signal("content_changed", "phone")
+
+
+func _on_Statistics_pressed():
+	pass # Replace with function body.

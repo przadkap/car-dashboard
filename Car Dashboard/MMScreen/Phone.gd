@@ -1,12 +1,8 @@
 extends PanelContainer
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+signal call_toggled
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
@@ -18,6 +14,8 @@ func _ready():
 
 func _on_Call_toggled(button_pressed):
 	if(button_pressed):
+		emit_signal("call_toggled", true)
 		$CallAudio.play()
 	else:
+		emit_signal("call_toggled", false)
 		$CallAudio.stop()
