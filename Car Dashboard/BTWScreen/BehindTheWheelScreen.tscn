@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://BTWScreen/Accelerometer/Accelerometer.gd" type="Script" id=1]
 [ext_resource path="res://App.gd" type="Script" id=2]
@@ -16,7 +16,15 @@
 [ext_resource path="res://MMScreen/PanelContainer.gd" type="Script" id=14]
 [ext_resource path="res://MMScreen/contents/MusicPlayer.tscn" type="PackedScene" id=15]
 [ext_resource path="res://MMScreen/styleboxes/multimedia_sidebar.tres" type="StyleBox" id=16]
+[ext_resource path="res://BTWScreen/SpeedDigits.gd" type="Script" id=17]
 [ext_resource path="res://BTWScreen/MultimediaScreen.gd" type="Script" id=19]
+
+[sub_resource type="DynamicFont" id=5]
+size = 100
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 7 )
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -92,12 +100,43 @@ anchor_left = 0.096661
 anchor_top = 0.539381
 anchor_right = 0.164661
 anchor_bottom = 0.789381
-margin_top = -3.05176e-05
+margin_left = -28.9831
+margin_top = 0.495422
+margin_right = 11.0168
+margin_bottom = 0.495544
 rect_pivot_offset = Vector2( 200, 125 )
+script = ExtResource( 17 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/SpeedDigits"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 237.0
+margin_bottom = 193.0
+
+[node name="Speed" type="Label" parent="BTWScreen/SpeedDigits/HBoxContainer"]
+margin_top = 32.0
+margin_right = 188.0
+margin_bottom = 154.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 5.0
+custom_fonts/font = SubResource( 5 )
+text = "16"
+align = 1
+valign = 1
+
+[node name="Units" type="Label" parent="BTWScreen/SpeedDigits/HBoxContainer"]
+margin_left = 192.0
+margin_top = 83.0
+margin_right = 230.0
+margin_bottom = 103.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 6 )
+text = "km/h"
 
 [node name="LEDs" type="PanelContainer" parent="BTWScreen"]
 anchor_left = 0.249783
@@ -583,6 +622,8 @@ margin_left = 568.621
 margin_top = 685.884
 margin_right = 730.621
 margin_bottom = 776.884
+focus_mode = 1
+enabled_focus_mode = 1
 text = "ACCELERATE"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -593,6 +634,8 @@ margin_left = 767.896
 margin_top = 685.884
 margin_right = 929.896
 margin_bottom = 776.884
+focus_mode = 1
+enabled_focus_mode = 1
 text = "SLOW DOWN"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -807,8 +850,10 @@ size_flags_vertical = 3
 margin_right = 297.0
 margin_bottom = 154.0
 rect_min_size = Vector2( 0, 130 )
+focus_mode = 1
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 4 )
+enabled_focus_mode = 1
 text = "GPS"
 
 [node name="Music" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
@@ -816,8 +861,10 @@ margin_top = 158.0
 margin_right = 297.0
 margin_bottom = 313.0
 rect_min_size = Vector2( 0, 130 )
+focus_mode = 1
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 4 )
+enabled_focus_mode = 1
 text = "Music"
 
 [node name="Settings" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
@@ -825,8 +872,10 @@ margin_top = 317.0
 margin_right = 297.0
 margin_bottom = 472.0
 rect_min_size = Vector2( 0, 130 )
+focus_mode = 1
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 4 )
+enabled_focus_mode = 1
 text = "Settings"
 
 [node name="Phone" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
@@ -834,8 +883,10 @@ margin_top = 476.0
 margin_right = 297.0
 margin_bottom = 631.0
 rect_min_size = Vector2( 0, 130 )
+focus_mode = 1
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 4 )
+enabled_focus_mode = 1
 text = "Phone"
 
 [node name="Statistics" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
@@ -843,8 +894,10 @@ margin_top = 635.0
 margin_right = 297.0
 margin_bottom = 790.0
 rect_min_size = Vector2( 0, 130 )
+focus_mode = 1
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 4 )
+enabled_focus_mode = 1
 text = "Statistics"
 
 [node name="Button6" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
@@ -876,6 +929,7 @@ volume_db = -10.0
 [connection signal="turn_off" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
 [connection signal="turn_right" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
 [connection signal="turn_right" from="." to="BTWScreen/TurnRight" method="_on_App_turn_right"]
+[connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/SpeedDigits" method="_on_Accelerometer_speed_changed"]
 [connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/Tachometer" method="_on_Accelerometer_speed_changed"]
 [connection signal="timeout" from="BTWScreen/TurnLeft/TurnTimer" to="BTWScreen/TurnLeft" method="_on_TurnTimer_timeout"]
 [connection signal="timeout" from="BTWScreen/TurnRight/TurnTimer" to="BTWScreen/TurnRight" method="_on_TurnTimer_timeout"]
