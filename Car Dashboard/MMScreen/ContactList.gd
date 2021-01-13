@@ -74,3 +74,5 @@ func _on_Contact12_pressed():
 
 func _on_Contact13_pressed():
 	emit_signal("contact_changed", contacts[12])
+
+

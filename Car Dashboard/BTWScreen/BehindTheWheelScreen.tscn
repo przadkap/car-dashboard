@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://BTWScreen/Accelerometer/Accelerometer.gd" type="Script" id=1]
 [ext_resource path="res://App.gd" type="Script" id=2]
@@ -21,6 +21,10 @@
 [ext_resource path="res://BTWScreen/MultimediaScreen.gd" type="Script" id=19]
 [ext_resource path="res://MMScreen/ContactList.gd" type="Script" id=20]
 [ext_resource path="res://MMScreen/Panel.gd" type="Script" id=21]
+[ext_resource path="res://MMScreen/Phone.gd" type="Script" id=22]
+[ext_resource path="res://music/call.ogg" type="AudioStream" id=23]
+[ext_resource path="res://MMScreen/CallButton.gd" type="Script" id=24]
+[ext_resource path="res://MMScreen/CallTimer.gd" type="Script" id=25]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -45,21 +49,21 @@ font_data = ExtResource( 7 )
 size = 30
 font_data = ExtResource( 7 )
 
-[sub_resource type="StyleBoxEmpty" id=9]
+[sub_resource type="StyleBoxEmpty" id=8]
 content_margin_left = 40.0
 content_margin_right = 40.0
 content_margin_top = 40.0
 content_margin_bottom = 40.0
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=9]
 size = 40
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=10]
 size = 30
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=11]
 size = 25
 font_data = ExtResource( 7 )
 
@@ -972,6 +976,7 @@ margin_left = 50.0
 margin_top = 50.0
 margin_right = 1139.0
 margin_bottom = 740.0
+script = ExtResource( 22 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone"]
 margin_left = 7.0
@@ -1115,7 +1120,7 @@ margin_bottom = 676.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.5
-custom_styles/panel = SubResource( 9 )
+custom_styles/panel = SubResource( 8 )
 script = ExtResource( 21 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone/HBoxContainer/Panel"]
@@ -1139,7 +1144,7 @@ margin_right = 685.0
 margin_bottom = 301.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 9 )
 text = "Contact name"
 align = 1
 valign = 1
@@ -1149,7 +1154,7 @@ margin_top = 335.0
 margin_right = 685.0
 margin_bottom = 373.0
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 11 )
+custom_fonts/font = SubResource( 10 )
 text = "Contact number"
 align = 1
 valign = 1
@@ -1163,45 +1168,55 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 
 [node name="MarginContainer" type="MarginContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
-margin_right = 338.0
+margin_right = 340.0
 margin_bottom = 219.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/margin_right = 50
-custom_constants/margin_top = 50
-custom_constants/margin_left = 50
-custom_constants/margin_bottom = 50
+custom_constants/margin_right = 30
+custom_constants/margin_top = 30
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
 
 [node name="Call" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone/HBoxContainer/Panel/VBoxContainer/HBoxContainer/MarginContainer"]
-margin_left = 50.0
-margin_top = 50.0
-margin_right = 288.0
-margin_bottom = 169.0
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 310.0
+margin_bottom = 189.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+toggle_mode = true
 text = "Call"
 icon = ExtResource( 5 )
+script = ExtResource( 24 )
+
+[node name="Timer" type="Timer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone/HBoxContainer/Panel/VBoxContainer/HBoxContainer/MarginContainer"]
+wait_time = 0.5
+script = ExtResource( 25 )
 
 [node name="MarginContainer2" type="MarginContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone/HBoxContainer/Panel/VBoxContainer/HBoxContainer"]
-margin_left = 342.0
+margin_left = 344.0
 margin_right = 685.0
 margin_bottom = 219.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_constants/margin_right = 50
-custom_constants/margin_top = 50
-custom_constants/margin_left = 50
-custom_constants/margin_bottom = 50
+custom_constants/margin_right = 30
+custom_constants/margin_top = 30
+custom_constants/margin_left = 30
+custom_constants/margin_bottom = 30
 
 [node name="Message" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone/HBoxContainer/Panel/VBoxContainer/HBoxContainer/MarginContainer2"]
-margin_left = 50.0
-margin_top = 50.0
-margin_right = 293.0
-margin_bottom = 169.0
+margin_left = 30.0
+margin_top = 30.0
+margin_right = 311.0
+margin_bottom = 189.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Send predefined message"
 icon = ExtResource( 5 )
+
+[node name="CallAudio" type="AudioStreamPlayer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone"]
+stream = ExtResource( 23 )
+volume_db = -20.0
 
 [node name="MusicAudio" type="AudioStreamPlayer" parent="MultimediaScreen"]
 volume_db = -10.0
@@ -1211,7 +1226,7 @@ margin_left = 1262.88
 margin_top = 690.439
 margin_right = 1293.88
 margin_bottom = 722.439
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0.945098, 0.309804, 0.188235, 1 )
 text = "R"
 align = 1
@@ -1219,12 +1234,12 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="turn_left" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_left"]
 [connection signal="turn_left" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
-[connection signal="turn_off" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
+[connection signal="turn_left" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_left"]
 [connection signal="turn_off" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
-[connection signal="turn_right" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
+[connection signal="turn_off" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
 [connection signal="turn_right" from="." to="BTWScreen/TurnRight" method="_on_App_turn_right"]
+[connection signal="turn_right" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
 [connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/SpeedDigits" method="_on_Accelerometer_speed_changed"]
 [connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/Tachometer" method="_on_Accelerometer_speed_changed"]
 [connection signal="timeout" from="BTWScreen/TurnLeft/TurnTimer" to="BTWScreen/TurnLeft" method="_on_TurnTimer_timeout"]
@@ -1251,4 +1266,8 @@ __meta__ = {
 [connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone/HBoxContainer/Contacts/ContactList/Contact11" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone/HBoxContainer/Contacts/ContactList" method="_on_Contact11_pressed"]
 [connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone/HBoxContainer/Contacts/ContactList/Contact12" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone/HBoxContainer/Contacts/ContactList" method="_on_Contact12_pressed"]
 [connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone/HBoxContainer/Contacts/ContactList/Contact13" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone/HBoxContainer/Contacts/ContactList" method="_on_Contact13_pressed"]
+[connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone/HBoxContainer/Panel/VBoxContainer/HBoxContainer/MarginContainer/Call" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone/HBoxContainer/Panel" method="_on_Call_pressed"]
+[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone/HBoxContainer/Panel/VBoxContainer/HBoxContainer/MarginContainer/Call" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone" method="_on_Call_toggled"]
+[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone/HBoxContainer/Panel/VBoxContainer/HBoxContainer/MarginContainer/Call" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone/HBoxContainer/Panel/VBoxContainer/HBoxContainer/MarginContainer/Timer" method="_on_Call_toggled"]
+[connection signal="timeout" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone/HBoxContainer/Panel/VBoxContainer/HBoxContainer/MarginContainer/Timer" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone/HBoxContainer/Panel/VBoxContainer/HBoxContainer/MarginContainer/Call" method="_on_Timer_timeout"]
 [connection signal="finished" from="MultimediaScreen/MusicAudio" to="MultimediaScreen" method="_on_MusicAudio_finished"]
