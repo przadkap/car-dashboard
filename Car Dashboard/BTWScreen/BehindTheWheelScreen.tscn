@@ -32,14 +32,14 @@ font_data = ExtResource( 7 )
 size = 30
 font_data = ExtResource( 7 )
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=5]
 content_margin_top = 20.0
 bg_color = Color( 0.227451, 0.219608, 0.258824, 1 )
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=6]
 bg_color = Color( 0.0784314, 0.423529, 0.607843, 1 )
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=7]
 content_margin_left = 150.0
 content_margin_right = 150.0
 content_margin_top = 10.0
@@ -958,7 +958,7 @@ margin_bottom = 506.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 5 )
 script = ExtResource( 18 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/SongProgress"]
@@ -984,7 +984,7 @@ rect_min_size = Vector2( 0, 10 )
 size_flags_horizontal = 3
 size_flags_vertical = 2
 size_flags_stretch_ratio = 5.0
-custom_styles/fg = SubResource( 7 )
+custom_styles/fg = SubResource( 6 )
 step = 0.1
 value = 70.0
 percent_visible = false
@@ -1052,7 +1052,7 @@ margin_right = 534.0
 margin_bottom = 676.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 5 )
+custom_styles/panel = SubResource( 7 )
 
 [node name="PlayPause" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer/MasterHBox/VBoxMiddle/PlayPause"]
 margin_left = 150.0
@@ -1094,12 +1094,12 @@ text = "Next"
 
 [node name="MusicAudio" type="AudioStreamPlayer" parent="MultimediaScreen"]
 volume_db = -10.0
-[connection signal="turn_left" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_left"]
 [connection signal="turn_left" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
-[connection signal="turn_off" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
+[connection signal="turn_left" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_left"]
 [connection signal="turn_off" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
-[connection signal="turn_right" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
+[connection signal="turn_off" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
 [connection signal="turn_right" from="." to="BTWScreen/TurnRight" method="_on_App_turn_right"]
+[connection signal="turn_right" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
 [connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/Tachometer" method="_on_Accelerometer_speed_changed"]
 [connection signal="timeout" from="BTWScreen/TurnLeft/TurnTimer" to="BTWScreen/TurnLeft" method="_on_TurnTimer_timeout"]
 [connection signal="timeout" from="BTWScreen/TurnRight/TurnTimer" to="BTWScreen/TurnRight" method="_on_TurnTimer_timeout"]

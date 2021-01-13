@@ -19,6 +19,10 @@ config/name="Car Dashboard"
 run/main_scene="res://BTWScreen/BehindTheWheelScreen.tscn"
 config/icon="res://images/icon.png"
 
+[autoload]
+
+Globals="*res://Globals.gd"
+
 [display]
 
 window/size/width=1500

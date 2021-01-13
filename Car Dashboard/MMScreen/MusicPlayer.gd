@@ -20,6 +20,7 @@ func _on_NextSong_pressed():
 
 
 func _on_MultimediaScreen_song_data_changed(title, length):
+	print_debug(title)
 	$MasterHBox/VBoxMiddle/SongTitle/Label.text  = title
 	var minutes = int(length) / 60
 	var seconds = int(length) - minutes * 60

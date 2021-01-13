@@ -40,13 +40,28 @@ func _on_MusicPlayer_switch_song(index_offset):
 		current_song_index = 0
 	elif current_song_index < 0:
 		current_song_index = len(songs) - 1
-		
-	emit_signal("song_data_changed", songs[current_song_index]["title"], songs[current_song_index]["stream"].get_length())
+	
+	print_debug(current_song_index)
+	print_debug(songs[current_song_index]["title"])
+	
+	Globals.manual_song_change = true
+	
 	$MusicAudio.stream = songs[current_song_index]["stream"]
-	$MusicAudio.play() # only actually plays if the song was playing before for some reason
+	emit_signal("song_data_changed", songs[current_song_index]["title"], songs[current_song_index]["stream"].get_length())
+	
+	if ($MusicAudio.playing || !$MusicAudio.stream_paused):
+		$MusicAudio.play()
+
 
 
 func _on_MusicAudio_finished():
+	if(Globals.manual_song_change):
+		Globals.manual_song_change = false
+		return
+	
+	print_debug(Globals.manual_song_change)
+	print_debug("finished")
+
 	current_song_index += 1
 
 	if current_song_index >= len(songs):
@@ -56,4 +71,4 @@ func _on_MusicAudio_finished():
 		
 	emit_signal("song_data_changed", songs[current_song_index]["title"], songs[current_song_index]["stream"].get_length())
 	$MusicAudio.stream = songs[current_song_index]["stream"]
-	$MusicAudio.play() # only actually plays if the song was playing before for some reason
+	$MusicAudio.play()
