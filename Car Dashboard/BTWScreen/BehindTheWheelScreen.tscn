@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://BTWScreen/Accelerometer/Accelerometer.gd" type="Script" id=1]
 [ext_resource path="res://App.gd" type="Script" id=2]
@@ -17,25 +17,34 @@
 [ext_resource path="res://MMScreen/contents/MusicPlayer.tscn" type="PackedScene" id=15]
 [ext_resource path="res://MMScreen/styleboxes/multimedia_sidebar.tres" type="StyleBox" id=16]
 [ext_resource path="res://BTWScreen/SpeedDigits.gd" type="Script" id=17]
+[ext_resource path="res://BTWScreen/FuelDigits.gd" type="Script" id=18]
 [ext_resource path="res://BTWScreen/MultimediaScreen.gd" type="Script" id=19]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=1]
 size = 100
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 7 )
 
-[sub_resource type="StyleBoxEmpty" id=1]
+[sub_resource type="StyleBoxEmpty" id=3]
 
-[sub_resource type="StyleBoxEmpty" id=2]
+[sub_resource type="StyleBoxEmpty" id=4]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=5]
+size = 30
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=6]
 size = 50
 font_data = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=7]
 size = 30
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 25
 font_data = ExtResource( 7 )
 
 [node name="App" type="Control"]
@@ -118,24 +127,24 @@ margin_bottom = 193.0
 
 [node name="Speed" type="Label" parent="BTWScreen/SpeedDigits/HBoxContainer"]
 margin_top = 32.0
-margin_right = 188.0
+margin_right = 187.0
 margin_bottom = 154.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 size_flags_stretch_ratio = 5.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 1 )
 text = "16"
 align = 1
 valign = 1
 
 [node name="Units" type="Label" parent="BTWScreen/SpeedDigits/HBoxContainer"]
-margin_left = 192.0
+margin_left = 191.0
 margin_top = 83.0
-margin_right = 230.0
+margin_right = 229.0
 margin_bottom = 103.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 2 )
 text = "km/h"
 
 [node name="LEDs" type="PanelContainer" parent="BTWScreen"]
@@ -564,7 +573,7 @@ margin_left = 510.0
 margin_top = 95.0
 margin_right = 610.0
 margin_bottom = 156.0
-custom_styles/panel = SubResource( 1 )
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 11 )
 __meta__ = {
 "_edit_group_": true,
@@ -584,7 +593,7 @@ margin_left = 890.0
 margin_top = 95.0
 margin_right = 990.0
 margin_bottom = 156.0
-custom_styles/panel = SubResource( 2 )
+custom_styles/panel = SubResource( 4 )
 script = ExtResource( 12 )
 __meta__ = {
 "_edit_group_": true,
@@ -742,6 +751,26 @@ __meta__ = {
 wait_time = 0.01
 autostart = true
 
+[node name="FuelDigits" type="PanelContainer" parent="BTWScreen"]
+margin_left = 1054.61
+margin_top = 575.145
+margin_right = 1144.61
+margin_bottom = 664.145
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Percentage" type="Label" parent="BTWScreen/FuelDigits"]
+margin_left = 7.0
+margin_top = 25.0
+margin_right = 84.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 5 )
+text = "100%"
+align = 1
+valign = 1
+
 [node name="MultimediaScreen" type="Control" parent="."]
 margin_left = 1500.0
 margin_right = 3000.0
@@ -776,7 +805,7 @@ margin_bottom = 350.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
 text = "GPS"
 
 [node name="Music" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
@@ -786,7 +815,7 @@ margin_bottom = 350.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
 text = "Music"
 
 [node name="Settings" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
@@ -796,7 +825,7 @@ margin_bottom = 350.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
 text = "Settings"
 
 [node name="Phone" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
@@ -806,7 +835,7 @@ margin_bottom = 790.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
 text = "Phone"
 
 [node name="Statistics" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
@@ -817,7 +846,7 @@ margin_bottom = 790.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
 text = "Statistics"
 
 [node name="Button6" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
@@ -829,7 +858,7 @@ margin_bottom = 700.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 6 )
 text = "GPS"
 
 [node name="SideSeparator" type="HBoxContainer" parent="MultimediaScreen/PanelContainer"]
@@ -852,7 +881,7 @@ margin_bottom = 154.0
 rect_min_size = Vector2( 0, 130 )
 focus_mode = 1
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 enabled_focus_mode = 1
 text = "GPS"
 
@@ -863,7 +892,7 @@ margin_bottom = 313.0
 rect_min_size = Vector2( 0, 130 )
 focus_mode = 1
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 enabled_focus_mode = 1
 text = "Music"
 
@@ -874,7 +903,7 @@ margin_bottom = 472.0
 rect_min_size = Vector2( 0, 130 )
 focus_mode = 1
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 enabled_focus_mode = 1
 text = "Settings"
 
@@ -885,7 +914,7 @@ margin_bottom = 631.0
 rect_min_size = Vector2( 0, 130 )
 focus_mode = 1
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 enabled_focus_mode = 1
 text = "Phone"
 
@@ -896,7 +925,7 @@ margin_bottom = 790.0
 rect_min_size = Vector2( 0, 130 )
 focus_mode = 1
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 enabled_focus_mode = 1
 text = "Statistics"
 
@@ -907,7 +936,7 @@ margin_right = 299.0
 margin_bottom = 800.0
 rect_min_size = Vector2( 0, 130 )
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 7 )
 text = "GPS"
 
 [node name="Content" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator"]
@@ -923,18 +952,33 @@ custom_styles/panel = ExtResource( 13 )
 
 [node name="MusicAudio" type="AudioStreamPlayer" parent="MultimediaScreen"]
 volume_db = -10.0
-[connection signal="turn_left" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_left"]
+
+[node name="Reserve" type="Label" parent="."]
+margin_left = 1262.88
+margin_top = 690.439
+margin_right = 1293.88
+margin_bottom = 722.439
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.945098, 0.309804, 0.188235, 1 )
+text = "R"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="turn_left" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
-[connection signal="turn_off" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
+[connection signal="turn_left" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_left"]
 [connection signal="turn_off" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
-[connection signal="turn_right" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
+[connection signal="turn_off" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
 [connection signal="turn_right" from="." to="BTWScreen/TurnRight" method="_on_App_turn_right"]
+[connection signal="turn_right" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
 [connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/SpeedDigits" method="_on_Accelerometer_speed_changed"]
 [connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/Tachometer" method="_on_Accelerometer_speed_changed"]
 [connection signal="timeout" from="BTWScreen/TurnLeft/TurnTimer" to="BTWScreen/TurnLeft" method="_on_TurnTimer_timeout"]
 [connection signal="timeout" from="BTWScreen/TurnRight/TurnTimer" to="BTWScreen/TurnRight" method="_on_TurnTimer_timeout"]
 [connection signal="pressed" from="BTWScreen/AccelerateButton" to="BTWScreen/Accelerometer" method="_on_Accelerate_pressed"]
 [connection signal="pressed" from="BTWScreen/AccelerateButton2" to="BTWScreen/Accelerometer" method="_on_Decelerate_pressed"]
+[connection signal="fuel_changed" from="BTWScreen/FuelMeter" to="BTWScreen/FuelDigits" method="_on_FuelMeter_fuel_changed"]
 [connection signal="timeout" from="BTWScreen/SpeedCheck" to="BTWScreen/Accelerometer" method="_on_SpeedCheck_timeout"]
 [connection signal="music_toggled" from="MultimediaScreen" to="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" method="_on_MultimediaScreen_music_toggled"]
 [connection signal="song_data_changed" from="MultimediaScreen" to="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" method="_on_MultimediaScreen_song_data_changed"]
