@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bensound-hipjazz.ogg-6926b2dd8cbfc798f34e9cdb28ad4fc1.oggstr"
+
+[deps]
+
+source_file="res://music/bensound-hipjazz.ogg"
+dest_files=[ "res://.import/bensound-hipjazz.ogg-6926b2dd8cbfc798f34e9cdb28ad4fc1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
