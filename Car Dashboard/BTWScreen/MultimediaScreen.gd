@@ -84,7 +84,7 @@ func _on_Phone_call_toggled(calling):
 
 
 func _on_GPS_pressed():
-	pass # Replace with function body.
+	emit_signal("content_changed", "music")
 
 
 func _on_Music_pressed():

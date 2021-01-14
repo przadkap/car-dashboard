@@ -12,7 +12,7 @@ var current_scene_name = "phone"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	scenes = {
-		"gps": "",
+		"gps": $GPS,
 		"music": $MusicPlayer,
 		"phone": $Phone,
 	}

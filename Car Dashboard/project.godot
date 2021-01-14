@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Car Dashboard"
-run/main_scene="res://BTWScreen/BehindTheWheelScreen.tscn"
+run/main_scene="res://App.tscn"
 config/icon="res://images/icon.png"
 
 [autoload]

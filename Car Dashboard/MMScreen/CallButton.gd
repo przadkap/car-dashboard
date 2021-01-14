@@ -11,7 +11,7 @@ func _ready():
 func _on_Timer_timeout():
 	animation_progress = (animation_progress + 1) % 4
 	text = "Calling " + contact_name
-	for dot in range(0, animation_progress):
+	for _dot in range(0, animation_progress):
 		text += "."
 
 func _toggled(button_pressed):
