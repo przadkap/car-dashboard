@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/call.ogg-fbf12bf6ab4e7579c590cc23a1267897.oggstr"
+
+[deps]
+
+source_file="res://music/call.ogg"
+dest_files=[ "res://.import/call.ogg-fbf12bf6ab4e7579c590cc23a1267897.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
