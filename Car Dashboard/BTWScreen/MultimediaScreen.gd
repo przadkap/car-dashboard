@@ -84,7 +84,7 @@ func _on_Phone_call_toggled(calling):
 
 
 func _on_GPS_pressed():
-	emit_signal("content_changed", "music")
+	emit_signal("content_changed", "gps")
 
 
 func _on_Music_pressed():

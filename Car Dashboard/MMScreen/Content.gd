@@ -7,7 +7,7 @@ extends PanelContainer
 var scenes 
 
 
-var current_scene_name = "phone"
+var current_scene_name = "gps"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
