@@ -883,6 +883,7 @@ custom_fonts/font = SubResource( 6 )
 text = "Music"
 
 [node name="Settings" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
+visible = false
 margin_left = 1052.0
 margin_right = 1488.0
 margin_bottom = 350.0
@@ -893,9 +894,9 @@ custom_fonts/font = SubResource( 6 )
 text = "Settings"
 
 [node name="Phone" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
-margin_top = 440.0
-margin_right = 436.0
-margin_bottom = 790.0
+margin_left = 1052.0
+margin_right = 1488.0
+margin_bottom = 350.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -903,9 +904,8 @@ custom_fonts/font = SubResource( 6 )
 text = "Phone"
 
 [node name="Statistics" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
-margin_left = 526.0
 margin_top = 440.0
-margin_right = 962.0
+margin_right = 436.0
 margin_bottom = 790.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
@@ -941,7 +941,7 @@ size_flags_vertical = 3
 
 [node name="GPS" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
 margin_right = 297.0
-margin_bottom = 154.0
+margin_bottom = 194.0
 rect_min_size = Vector2( 0, 130 )
 focus_mode = 1
 size_flags_vertical = 3
@@ -950,9 +950,9 @@ enabled_focus_mode = 1
 text = "GPS"
 
 [node name="Music" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
-margin_top = 158.0
+margin_top = 198.0
 margin_right = 297.0
-margin_bottom = 313.0
+margin_bottom = 393.0
 rect_min_size = Vector2( 0, 130 )
 focus_mode = 1
 size_flags_vertical = 3
@@ -961,6 +961,7 @@ enabled_focus_mode = 1
 text = "Music"
 
 [node name="Settings" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
+visible = false
 margin_top = 317.0
 margin_right = 297.0
 margin_bottom = 472.0
@@ -972,9 +973,9 @@ enabled_focus_mode = 1
 text = "Settings"
 
 [node name="Phone" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
-margin_top = 476.0
+margin_top = 397.0
 margin_right = 297.0
-margin_bottom = 631.0
+margin_bottom = 591.0
 rect_min_size = Vector2( 0, 130 )
 focus_mode = 1
 size_flags_vertical = 3
@@ -983,7 +984,7 @@ enabled_focus_mode = 1
 text = "Phone"
 
 [node name="Statistics" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
-margin_top = 635.0
+margin_top = 595.0
 margin_right = 297.0
 margin_bottom = 790.0
 rect_min_size = Vector2( 0, 130 )
@@ -1928,6 +1929,7 @@ visible = false
 visible = false
 
 [node name="Statistics" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content"]
+visible = false
 margin_left = 50.0
 margin_top = 50.0
 margin_right = 1139.0
