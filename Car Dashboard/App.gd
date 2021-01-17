@@ -24,3 +24,24 @@ func _unhandled_key_input(event):
 		emit_signal("turn_left")
 	elif(event.pressed and event.scancode == KEY_UP):
 		emit_signal("turn_off")
+
+
+func _on_KMTimer_timeout():
+	Globals.distance_traveled["day"] += 1
+	Globals.distance_traveled["week"] += 1
+	Globals.distance_traveled["month"] += 1
+	print(Globals.distance_traveled["day"])
+	print(Globals.distance_traveled["week"])
+	print(Globals.distance_traveled["month"])
+
+
+func _on_Accelerometer_accelerate_start():
+	$BTWScreen/KMTimer.start()
+
+
+func _on_StopDistanceTimer_timeout():
+	$BTWScreen/KMTimer.stop()
+
+
+func _on_Accelerometer_accelerate_stop():
+	$BTWScreen/StopDistanceTimer.start()
