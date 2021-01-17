@@ -78,6 +78,7 @@ func _on_MusicAudio_finished():
 func _on_Phone_call_toggled(calling):
 	if(calling && !$MusicAudio.stream_paused):
 		$MusicAudio.stream_paused = true
+		emit_signal("music_toggled", true)
 	else:
 #		$MusicAudio.stream_paused = false
 		pass

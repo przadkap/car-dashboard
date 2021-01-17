@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://BTWScreen/Accelerometer/Accelerometer.gd" type="Script" id=1]
 [ext_resource path="res://App.gd" type="Script" id=2]
@@ -23,7 +23,10 @@
 [ext_resource path="res://images/BTWMask.png" type="Texture" id=21]
 [ext_resource path="res://images/circle_black.png" type="Texture" id=22]
 [ext_resource path="res://MMScreen/GPS.gd" type="Script" id=23]
+[ext_resource path="res://MMScreen/styleboxes/buttons/warning-normal.stylebox" type="StyleBox" id=24]
 [ext_resource path="res://MMScreen/styleboxes/inactive.stylebox" type="StyleBox" id=25]
+[ext_resource path="res://MMScreen/styleboxes/buttons/warning-hover.tres" type="StyleBox" id=26]
+[ext_resource path="res://MMScreen/styleboxes/buttons/warning-pressed.stylebox" type="StyleBox" id=27]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -66,7 +69,7 @@ content_margin_top = 50.0
 content_margin_bottom = 50.0
 bg_color = Color( 0.231373, 0.223529, 0.262745, 1 )
 
-[sub_resource type="DynamicFont" id=12]
+[sub_resource type="DynamicFont" id=11]
 size = 25
 font_data = ExtResource( 17 )
 
@@ -1047,6 +1050,25 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Navigate"
 
+[node name="Separator" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList"]
+margin_top = 265.0
+margin_right = 227.0
+margin_bottom = 549.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="Clear" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList"]
+margin_top = 579.0
+margin_right = 227.0
+margin_bottom = 636.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = ExtResource( 26 )
+custom_styles/pressed = ExtResource( 27 )
+custom_styles/normal = ExtResource( 24 )
+text = "Remove navigation"
+
 [node name="Map" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer"]
 margin_left = 271.0
 margin_right = 1075.0
@@ -1874,7 +1896,7 @@ margin_left = 1262.88
 margin_top = 690.439
 margin_right = 1293.88
 margin_bottom = 722.439
-custom_fonts/font = SubResource( 12 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0.945098, 0.309804, 0.188235, 1 )
 text = "R"
 align = 1
@@ -1882,12 +1904,12 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="turn_left" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_left"]
 [connection signal="turn_left" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
-[connection signal="turn_off" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
+[connection signal="turn_left" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_left"]
 [connection signal="turn_off" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
-[connection signal="turn_right" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
+[connection signal="turn_off" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
 [connection signal="turn_right" from="." to="BTWScreen/TurnRight" method="_on_App_turn_right"]
+[connection signal="turn_right" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
 [connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/SpeedDigits" method="_on_Accelerometer_speed_changed"]
 [connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/Tachometer" method="_on_Accelerometer_speed_changed"]
 [connection signal="timeout" from="BTWScreen/TurnLeft/TurnTimer" to="BTWScreen/TurnLeft" method="_on_TurnTimer_timeout"]
@@ -1906,6 +1928,7 @@ __meta__ = {
 [connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Sidebar/Statistics" to="MultimediaScreen" method="_on_Statistics_pressed"]
 [connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList/Home/Navigate" to="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS" method="_on_NavigateHome_pressed"]
 [connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList/Work/Navigate" to="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS" method="_on_NavigateWork_pressed"]
+[connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList/Clear" to="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS" method="_on_Clear_pressed"]
 [connection signal="music_toggle" from="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" to="MultimediaScreen" method="_on_MusicPlayer_music_toggle"]
 [connection signal="switch_song" from="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" to="MultimediaScreen" method="_on_MusicPlayer_switch_song"]
 [connection signal="call_toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone" to="MultimediaScreen" method="_on_Phone_call_toggled"]
