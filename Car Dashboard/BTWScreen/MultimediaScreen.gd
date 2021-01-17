@@ -103,4 +103,4 @@ func _on_Phone_pressed():
 
 
 func _on_Statistics_pressed():
-	pass # Replace with function body.
+	emit_signal("content_changed", "statistics")

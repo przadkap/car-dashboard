@@ -10,6 +10,8 @@ var speed_function_arg = 0 # values from 0 to 1336
 # max speed 260 at x = 1336.37
 
 signal speed_changed
+signal accelerate_start
+signal accelerate_stop
 
 var accelerating = false
 var braking = false
@@ -42,13 +44,16 @@ func speed_changed(new_speed):
 
 func _on_Accelerate_pressed():
 #	speed_changed(current_speed + 5)
+	emit_signal("accelerate_start")
+	braking = false
 	accelerating = true
 
 
 func _on_Decelerate_pressed():
 #	speed_changed(current_speed - 5)
+	emit_signal("accelerate_stop")
 	accelerating = false
-#	braking = true
+	braking = true
 
 
 func _on_SpeedCheck_timeout():
@@ -57,7 +62,7 @@ func _on_SpeedCheck_timeout():
 			speed_function_arg += 1
 	elif braking:
 		if(current_speed > 0):
-			speed_function_arg -= 1
+			speed_function_arg -= 2
 	else:
 		if(current_speed > 0):
 			speed_function_arg -= 0.5

@@ -8,7 +8,7 @@ extends Control
 signal turn_left
 signal turn_right
 signal turn_off
-
+signal km_changed
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -24,3 +24,23 @@ func _unhandled_key_input(event):
 		emit_signal("turn_left")
 	elif(event.pressed and event.scancode == KEY_UP):
 		emit_signal("turn_off")
+
+
+func _on_KMTimer_timeout():
+	Globals.distance_traveled["day"] += 1
+	Globals.distance_traveled["week"] += 1
+	Globals.distance_traveled["month"] += 1
+	emit_signal("km_changed")
+	
+
+
+func _on_Accelerometer_accelerate_start():
+	$BTWScreen/KMTimer.start()
+
+
+func _on_StopDistanceTimer_timeout():
+	$BTWScreen/KMTimer.stop()
+
+
+func _on_Accelerometer_accelerate_stop():
+	$BTWScreen/StopDistanceTimer.start()

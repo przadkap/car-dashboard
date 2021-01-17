@@ -7,7 +7,7 @@ extends PanelContainer
 var scenes 
 
 
-var current_scene_name = "gps"
+var current_scene_name = "statistics"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,6 +15,7 @@ func _ready():
 		"gps": $GPS,
 		"music": $MusicPlayer,
 		"phone": $Phone,
+		"statistics": $Statistics
 	}
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
