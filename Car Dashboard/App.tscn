@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://BTWScreen/Accelerometer/Accelerometer.gd" type="Script" id=1]
 [ext_resource path="res://App.gd" type="Script" id=2]
@@ -21,6 +21,12 @@
 [ext_resource path="res://images/turn_idle.png" type="Texture" id=19]
 [ext_resource path="res://images/turn_active.png" type="Texture" id=20]
 [ext_resource path="res://images/BTWMask.png" type="Texture" id=21]
+[ext_resource path="res://images/circle_black.png" type="Texture" id=22]
+[ext_resource path="res://MMScreen/GPS.gd" type="Script" id=23]
+[ext_resource path="res://MMScreen/styleboxes/buttons/warning-normal.stylebox" type="StyleBox" id=24]
+[ext_resource path="res://MMScreen/styleboxes/inactive.stylebox" type="StyleBox" id=25]
+[ext_resource path="res://MMScreen/styleboxes/buttons/warning-hover.tres" type="StyleBox" id=26]
+[ext_resource path="res://MMScreen/styleboxes/buttons/warning-pressed.stylebox" type="StyleBox" id=27]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -45,18 +51,25 @@ font_data = ExtResource( 17 )
 size = 30
 font_data = ExtResource( 17 )
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=8]
 content_margin_left = 20.0
 content_margin_right = 20.0
 content_margin_top = 20.0
 content_margin_bottom = 20.0
 bg_color = Color( 0.231373, 0.223529, 0.262745, 1 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=9]
 size = 20
 font_data = ExtResource( 17 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="StyleBoxFlat" id=10]
+content_margin_left = 50.0
+content_margin_right = 50.0
+content_margin_top = 50.0
+content_margin_bottom = 50.0
+bg_color = Color( 0.231373, 0.223529, 0.262745, 1 )
+
+[sub_resource type="DynamicFont" id=11]
 size = 25
 font_data = ExtResource( 17 )
 
@@ -967,6 +980,7 @@ margin_left = 50.0
 margin_top = 50.0
 margin_right = 1139.0
 margin_bottom = 740.0
+script = ExtResource( 23 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS"]
 margin_left = 7.0
@@ -979,7 +993,7 @@ margin_right = 267.0
 margin_bottom = 676.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 9 )
+custom_styles/panel = SubResource( 8 )
 
 [node name="LocationList" type="VBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations"]
 margin_left = 20.0
@@ -991,7 +1005,7 @@ custom_constants/separation = 30
 [node name="Title" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList"]
 margin_right = 227.0
 margin_bottom = 25.0
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 9 )
 text = "Locations:"
 
 [node name="Home" type="VBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList"]
@@ -1036,6 +1050,25 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Navigate"
 
+[node name="Separator" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList"]
+margin_top = 265.0
+margin_right = 227.0
+margin_bottom = 549.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="Clear" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList"]
+margin_top = 579.0
+margin_right = 227.0
+margin_bottom = 636.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = ExtResource( 26 )
+custom_styles/pressed = ExtResource( 27 )
+custom_styles/normal = ExtResource( 24 )
+text = "Remove navigation"
+
 [node name="Map" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer"]
 margin_left = 271.0
 margin_right = 1075.0
@@ -1043,6 +1076,811 @@ margin_bottom = 676.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
+custom_styles/panel = SubResource( 10 )
+
+[node name="MapField" type="Panel" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 754.0
+margin_bottom = 626.0
+
+[node name="DownerSt" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/DownerSt"]
+margin_left = -2.0
+margin_top = 513.0
+margin_right = 117.0
+margin_bottom = 535.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar2" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/DownerSt"]
+margin_left = 119.0
+margin_top = 513.0
+margin_right = 542.0
+margin_bottom = 536.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar3" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/DownerSt"]
+margin_left = 543.0
+margin_top = 513.0
+margin_right = 703.0
+margin_bottom = 536.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/DownerSt"]
+margin_left = 308.0
+margin_top = 488.145
+margin_right = 348.0
+margin_bottom = 502.145
+text = "Downer St."
+
+[node name="ParallelSt" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ParallelSt"]
+margin_left = 126.0
+margin_top = 383.0
+margin_right = 202.0
+margin_bottom = 400.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar2" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ParallelSt"]
+margin_left = 214.0
+margin_top = 383.0
+margin_right = 534.0
+margin_bottom = 400.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar3" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ParallelSt"]
+margin_left = 533.881
+margin_top = 383.0
+margin_right = 659.881
+margin_bottom = 400.0
+rect_rotation = -15.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar4" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ParallelSt"]
+margin_left = 645.881
+margin_top = 358.941
+margin_right = 771.881
+margin_bottom = 375.941
+rect_rotation = -89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar5" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ParallelSt"]
+margin_left = 645.881
+margin_top = 238.941
+margin_right = 771.881
+margin_bottom = 255.941
+rect_rotation = -120.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ParallelSt"]
+margin_left = 313.0
+margin_top = 363.0
+margin_right = 382.0
+margin_bottom = 377.0
+text = "Parallel St."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpperSt" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/UpperSt"]
+margin_top = 40.0
+margin_right = 202.0
+margin_bottom = 62.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar2" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/UpperSt"]
+margin_left = 206.0
+margin_top = 39.0
+margin_right = 701.0
+margin_bottom = 62.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/UpperSt"]
+margin_left = 294.922
+margin_top = 15.0
+margin_right = 363.922
+margin_bottom = 29.0
+text = "Upper St."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EasternSt" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+margin_top = 151.0
+margin_right = 40.0
+margin_bottom = 191.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/EasternSt"]
+margin_top = 40.0
+margin_right = 110.0
+margin_bottom = 62.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar2" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/EasternSt"]
+margin_left = 134.0
+margin_top = 39.0
+margin_right = 302.0
+margin_bottom = 62.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/EasternSt"]
+margin_left = 24.0
+margin_top = 21.0
+margin_right = 93.0
+margin_bottom = 35.0
+text = "Eastern St."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VertalSt" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/VertalSt"]
+margin_left = 109.881
+margin_top = 511.0
+margin_right = 228.881
+margin_bottom = 533.0
+rect_rotation = -89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar2" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/VertalSt"]
+margin_left = 134.0
+margin_top = 209.0
+margin_right = 315.0
+margin_bottom = 232.0
+rect_rotation = 89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar3" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/VertalSt"]
+margin_left = 109.881
+margin_top = 198.941
+margin_right = 269.881
+margin_bottom = 221.941
+rect_rotation = -59.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/VertalSt"]
+margin_left = 79.5413
+margin_top = 403.0
+margin_right = 148.541
+margin_bottom = 417.0
+rect_rotation = -89.9999
+text = "Vertal St."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LongSt" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/LongSt"]
+margin_left = 301.881
+margin_top = 198.941
+margin_right = 382.881
+margin_bottom = 213.941
+rect_rotation = -89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar2" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/LongSt"]
+margin_left = 317.881
+margin_top = 205.0
+margin_right = 419.881
+margin_bottom = 220.0
+rect_rotation = 89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar3" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/LongSt"]
+margin_left = 206.0
+margin_top = 294.941
+margin_right = 308.0
+margin_bottom = 309.941
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar4" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/LongSt"]
+margin_left = 313.0
+margin_top = 111.0
+margin_right = 438.0
+margin_bottom = 126.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar5" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/LongSt"]
+margin_left = 438.0
+margin_top = 111.0
+margin_right = 582.0
+margin_bottom = 126.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar6" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/LongSt"]
+margin_left = 589.881
+margin_top = 111.0
+margin_right = 677.881
+margin_bottom = 126.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/LongSt"]
+margin_left = 407.0
+margin_top = 85.9444
+margin_right = 476.0
+margin_bottom = 99.9444
+text = "Long St."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReachSt" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ReachSt"]
+margin_left = 534.0
+margin_top = 511.0
+margin_right = 644.0
+margin_bottom = 526.0
+rect_rotation = -89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar2" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ReachSt"]
+margin_left = 550.0
+margin_top = 336.0
+margin_right = 595.0
+margin_bottom = 351.0
+rect_rotation = 89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar3" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ReachSt"]
+margin_left = 437.881
+margin_top = 325.0
+margin_right = 539.881
+margin_bottom = 340.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar4" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ReachSt"]
+margin_left = 446.0
+margin_top = 239.0
+margin_right = 540.0
+margin_bottom = 254.0
+rect_rotation = 89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar5" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ReachSt"]
+margin_left = 446.0
+margin_top = 119.0
+margin_right = 566.0
+margin_bottom = 134.0
+rect_rotation = 89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ReachSt"]
+margin_left = 512.565
+margin_top = 488.145
+margin_right = 581.565
+margin_bottom = 502.145
+rect_rotation = -89.9999
+text = "Reach St."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ReachSt"]
+margin_left = 403.0
+margin_top = 260.654
+margin_right = 472.0
+margin_bottom = 274.654
+rect_rotation = -89.9999
+text = "Reach St."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MinimalSt" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/MinimalSt"]
+margin_left = 198.0
+margin_top = 304.0
+margin_right = 247.0
+margin_bottom = 319.0
+rect_rotation = -89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar2" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/MinimalSt"]
+margin_left = 214.0
+margin_top = 303.0
+margin_right = 301.0
+margin_bottom = 318.0
+rect_rotation = 89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar3" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/MinimalSt"]
+margin_left = 214.0
+margin_top = 391.0
+margin_right = 279.0
+margin_bottom = 406.0
+rect_rotation = 89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/MinimalSt"]
+margin_left = 168.132
+margin_top = 340.937
+margin_right = 240.132
+margin_bottom = 354.937
+rect_rotation = -89.9999
+text = "Minimal St."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WesternSt" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/WesternSt"]
+margin_left = 446.0
+margin_top = 231.0
+margin_right = 647.0
+margin_bottom = 246.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar2" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/WesternSt"]
+margin_left = 662.0
+margin_top = 231.0
+margin_right = 703.0
+margin_bottom = 246.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/WesternSt"]
+margin_left = 503.92
+margin_top = 210.0
+margin_right = 577.92
+margin_bottom = 224.0
+text = "Western St."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Intersections" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VP" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 123.58, 390.433 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RP" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 539.881, 393 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PP1" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 653.47, 359 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PW" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 655.698, 236.501 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MP" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 206, 393 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MENDD" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 206, 456 )
+scale = Vector2( 0.365614, 0.382379 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MENDU" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 206, 248.726 )
+scale = Vector2( 0.362352, 0.372754 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LENDR" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 677.881, 118.458 )
+scale = Vector2( 0.362352, 0.372754 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ML" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 206, 303.215 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RR1" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 542, 333 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RR2" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 438, 330.087 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RW" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 438, 237.25 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RL" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 438, 119.784 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LL" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 308, 301.062 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LE" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 308, 201.847 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LL2" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 313, 118.1 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PL" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 589.881, 119.784 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VD" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 121.436, 524 )
+scale = Vector2( 0.617076, 0.637476 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RD" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 542, 524 )
+scale = Vector2( 0.617076, 0.637476 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VE" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 122.027, 201.822 )
+scale = Vector2( 0.73295, 0.769909 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VU" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 208.914, 54.1784 )
+scale = Vector2( 0.73295, 0.769909 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Home" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+position = Vector2( 673.776, 153.515 )
+scale = Vector2( 0.381676, 0.395856 )
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Work" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+position = Vector2( 258.276, 255.313 )
+rotation = 3.14159
+scale = Vector2( 0.381676, 0.395856 )
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Car" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+position = Vector2( 11.8042, 524 )
+rotation = 4.71238
+scale = Vector2( 0.381676, 0.395856 )
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="MusicPlayer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content" instance=ExtResource( 4 )]
 visible = false
@@ -1058,7 +1896,7 @@ margin_left = 1262.88
 margin_top = 690.439
 margin_right = 1293.88
 margin_bottom = 722.439
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 11 )
 custom_colors/font_color = Color( 0.945098, 0.309804, 0.188235, 1 )
 text = "R"
 align = 1
@@ -1066,14 +1904,14 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="turn_left" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_left"]
 [connection signal="turn_left" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
-[connection signal="turn_off" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
+[connection signal="turn_left" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_left"]
 [connection signal="turn_off" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
-[connection signal="turn_right" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
+[connection signal="turn_off" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
 [connection signal="turn_right" from="." to="BTWScreen/TurnRight" method="_on_App_turn_right"]
-[connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/Tachometer" method="_on_Accelerometer_speed_changed"]
+[connection signal="turn_right" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
 [connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/SpeedDigits" method="_on_Accelerometer_speed_changed"]
+[connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/Tachometer" method="_on_Accelerometer_speed_changed"]
 [connection signal="timeout" from="BTWScreen/TurnLeft/TurnTimer" to="BTWScreen/TurnLeft" method="_on_TurnTimer_timeout"]
 [connection signal="timeout" from="BTWScreen/TurnRight/TurnTimer" to="BTWScreen/TurnRight" method="_on_TurnTimer_timeout"]
 [connection signal="pressed" from="BTWScreen/AccelerateButton" to="BTWScreen/Accelerometer" method="_on_Accelerate_pressed"]
@@ -1088,6 +1926,9 @@ __meta__ = {
 [connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Sidebar/Settings" to="MultimediaScreen" method="_on_Settings_pressed"]
 [connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Sidebar/Phone" to="MultimediaScreen" method="_on_Phone_pressed"]
 [connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Sidebar/Statistics" to="MultimediaScreen" method="_on_Statistics_pressed"]
+[connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList/Home/Navigate" to="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS" method="_on_NavigateHome_pressed"]
+[connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList/Work/Navigate" to="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS" method="_on_NavigateWork_pressed"]
+[connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList/Clear" to="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS" method="_on_Clear_pressed"]
 [connection signal="music_toggle" from="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" to="MultimediaScreen" method="_on_MusicPlayer_music_toggle"]
 [connection signal="switch_song" from="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" to="MultimediaScreen" method="_on_MusicPlayer_switch_song"]
 [connection signal="call_toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone" to="MultimediaScreen" method="_on_Phone_call_toggled"]
