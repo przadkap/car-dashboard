@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://BTWScreen/Accelerometer/Accelerometer.gd" type="Script" id=1]
 [ext_resource path="res://App.gd" type="Script" id=2]
@@ -28,6 +28,11 @@
 [ext_resource path="res://MMScreen/styleboxes/buttons/warning-hover.tres" type="StyleBox" id=26]
 [ext_resource path="res://MMScreen/styleboxes/buttons/warning-pressed.stylebox" type="StyleBox" id=27]
 [ext_resource path="res://MMScreen/Statistics.gd" type="Script" id=28]
+[ext_resource path="res://CentralDisplay.gd" type="Script" id=29]
+
+[sub_resource type="DynamicFont" id=17]
+size = 30
+font_data = ExtResource( 17 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -152,10 +157,174 @@ anchor_right = 0.333327
 anchor_bottom = 0.806885
 margin_top = -3.05176e-05
 rect_pivot_offset = Vector2( 200, 125 )
+script = ExtResource( 29 )
 __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": true
 }
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BTWScreen/CentralDisplay"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 447.002
+margin_bottom = 251.0
+
+[node name="Hour" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer"]
+margin_top = 103.0
+margin_right = 440.0
+margin_bottom = 141.0
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 17 )
+text = "16:30"
+align = 1
+valign = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="BTWScreen/CentralDisplay/VBoxContainer"]
+visible = false
+margin_top = 230.0
+margin_right = 440.0
+margin_bottom = 244.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 433.0
+margin_bottom = 7.0
+
+[node name="Stat1" type="PanelContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer"]
+visible = false
+margin_right = 426.0
+margin_bottom = 28.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat1"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 419.0
+margin_bottom = 21.0
+
+[node name="Label" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat1/HBoxContainer"]
+margin_right = 65.0
+margin_bottom = 14.0
+text = "KM Today:"
+
+[node name="Value" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat1/HBoxContainer"]
+margin_left = 69.0
+margin_right = 93.0
+margin_bottom = 14.0
+text = "192"
+
+[node name="Stat2" type="PanelContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer"]
+visible = false
+margin_right = 426.0
+margin_bottom = 28.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat2"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 419.0
+margin_bottom = 21.0
+
+[node name="Label" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat2/HBoxContainer"]
+margin_right = 64.0
+margin_bottom = 14.0
+text = "KM Week:"
+
+[node name="Value" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat2/HBoxContainer"]
+margin_left = 68.0
+margin_right = 92.0
+margin_bottom = 14.0
+text = "222"
+
+[node name="Stat3" type="PanelContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer"]
+visible = false
+margin_right = 426.0
+margin_bottom = 28.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat3"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 419.0
+margin_bottom = 21.0
+
+[node name="Label" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat3/HBoxContainer"]
+margin_right = 69.0
+margin_bottom = 14.0
+text = "KM Month:"
+
+[node name="Value" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat3/HBoxContainer"]
+margin_left = 73.0
+margin_right = 105.0
+margin_bottom = 14.0
+text = "6345"
+
+[node name="Stat4" type="PanelContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer"]
+visible = false
+margin_right = 426.0
+margin_bottom = 28.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat4"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 419.0
+margin_bottom = 21.0
+
+[node name="Label" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat4/HBoxContainer"]
+margin_right = 44.0
+margin_bottom = 14.0
+text = "Refuel:"
+
+[node name="Value" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat4/HBoxContainer"]
+margin_left = 48.0
+margin_right = 89.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.976471, 0.152941, 0.152941, 1 )
+text = "2 days"
+
+[node name="Stat5" type="PanelContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer"]
+visible = false
+margin_right = 426.0
+margin_bottom = 28.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat5"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 419.0
+margin_bottom = 21.0
+
+[node name="Label" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat5/HBoxContainer"]
+margin_right = 121.0
+margin_bottom = 14.0
+text = "Last maintenance: "
+
+[node name="Value" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat5/HBoxContainer"]
+margin_left = 125.0
+margin_right = 200.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.282353, 0.862745, 0.160784, 1 )
+text = "31 days ago"
+
+[node name="Stat6" type="PanelContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer"]
+visible = false
+margin_right = 426.0
+margin_bottom = 28.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat6"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 419.0
+margin_bottom = 21.0
+
+[node name="Label" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat6/HBoxContainer"]
+margin_right = 103.0
+margin_bottom = 14.0
+text = "Last oil change: "
+
+[node name="Value" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat6/HBoxContainer"]
+margin_left = 107.0
+margin_right = 182.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.282353, 0.862745, 0.160784, 1 )
+text = "31 days ago"
 
 [node name="SpeedDigits" type="PanelContainer" parent="BTWScreen"]
 anchor_left = 0.096661
@@ -1929,7 +2098,6 @@ visible = false
 visible = false
 
 [node name="Statistics" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content"]
-visible = false
 margin_left = 50.0
 margin_top = 50.0
 margin_right = 1139.0
@@ -2317,4 +2485,11 @@ __meta__ = {
 [connection signal="music_toggle" from="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" to="MultimediaScreen" method="_on_MusicPlayer_music_toggle"]
 [connection signal="switch_song" from="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" to="MultimediaScreen" method="_on_MusicPlayer_switch_song"]
 [connection signal="call_toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone" to="MultimediaScreen" method="_on_Phone_call_toggled"]
+[connection signal="stat_visibility_changed" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" to="BTWScreen/CentralDisplay" method="_on_Statistics_stat_visibility_changed"]
+[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat1/StatKMToday/DisplayButton" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton1_toggled"]
+[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat2/StatKMWeek/DisplayButton" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton2_toggled"]
+[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat3/StatKMMonth/DisplayButton" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton3_toggled"]
+[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat4/Statfuel/DisplayButton" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton4_toggled"]
+[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat5/StatMaintenance/DisplayButton" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton5_toggled"]
+[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat6/StatOil/DisplayButton" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton6_toggled"]
 [connection signal="finished" from="MultimediaScreen/MusicAudio" to="MultimediaScreen" method="_on_MusicAudio_finished"]
