@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://BTWScreen/Accelerometer/Accelerometer.gd" type="Script" id=1]
 [ext_resource path="res://App.gd" type="Script" id=2]
@@ -34,6 +34,7 @@
 [ext_resource path="res://images/phone.png" type="Texture" id=32]
 [ext_resource path="res://images/stats.png" type="Texture" id=33]
 [ext_resource path="res://images/disc2.png" type="Texture" id=34]
+[ext_resource path="res://images/led_engine_lit.png" type="Texture" id=35]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
@@ -391,45 +392,46 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/LEDs"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 411.0
-margin_bottom = 71.0005
+margin_right = 418.0
+margin_bottom = 78.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TextureRect" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
-margin_right = 64.0
-margin_bottom = 64.0
-texture = ExtResource( 18 )
+margin_right = 71.0
+margin_bottom = 71.0
+texture = ExtResource( 35 )
+stretch_mode = 4
 
 [node name="TextureRect2" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
-margin_left = 68.0
-margin_right = 132.0
-margin_bottom = 64.0
+margin_left = 75.0
+margin_right = 139.0
+margin_bottom = 71.0
 texture = ExtResource( 18 )
 
 [node name="TextureRect3" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
-margin_left = 136.0
-margin_right = 200.0
-margin_bottom = 64.0
+margin_left = 143.0
+margin_right = 207.0
+margin_bottom = 71.0
 texture = ExtResource( 18 )
 
 [node name="TextureRect4" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
-margin_left = 204.0
-margin_right = 268.0
-margin_bottom = 64.0
+margin_left = 211.0
+margin_right = 275.0
+margin_bottom = 71.0
 texture = ExtResource( 18 )
 
 [node name="TextureRect5" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
-margin_left = 272.0
-margin_right = 336.0
-margin_bottom = 64.0
+margin_left = 279.0
+margin_right = 343.0
+margin_bottom = 71.0
 texture = ExtResource( 18 )
 
 [node name="TextureRect6" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
-margin_left = 340.0
-margin_right = 404.0
-margin_bottom = 64.0
+margin_left = 347.0
+margin_right = 411.0
+margin_bottom = 71.0
 texture = ExtResource( 18 )
 
 [node name="Accelerometer" type="Control" parent="BTWScreen"]
@@ -2108,6 +2110,7 @@ __meta__ = {
 }
 
 [node name="MusicPlayer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content" instance=ExtResource( 4 )]
+visible = false
 
 [node name="Phone" parent="MultimediaScreen/PanelContainer/SideSeparator/Content" instance=ExtResource( 5 )]
 visible = false
