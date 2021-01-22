@@ -186,15 +186,15 @@ valign = 1
 
 [node name="PanelContainer" type="PanelContainer" parent="BTWScreen/CentralDisplay/VBoxContainer"]
 visible = false
-margin_top = 230.0
+margin_top = 193.0
 margin_right = 440.0
-margin_bottom = 244.0
+margin_bottom = 235.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 433.0
-margin_bottom = 7.0
+margin_bottom = 35.0
 
 [node name="Stat1" type="PanelContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer"]
 visible = false
@@ -2453,6 +2453,7 @@ margin_bottom = 58.0
 
 [node name="MusicAudio" type="AudioStreamPlayer" parent="MultimediaScreen"]
 volume_db = -10.0
+stream_paused = true
 
 [node name="Reserve" type="Label" parent="."]
 margin_left = 1262.88
@@ -2468,16 +2469,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="km_changed" from="." to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_App_km_changed"]
-[connection signal="turn_left" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_left"]
+[connection signal="km_changed" from="." to="BTWScreen/CentralDisplay" method="_on_App_km_changed"]
 [connection signal="turn_left" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
-[connection signal="turn_off" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
+[connection signal="turn_left" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_left"]
 [connection signal="turn_off" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
-[connection signal="turn_right" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
+[connection signal="turn_off" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
 [connection signal="turn_right" from="." to="BTWScreen/TurnRight" method="_on_App_turn_right"]
+[connection signal="turn_right" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
 [connection signal="accelerate_start" from="BTWScreen/Accelerometer" to="." method="_on_Accelerometer_accelerate_start"]
 [connection signal="accelerate_stop" from="BTWScreen/Accelerometer" to="." method="_on_Accelerometer_accelerate_stop"]
-[connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/SpeedDigits" method="_on_Accelerometer_speed_changed"]
 [connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/Tachometer" method="_on_Accelerometer_speed_changed"]
+[connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/SpeedDigits" method="_on_Accelerometer_speed_changed"]
 [connection signal="timeout" from="BTWScreen/TurnLeft/TurnTimer" to="BTWScreen/TurnLeft" method="_on_TurnTimer_timeout"]
 [connection signal="timeout" from="BTWScreen/TurnRight/TurnTimer" to="BTWScreen/TurnRight" method="_on_TurnTimer_timeout"]
 [connection signal="pressed" from="BTWScreen/AccelerateButton" to="BTWScreen/Accelerometer" method="_on_Accelerate_pressed"]

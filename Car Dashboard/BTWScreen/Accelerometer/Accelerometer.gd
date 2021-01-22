@@ -62,7 +62,7 @@ func _on_SpeedCheck_timeout():
 			speed_function_arg += 1
 	elif braking:
 		if(current_speed > 0):
-			speed_function_arg -= 2
+			speed_function_arg -= 1
 	else:
 		if(current_speed > 0):
 			speed_function_arg -= 0.5

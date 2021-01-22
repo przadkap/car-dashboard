@@ -51,8 +51,11 @@ func _on_MusicPlayer_switch_song(index_offset):
 	$MusicAudio.stream = songs[current_song_index]["stream"]
 	emit_signal("song_data_changed", songs[current_song_index]["title"], songs[current_song_index]["stream"].get_length())
 	
-	if ($MusicAudio.playing || !$MusicAudio.stream_paused):
+	if ($MusicAudio.playing or !$MusicAudio.stream_paused):
+		print_debug($MusicAudio.playing)
+		print_debug($MusicAudio.stream_paused)
 		$MusicAudio.play()
+#		pass
 
 
 
