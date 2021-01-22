@@ -1028,7 +1028,6 @@ __meta__ = {
 }
 
 [node name="GridContainer" type="GridContainer" parent="MultimediaScreen/PanelContainer"]
-visible = false
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 1495.0
@@ -1105,6 +1104,7 @@ custom_fonts/font = SubResource( 7 )
 text = "GPS"
 
 [node name="SideSeparator" type="HBoxContainer" parent="MultimediaScreen/PanelContainer"]
+visible = false
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 1495.0
@@ -2468,12 +2468,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 [connection signal="km_changed" from="." to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_App_km_changed"]
-[connection signal="turn_left" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
 [connection signal="turn_left" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_left"]
-[connection signal="turn_off" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
+[connection signal="turn_left" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
 [connection signal="turn_off" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
-[connection signal="turn_right" from="." to="BTWScreen/TurnRight" method="_on_App_turn_right"]
+[connection signal="turn_off" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
 [connection signal="turn_right" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
+[connection signal="turn_right" from="." to="BTWScreen/TurnRight" method="_on_App_turn_right"]
 [connection signal="accelerate_start" from="BTWScreen/Accelerometer" to="." method="_on_Accelerometer_accelerate_start"]
 [connection signal="accelerate_stop" from="BTWScreen/Accelerometer" to="." method="_on_Accelerometer_accelerate_stop"]
 [connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/SpeedDigits" method="_on_Accelerometer_speed_changed"]
@@ -2487,8 +2487,8 @@ __meta__ = {
 [connection signal="timeout" from="BTWScreen/KMTimer" to="." method="_on_KMTimer_timeout"]
 [connection signal="timeout" from="BTWScreen/FuelTimer" to="BTWScreen/FuelMeter" method="_on_FuelTimer_timeout"]
 [connection signal="timeout" from="BTWScreen/StopDistanceTimer" to="." method="_on_StopDistanceTimer_timeout"]
-[connection signal="content_changed" from="MultimediaScreen" to="MultimediaScreen/PanelContainer/SideSeparator/Content" method="_on_MultimediaScreen_content_changed"]
 [connection signal="content_changed" from="MultimediaScreen" to="MultimediaScreen/PanelContainer" method="_on_MultimediaScreen_content_changed"]
+[connection signal="content_changed" from="MultimediaScreen" to="MultimediaScreen/PanelContainer/SideSeparator/Content" method="_on_MultimediaScreen_content_changed"]
 [connection signal="music_toggled" from="MultimediaScreen" to="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" method="_on_MultimediaScreen_music_toggled"]
 [connection signal="song_data_changed" from="MultimediaScreen" to="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" method="_on_MultimediaScreen_song_data_changed"]
 [connection signal="pressed" from="MultimediaScreen/PanelContainer/GridContainer/GPS" to="MultimediaScreen" method="_on_GPS_pressed"]
