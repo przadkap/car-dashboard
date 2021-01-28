@@ -14,7 +14,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _unhandled_key_input(event):
-	if(event.pressed and event.scancode == KEY_0):
+	if(event.pressed and event.scancode == KEY_2):
 		$Camera.position.x = int(get_viewport_rect().size.x * 1.5)
 	elif(event.pressed and event.scancode == KEY_1):
 		$Camera.position.x = int(get_viewport_rect().size.x * 0.5)

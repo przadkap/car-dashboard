@@ -33,4 +33,3 @@ func _on_DisplayButton5_toggled(button_pressed):
 func _on_DisplayButton6_toggled(button_pressed):
 	emit_signal("stat_visibility_changed", 6, button_pressed)
 
-

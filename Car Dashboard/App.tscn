@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://BTWScreen/Accelerometer/Accelerometer.gd" type="Script" id=1]
 [ext_resource path="res://App.gd" type="Script" id=2]
@@ -29,16 +29,44 @@
 [ext_resource path="res://MMScreen/styleboxes/buttons/warning-pressed.stylebox" type="StyleBox" id=27]
 [ext_resource path="res://MMScreen/Statistics.gd" type="Script" id=28]
 [ext_resource path="res://CentralDisplay.gd" type="Script" id=29]
-[ext_resource path="res://images/gps.png" type="Texture" id=30]
-[ext_resource path="res://images/disc3.png" type="Texture" id=31]
-[ext_resource path="res://images/phone.png" type="Texture" id=32]
-[ext_resource path="res://images/stats.png" type="Texture" id=33]
-[ext_resource path="res://images/disc2.png" type="Texture" id=34]
-[ext_resource path="res://images/led_engine_lit.png" type="Texture" id=35]
+[ext_resource path="res://images/phone_green_small.png" type="Texture" id=30]
+[ext_resource path="res://images/music.png" type="Texture" id=31]
+[ext_resource path="res://images/maps_small.png" type="Texture" id=32]
+[ext_resource path="res://images/statistics_small.png" type="Texture" id=33]
+[ext_resource path="res://images/music_small.png" type="Texture" id=34]
+[ext_resource path="res://images/led_power_off.png" type="Texture" id=35]
+[ext_resource path="res://images/led_lights_on.png" type="Texture" id=36]
+[ext_resource path="res://images/led_engine_off.png" type="Texture" id=37]
+[ext_resource path="res://images/led_abs_off.png" type="Texture" id=38]
+[ext_resource path="res://images/led_oil_off.png" type="Texture" id=39]
+[ext_resource path="res://images/led_warning_off.png" type="Texture" id=40]
+[ext_resource path="res://images/statistics.png" type="Texture" id=41]
+[ext_resource path="res://images/maps.png" type="Texture" id=42]
+[ext_resource path="res://images/phone_green.png" type="Texture" id=43]
+
+[sub_resource type="StyleBoxFlat" id=23]
+content_margin_left = 20.0
+content_margin_right = 20.0
+content_margin_top = 30.0
+content_margin_bottom = 30.0
+bg_color = Color( 0.223529, 0.215686, 0.254902, 1 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 3
 
 [sub_resource type="DynamicFont" id=1]
-size = 30
+size = 100
 font_data = ExtResource( 17 )
+
+[sub_resource type="StyleBoxFlat" id=21]
+bg_color = Color( 0.223529, 0.215686, 0.254902, 1 )
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+shadow_size = 3
 
 [sub_resource type="DynamicFont" id=2]
 size = 100
@@ -47,9 +75,21 @@ font_data = ExtResource( 17 )
 [sub_resource type="DynamicFont" id=3]
 font_data = ExtResource( 17 )
 
+[sub_resource type="StyleBoxEmpty" id=19]
+
 [sub_resource type="StyleBoxEmpty" id=4]
 
 [sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=24]
+
+[sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 0.227451, 0.219608, 0.258824, 1 )
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_size = 3
 
 [sub_resource type="DynamicFont" id=6]
 size = 30
@@ -98,6 +138,10 @@ content_margin_right = 10.0
 content_margin_top = 10.0
 content_margin_bottom = 10.0
 bg_color = Color( 0.152941, 0.152941, 0.203922, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [sub_resource type="DynamicFont" id=15]
 size = 20
@@ -157,28 +201,28 @@ __meta__ = {
 }
 
 [node name="CentralDisplay" type="PanelContainer" parent="BTWScreen"]
-anchor_left = 0.181993
-anchor_top = 0.494385
-anchor_right = 0.333327
-anchor_bottom = 0.806885
+anchor_left = 0.178667
+anchor_top = 0.44375
+anchor_right = 0.33
+anchor_bottom = 0.8125
 margin_top = -3.05176e-05
 rect_pivot_offset = Vector2( 200, 125 )
+custom_styles/panel = SubResource( 23 )
 script = ExtResource( 29 )
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": true
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="BTWScreen/CentralDisplay"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 447.002
-margin_bottom = 243.0
+margin_left = 20.0
+margin_top = 30.0
+margin_right = 434.0
+margin_bottom = 265.0
 
 [node name="Hour" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer"]
-margin_top = 98.0
-margin_right = 440.0
-margin_bottom = 136.0
+margin_top = 56.0
+margin_right = 414.0
+margin_bottom = 178.0
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 1 )
 text = "16:30"
@@ -342,21 +386,20 @@ margin_top = 0.495422
 margin_right = 11.0168
 margin_bottom = 0.495544
 rect_pivot_offset = Vector2( 200, 125 )
+custom_styles/panel = SubResource( 21 )
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/SpeedDigits"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 237.0
-margin_bottom = 193.0
+margin_right = 244.0
+margin_bottom = 200.0
 
 [node name="Speed" type="Label" parent="BTWScreen/SpeedDigits/HBoxContainer"]
-margin_top = 32.0
-margin_right = 187.0
-margin_bottom = 154.0
+margin_top = 39.0
+margin_right = 199.0
+margin_bottom = 161.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 size_flags_stretch_ratio = 5.0
@@ -366,10 +409,10 @@ align = 1
 valign = 1
 
 [node name="Units" type="Label" parent="BTWScreen/SpeedDigits/HBoxContainer"]
-margin_left = 191.0
-margin_top = 83.0
-margin_right = 229.0
-margin_bottom = 103.0
+margin_left = 203.0
+margin_top = 90.0
+margin_right = 243.0
+margin_bottom = 110.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 3 )
@@ -380,59 +423,57 @@ anchor_left = 0.249783
 anchor_top = 0.222475
 anchor_right = 0.249783
 anchor_bottom = 0.222475
-margin_left = -190.0
-margin_top = 80.5355
-margin_right = 228.0
-margin_bottom = 158.536
+margin_left = -191.349
+margin_top = 57.0201
+margin_right = 223.651
+margin_bottom = 146.02
+custom_styles/panel = SubResource( 19 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/LEDs"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 418.0
-margin_bottom = 78.0
+margin_right = 415.0
+margin_bottom = 89.0
+custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
-margin_right = 71.0
-margin_bottom = 71.0
+[node name="Engine" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
+margin_right = 75.0
+margin_bottom = 89.0
+texture = ExtResource( 37 )
+stretch_mode = 4
+
+[node name="Light" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
+margin_left = 85.0
+margin_right = 160.0
+margin_bottom = 89.0
+texture = ExtResource( 36 )
+stretch_mode = 4
+
+[node name="Oil" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
+margin_left = 170.0
+margin_right = 245.0
+margin_bottom = 89.0
+texture = ExtResource( 39 )
+stretch_mode = 4
+
+[node name="Power" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
+margin_left = 255.0
+margin_right = 330.0
+margin_bottom = 89.0
 texture = ExtResource( 35 )
 stretch_mode = 4
 
-[node name="TextureRect2" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
-margin_left = 75.0
-margin_right = 139.0
-margin_bottom = 71.0
-texture = ExtResource( 18 )
-
-[node name="TextureRect3" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
-margin_left = 143.0
-margin_right = 207.0
-margin_bottom = 71.0
-texture = ExtResource( 18 )
-
-[node name="TextureRect4" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
-margin_left = 211.0
-margin_right = 275.0
-margin_bottom = 71.0
-texture = ExtResource( 18 )
-
-[node name="TextureRect5" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
-margin_left = 279.0
-margin_right = 343.0
-margin_bottom = 71.0
-texture = ExtResource( 18 )
-
-[node name="TextureRect6" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
-margin_left = 347.0
-margin_right = 411.0
-margin_bottom = 71.0
-texture = ExtResource( 18 )
+[node name="ABS" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
+margin_left = 340.0
+margin_right = 415.0
+margin_bottom = 89.0
+texture = ExtResource( 38 )
+stretch_mode = 4
 
 [node name="Accelerometer" type="Control" parent="BTWScreen"]
 anchor_right = 0.31
@@ -842,6 +883,7 @@ margin_left = 712.0
 margin_top = 56.0
 margin_right = 790.0
 margin_bottom = 134.0
+custom_styles/panel = SubResource( 24 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true,
@@ -849,17 +891,16 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="BTWScreen/WarningLED"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 71.0
-margin_bottom = 71.0
-texture = ExtResource( 18 )
+margin_right = 78.0
+margin_bottom = 78.0
+texture = ExtResource( 40 )
+stretch_mode = 4
 
 [node name="AccelerateButton" type="Button" parent="BTWScreen"]
-margin_left = 568.621
-margin_top = 685.884
-margin_right = 730.621
-margin_bottom = 776.884
+margin_left = 566.979
+margin_top = 715.0
+margin_right = 699.979
+margin_bottom = 770.0
 focus_mode = 1
 enabled_focus_mode = 1
 text = "ACCELERATE"
@@ -868,10 +909,10 @@ __meta__ = {
 }
 
 [node name="AccelerateButton2" type="Button" parent="BTWScreen"]
-margin_left = 767.896
-margin_top = 685.884
-margin_right = 929.896
-margin_bottom = 776.884
+margin_left = 841.141
+margin_top = 715.0
+margin_right = 971.141
+margin_bottom = 770.0
 focus_mode = 1
 enabled_focus_mode = 1
 text = "SLOW DOWN"
@@ -985,15 +1026,15 @@ margin_left = 1054.61
 margin_top = 575.145
 margin_right = 1144.61
 margin_bottom = 664.145
+custom_styles/panel = SubResource( 22 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Percentage" type="Label" parent="BTWScreen/FuelDigits"]
-margin_left = 7.0
 margin_top = 25.0
-margin_right = 84.0
+margin_right = 90.0
 margin_bottom = 63.0
 custom_fonts/font = SubResource( 6 )
 text = "100%"
@@ -1030,6 +1071,7 @@ __meta__ = {
 }
 
 [node name="GridContainer" type="GridContainer" parent="MultimediaScreen/PanelContainer"]
+visible = false
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 1495.0
@@ -1046,7 +1088,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 7 )
 text = "GPS"
-icon = ExtResource( 30 )
+icon = ExtResource( 42 )
 
 [node name="Music" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
 margin_left = 790.0
@@ -1056,6 +1098,7 @@ rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 7 )
+custom_constants/hseparation = -50
 text = "Music"
 icon = ExtResource( 31 )
 
@@ -1079,7 +1122,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 7 )
 text = "Phone"
-icon = ExtResource( 32 )
+icon = ExtResource( 43 )
 
 [node name="Statistics" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
 margin_left = 790.0
@@ -1090,8 +1133,9 @@ rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 7 )
+custom_constants/hseparation = -50
 text = "Statistics"
-icon = ExtResource( 33 )
+icon = ExtResource( 41 )
 
 [node name="Button6" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
 visible = false
@@ -1106,7 +1150,6 @@ custom_fonts/font = SubResource( 7 )
 text = "GPS"
 
 [node name="SideSeparator" type="HBoxContainer" parent="MultimediaScreen/PanelContainer"]
-visible = false
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 1495.0
@@ -1115,13 +1158,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Sidebar" type="VBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator"]
-margin_right = 297.0
+margin_right = 342.0
 margin_bottom = 790.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 1.2
 
 [node name="GPS" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
-margin_right = 297.0
+margin_right = 342.0
 margin_bottom = 194.0
 rect_min_size = Vector2( 0, 130 )
 focus_mode = 1
@@ -1129,12 +1173,11 @@ size_flags_vertical = 3
 custom_fonts/font = SubResource( 8 )
 enabled_focus_mode = 1
 text = "GPS"
-icon = ExtResource( 30 )
-expand_icon = true
+icon = ExtResource( 32 )
 
 [node name="Music" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
 margin_top = 198.0
-margin_right = 297.0
+margin_right = 342.0
 margin_bottom = 393.0
 rect_min_size = Vector2( 0, 130 )
 focus_mode = 1
@@ -1158,7 +1201,7 @@ text = "Settings"
 
 [node name="Phone" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
 margin_top = 397.0
-margin_right = 297.0
+margin_right = 342.0
 margin_bottom = 591.0
 rect_min_size = Vector2( 0, 130 )
 focus_mode = 1
@@ -1166,11 +1209,11 @@ size_flags_vertical = 3
 custom_fonts/font = SubResource( 8 )
 enabled_focus_mode = 1
 text = "Phone"
-icon = ExtResource( 32 )
+icon = ExtResource( 30 )
 
 [node name="Statistics" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
 margin_top = 595.0
-margin_right = 297.0
+margin_right = 342.0
 margin_bottom = 790.0
 rect_min_size = Vector2( 0, 130 )
 focus_mode = 1
@@ -1179,7 +1222,6 @@ custom_fonts/font = SubResource( 8 )
 enabled_focus_mode = 1
 text = "Statistics"
 icon = ExtResource( 33 )
-expand_icon = true
 
 [node name="Button6" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
 visible = false
@@ -1192,7 +1234,7 @@ custom_fonts/font = SubResource( 8 )
 text = "GPS"
 
 [node name="Content" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator"]
-margin_left = 301.0
+margin_left = 346.0
 margin_right = 1490.0
 margin_bottom = 790.0
 size_flags_horizontal = 3
@@ -1205,52 +1247,53 @@ script = ExtResource( 3 )
 visible = false
 margin_left = 50.0
 margin_top = 50.0
-margin_right = 1139.0
+margin_right = 1094.0
 margin_bottom = 740.0
 script = ExtResource( 23 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 1082.0
+margin_right = 1037.0
 margin_bottom = 683.0
 
 [node name="Locations" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer"]
-margin_right = 267.0
+margin_right = 222.0
 margin_bottom = 676.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.83
 custom_styles/panel = SubResource( 9 )
 
 [node name="LocationList" type="VBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations"]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 247.0
+margin_right = 202.0
 margin_bottom = 656.0
 custom_constants/separation = 30
 
 [node name="Title" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList"]
-margin_right = 227.0
+margin_right = 182.0
 margin_bottom = 25.0
 custom_fonts/font = SubResource( 10 )
 text = "Locations:"
 
 [node name="Home" type="VBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList"]
 margin_top = 55.0
-margin_right = 227.0
+margin_right = 182.0
 margin_bottom = 130.0
 rect_min_size = Vector2( 0, 75 )
 custom_constants/separation = 7
 
 [node name="PlaceName" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList/Home"]
-margin_right = 227.0
+margin_right = 182.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
 text = "Home"
 
 [node name="Navigate" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList/Home"]
 margin_top = 21.0
-margin_right = 227.0
+margin_right = 182.0
 margin_bottom = 75.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1258,20 +1301,20 @@ text = "Navigate"
 
 [node name="Work" type="VBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList"]
 margin_top = 160.0
-margin_right = 227.0
+margin_right = 182.0
 margin_bottom = 235.0
 rect_min_size = Vector2( 0, 75 )
 custom_constants/separation = 7
 
 [node name="PlaceName" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList/Work"]
-margin_right = 227.0
+margin_right = 182.0
 margin_bottom = 14.0
 size_flags_horizontal = 3
 text = "Work"
 
 [node name="Navigate" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList/Work"]
 margin_top = 21.0
-margin_right = 227.0
+margin_right = 182.0
 margin_bottom = 75.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1279,7 +1322,7 @@ text = "Navigate"
 
 [node name="Separator" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList"]
 margin_top = 265.0
-margin_right = 227.0
+margin_right = 182.0
 margin_bottom = 549.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1287,7 +1330,7 @@ size_flags_stretch_ratio = 5.0
 
 [node name="Clear" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList"]
 margin_top = 579.0
-margin_right = 227.0
+margin_right = 182.0
 margin_bottom = 636.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1297,8 +1340,8 @@ custom_styles/normal = ExtResource( 24 )
 text = "Remove navigation"
 
 [node name="Map" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer"]
-margin_left = 271.0
-margin_right = 1075.0
+margin_left = 226.0
+margin_right = 1030.0
 margin_bottom = 676.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -1310,6 +1353,9 @@ margin_left = 50.0
 margin_top = 50.0
 margin_right = 754.0
 margin_bottom = 626.0
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="DownerSt" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
 margin_right = 40.0
@@ -2114,12 +2160,12 @@ visible = false
 
 [node name="Phone" parent="MultimediaScreen/PanelContainer/SideSeparator/Content" instance=ExtResource( 5 )]
 visible = false
+margin_right = 1094.0
 
 [node name="Statistics" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content"]
-visible = false
 margin_left = 50.0
 margin_top = 50.0
-margin_right = 1139.0
+margin_right = 1094.0
 margin_bottom = 740.0
 custom_styles/panel = SubResource( 12 )
 script = ExtResource( 28 )
@@ -2127,12 +2173,12 @@ script = ExtResource( 28 )
 [node name="VBoxContainer" type="VBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics"]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 1069.0
+margin_right = 1024.0
 margin_bottom = 670.0
 custom_constants/separation = 20
 
 [node name="Title" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer"]
-margin_right = 1049.0
+margin_right = 1004.0
 margin_bottom = 62.0
 custom_fonts/font = SubResource( 13 )
 text = "Statistics"
@@ -2141,7 +2187,7 @@ valign = 1
 
 [node name="Stat1" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer"]
 margin_top = 82.0
-margin_right = 1049.0
+margin_right = 1004.0
 margin_bottom = 160.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2150,7 +2196,7 @@ custom_styles/panel = SubResource( 14 )
 [node name="StatKMToday" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat1"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 1039.0
+margin_right = 994.0
 margin_bottom = 68.0
 
 [node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat1/StatKMToday"]
@@ -2174,29 +2220,32 @@ valign = 1
 
 [node name="Control" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat1/StatKMToday"]
 margin_left = 265.0
-margin_right = 808.0
+margin_right = 763.0
 margin_bottom = 58.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Display" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat1/StatKMToday"]
-margin_left = 812.0
+margin_left = 767.0
 margin_top = 16.0
-margin_right = 949.0
+margin_right = 904.0
 margin_bottom = 41.0
 custom_fonts/font = SubResource( 16 )
 text = "Center display"
 align = 1
 valign = 1
 
-[node name="DisplayButton" type="CheckButton" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat1/StatKMToday"]
-margin_left = 953.0
-margin_right = 1029.0
+[node name="DisplayButton1" type="CheckButton" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat1/StatKMToday"]
+margin_left = 908.0
+margin_right = 984.0
 margin_bottom = 58.0
+focus_mode = 1
+action_mode = 0
+enabled_focus_mode = 1
 
 [node name="Stat2" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer"]
 margin_top = 180.0
-margin_right = 1049.0
+margin_right = 1004.0
 margin_bottom = 258.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2205,7 +2254,7 @@ custom_styles/panel = SubResource( 14 )
 [node name="StatKMWeek" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat2"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 1039.0
+margin_right = 994.0
 margin_bottom = 68.0
 
 [node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat2/StatKMWeek"]
@@ -2225,29 +2274,32 @@ text = "222222222222"
 
 [node name="Control" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat2/StatKMWeek"]
 margin_left = 306.0
-margin_right = 808.0
+margin_right = 763.0
 margin_bottom = 58.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Display" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat2/StatKMWeek"]
-margin_left = 812.0
+margin_left = 767.0
 margin_top = 16.0
-margin_right = 949.0
+margin_right = 904.0
 margin_bottom = 41.0
 custom_fonts/font = SubResource( 16 )
 text = "Center display"
 align = 1
 valign = 1
 
-[node name="DisplayButton" type="CheckButton" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat2/StatKMWeek"]
-margin_left = 953.0
-margin_right = 1029.0
+[node name="DisplayButton2" type="CheckButton" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat2/StatKMWeek"]
+margin_left = 908.0
+margin_right = 984.0
 margin_bottom = 58.0
+focus_mode = 1
+action_mode = 0
+enabled_focus_mode = 1
 
 [node name="Stat3" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer"]
 margin_top = 278.0
-margin_right = 1049.0
+margin_right = 1004.0
 margin_bottom = 356.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2256,7 +2308,7 @@ custom_styles/panel = SubResource( 14 )
 [node name="StatKMMonth" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat3"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 1039.0
+margin_right = 994.0
 margin_bottom = 68.0
 
 [node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat3/StatKMMonth"]
@@ -2276,29 +2328,32 @@ text = "10391023"
 
 [node name="Control" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat3/StatKMMonth"]
 margin_left = 312.0
-margin_right = 808.0
+margin_right = 763.0
 margin_bottom = 58.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Display" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat3/StatKMMonth"]
-margin_left = 812.0
+margin_left = 767.0
 margin_top = 16.0
-margin_right = 949.0
+margin_right = 904.0
 margin_bottom = 41.0
 custom_fonts/font = SubResource( 16 )
 text = "Center display"
 align = 1
 valign = 1
 
-[node name="DisplayButton" type="CheckButton" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat3/StatKMMonth"]
-margin_left = 953.0
-margin_right = 1029.0
+[node name="DisplayButton3" type="CheckButton" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat3/StatKMMonth"]
+margin_left = 908.0
+margin_right = 984.0
 margin_bottom = 58.0
+focus_mode = 1
+action_mode = 0
+enabled_focus_mode = 1
 
 [node name="Stat4" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer"]
 margin_top = 376.0
-margin_right = 1049.0
+margin_right = 1004.0
 margin_bottom = 454.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2307,7 +2362,7 @@ custom_styles/panel = SubResource( 14 )
 [node name="Statfuel" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat4"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 1039.0
+margin_right = 994.0
 margin_bottom = 68.0
 
 [node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat4/Statfuel"]
@@ -2328,29 +2383,32 @@ text = "2 days"
 
 [node name="Control" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat4/Statfuel"]
 margin_left = 327.0
-margin_right = 808.0
+margin_right = 763.0
 margin_bottom = 58.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Display" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat4/Statfuel"]
-margin_left = 812.0
+margin_left = 767.0
 margin_top = 16.0
-margin_right = 949.0
+margin_right = 904.0
 margin_bottom = 41.0
 custom_fonts/font = SubResource( 16 )
 text = "Center display"
 align = 1
 valign = 1
 
-[node name="DisplayButton" type="CheckButton" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat4/Statfuel"]
-margin_left = 953.0
-margin_right = 1029.0
+[node name="DisplayButton4" type="CheckButton" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat4/Statfuel"]
+margin_left = 908.0
+margin_right = 984.0
 margin_bottom = 58.0
+focus_mode = 1
+action_mode = 0
+enabled_focus_mode = 1
 
 [node name="Stat5" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer"]
 margin_top = 474.0
-margin_right = 1049.0
+margin_right = 1004.0
 margin_bottom = 552.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2359,7 +2417,7 @@ custom_styles/panel = SubResource( 14 )
 [node name="StatMaintenance" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat5"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 1039.0
+margin_right = 994.0
 margin_bottom = 68.0
 
 [node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat5/StatMaintenance"]
@@ -2380,29 +2438,32 @@ text = "31 days"
 
 [node name="Control" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat5/StatMaintenance"]
 margin_left = 402.0
-margin_right = 808.0
+margin_right = 763.0
 margin_bottom = 58.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Display" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat5/StatMaintenance"]
-margin_left = 812.0
+margin_left = 767.0
 margin_top = 16.0
-margin_right = 949.0
+margin_right = 904.0
 margin_bottom = 41.0
 custom_fonts/font = SubResource( 16 )
 text = "Center display"
 align = 1
 valign = 1
 
-[node name="DisplayButton" type="CheckButton" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat5/StatMaintenance"]
-margin_left = 953.0
-margin_right = 1029.0
+[node name="DisplayButton5" type="CheckButton" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat5/StatMaintenance"]
+margin_left = 908.0
+margin_right = 984.0
 margin_bottom = 58.0
+focus_mode = 1
+action_mode = 0
+enabled_focus_mode = 1
 
 [node name="Stat6" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer"]
 margin_top = 572.0
-margin_right = 1049.0
+margin_right = 1004.0
 margin_bottom = 650.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2411,7 +2472,7 @@ custom_styles/panel = SubResource( 14 )
 [node name="StatOil" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat6"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 1039.0
+margin_right = 994.0
 margin_bottom = 68.0
 
 [node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat6/StatOil"]
@@ -2434,25 +2495,28 @@ valign = 1
 
 [node name="Control" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat6/StatOil"]
 margin_left = 306.0
-margin_right = 808.0
+margin_right = 763.0
 margin_bottom = 58.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Display" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat6/StatOil"]
-margin_left = 812.0
+margin_left = 767.0
 margin_top = 16.0
-margin_right = 949.0
+margin_right = 904.0
 margin_bottom = 41.0
 custom_fonts/font = SubResource( 16 )
 text = "Center display"
 align = 1
 valign = 1
 
-[node name="DisplayButton" type="CheckButton" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat6/StatOil"]
-margin_left = 953.0
-margin_right = 1029.0
+[node name="DisplayButton6" type="CheckButton" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat6/StatOil"]
+margin_left = 908.0
+margin_right = 984.0
 margin_bottom = 58.0
+focus_mode = 1
+action_mode = 0
+enabled_focus_mode = 1
 
 [node name="MusicAudio" type="AudioStreamPlayer" parent="MultimediaScreen"]
 volume_db = -10.0
@@ -2471,18 +2535,18 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="km_changed" from="." to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_App_km_changed"]
 [connection signal="km_changed" from="." to="BTWScreen/CentralDisplay" method="_on_App_km_changed"]
-[connection signal="turn_left" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
+[connection signal="km_changed" from="." to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_App_km_changed"]
 [connection signal="turn_left" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_left"]
-[connection signal="turn_off" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
+[connection signal="turn_left" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
 [connection signal="turn_off" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
-[connection signal="turn_right" from="." to="BTWScreen/TurnRight" method="_on_App_turn_right"]
+[connection signal="turn_off" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
 [connection signal="turn_right" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
+[connection signal="turn_right" from="." to="BTWScreen/TurnRight" method="_on_App_turn_right"]
 [connection signal="accelerate_start" from="BTWScreen/Accelerometer" to="." method="_on_Accelerometer_accelerate_start"]
 [connection signal="accelerate_stop" from="BTWScreen/Accelerometer" to="." method="_on_Accelerometer_accelerate_stop"]
-[connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/Tachometer" method="_on_Accelerometer_speed_changed"]
 [connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/SpeedDigits" method="_on_Accelerometer_speed_changed"]
+[connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/Tachometer" method="_on_Accelerometer_speed_changed"]
 [connection signal="timeout" from="BTWScreen/TurnLeft/TurnTimer" to="BTWScreen/TurnLeft" method="_on_TurnTimer_timeout"]
 [connection signal="timeout" from="BTWScreen/TurnRight/TurnTimer" to="BTWScreen/TurnRight" method="_on_TurnTimer_timeout"]
 [connection signal="pressed" from="BTWScreen/AccelerateButton" to="BTWScreen/Accelerometer" method="_on_Accelerate_pressed"]
@@ -2512,10 +2576,10 @@ __meta__ = {
 [connection signal="switch_song" from="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" to="MultimediaScreen" method="_on_MusicPlayer_switch_song"]
 [connection signal="call_toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone" to="MultimediaScreen" method="_on_Phone_call_toggled"]
 [connection signal="stat_visibility_changed" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" to="BTWScreen/CentralDisplay" method="_on_Statistics_stat_visibility_changed"]
-[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat1/StatKMToday/DisplayButton" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton1_toggled"]
-[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat2/StatKMWeek/DisplayButton" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton2_toggled"]
-[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat3/StatKMMonth/DisplayButton" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton3_toggled"]
-[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat4/Statfuel/DisplayButton" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton4_toggled"]
-[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat5/StatMaintenance/DisplayButton" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton5_toggled"]
-[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat6/StatOil/DisplayButton" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton6_toggled"]
+[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat1/StatKMToday/DisplayButton1" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton1_toggled"]
+[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat2/StatKMWeek/DisplayButton2" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton2_toggled"]
+[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat3/StatKMMonth/DisplayButton3" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton3_toggled"]
+[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat4/Statfuel/DisplayButton4" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton4_toggled"]
+[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat5/StatMaintenance/DisplayButton5" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton5_toggled"]
+[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat6/StatOil/DisplayButton6" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton6_toggled"]
 [connection signal="finished" from="MultimediaScreen/MusicAudio" to="MultimediaScreen" method="_on_MusicAudio_finished"]

@@ -23,15 +23,20 @@ func _ready():
 
 
 func _on_MusicPlayer_music_toggle():
+	print("BEFORE playing= ", $MusicAudio.playing, "| stream_paused = " ,$MusicAudio.stream_paused)
 	if $MusicAudio.playing:
 		if $MusicAudio.stream_paused:
 			$MusicAudio.stream_paused = false
 		else:
 			$MusicAudio.stream_paused = true
-			$MusicAudio.playing = false
+#			$MusicAudio.playing = false
+#			$MusicAudio.stop()
 	else:
+		print("hello?")
 		$MusicAudio.playing = true
+		print($MusicAudio.playing)
 		$MusicAudio.stream_paused = false
+	print("AFTER playing= ", $MusicAudio.playing, " | stream_paused = " ,$MusicAudio.stream_paused)
 	emit_signal("music_toggled", $MusicAudio.stream_paused)
 
 
@@ -52,10 +57,7 @@ func _on_MusicPlayer_switch_song(index_offset):
 	emit_signal("song_data_changed", songs[current_song_index]["title"], songs[current_song_index]["stream"].get_length())
 	
 	if ($MusicAudio.playing or !$MusicAudio.stream_paused):
-		print_debug($MusicAudio.playing)
-		print_debug($MusicAudio.stream_paused)
 		$MusicAudio.play()
-#		pass
 
 
 
