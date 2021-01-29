@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=72 format=2]
 
 [ext_resource path="res://BTWScreen/Accelerometer/Accelerometer.gd" type="Script" id=1]
 [ext_resource path="res://App.gd" type="Script" id=2]
@@ -48,6 +48,7 @@
 [ext_resource path="res://images/led_abs_on.png" type="Texture" id=46]
 [ext_resource path="res://images/led_oil_on.png" type="Texture" id=47]
 [ext_resource path="res://images/led_battery_on.png" type="Texture" id=48]
+[ext_resource path="res://BTWScreen/WarningLED.gd" type="Script" id=49]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 20.0
@@ -889,17 +890,20 @@ margin_top = 56.0
 margin_right = 790.0
 margin_bottom = 134.0
 custom_styles/panel = SubResource( 9 )
+script = ExtResource( 49 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="TextureRect" type="TextureRect" parent="BTWScreen/WarningLED"]
+[node name="LED" type="TextureRect" parent="BTWScreen/WarningLED"]
 margin_right = 78.0
 margin_bottom = 78.0
 texture = ExtResource( 40 )
 stretch_mode = 4
+
+[node name="BlinkTimer" type="Timer" parent="BTWScreen/WarningLED"]
 
 [node name="AccelerateButton" type="Button" parent="BTWScreen"]
 margin_left = 566.979
@@ -2757,6 +2761,7 @@ __meta__ = {
 [connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/Tachometer" method="_on_Accelerometer_speed_changed"]
 [connection signal="timeout" from="BTWScreen/TurnLeft/TurnTimer" to="BTWScreen/TurnLeft" method="_on_TurnTimer_timeout"]
 [connection signal="timeout" from="BTWScreen/TurnRight/TurnTimer" to="BTWScreen/TurnRight" method="_on_TurnTimer_timeout"]
+[connection signal="timeout" from="BTWScreen/WarningLED/BlinkTimer" to="BTWScreen/WarningLED" method="_on_BlinkTimer_timeout"]
 [connection signal="pressed" from="BTWScreen/AccelerateButton" to="BTWScreen/Accelerometer" method="_on_Accelerate_pressed"]
 [connection signal="pressed" from="BTWScreen/AccelerateButton2" to="BTWScreen/Accelerometer" method="_on_Decelerate_pressed"]
 [connection signal="fuel_changed" from="BTWScreen/FuelMeter" to="BTWScreen/FuelDigits" method="_on_FuelMeter_fuel_changed"]
