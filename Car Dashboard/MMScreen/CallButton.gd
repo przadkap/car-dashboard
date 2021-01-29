@@ -22,4 +22,5 @@ func _toggled(button_pressed):
 	if not(button_pressed):
 		text = "Call"
 	else:
+		animation_progress = 0
 		text = "Calling"

@@ -44,7 +44,7 @@
 [ext_resource path="res://images/maps.png" type="Texture" id=42]
 [ext_resource path="res://images/phone_green.png" type="Texture" id=43]
 
-[sub_resource type="StyleBoxFlat" id=23]
+[sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 20.0
 content_margin_right = 20.0
 content_margin_top = 30.0
@@ -56,11 +56,11 @@ corner_radius_bottom_right = 50
 corner_radius_bottom_left = 50
 shadow_size = 3
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 100
 font_data = ExtResource( 17 )
 
-[sub_resource type="StyleBoxFlat" id=21]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0.223529, 0.215686, 0.254902, 1 )
 corner_radius_top_left = 70
 corner_radius_top_right = 70
@@ -68,22 +68,22 @@ corner_radius_bottom_right = 70
 corner_radius_bottom_left = 70
 shadow_size = 3
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 size = 100
 font_data = ExtResource( 17 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=5]
 font_data = ExtResource( 17 )
 
-[sub_resource type="StyleBoxEmpty" id=19]
+[sub_resource type="StyleBoxEmpty" id=6]
 
-[sub_resource type="StyleBoxEmpty" id=4]
+[sub_resource type="StyleBoxEmpty" id=7]
 
-[sub_resource type="StyleBoxEmpty" id=5]
+[sub_resource type="StyleBoxEmpty" id=8]
 
-[sub_resource type="StyleBoxEmpty" id=24]
+[sub_resource type="StyleBoxEmpty" id=9]
 
-[sub_resource type="StyleBoxFlat" id=22]
+[sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 0.227451, 0.219608, 0.258824, 1 )
 corner_radius_top_left = 30
 corner_radius_top_right = 30
@@ -91,48 +91,48 @@ corner_radius_bottom_right = 30
 corner_radius_bottom_left = 30
 shadow_size = 3
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=11]
 size = 30
 font_data = ExtResource( 17 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=12]
 size = 50
 font_data = ExtResource( 17 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=13]
 size = 30
 font_data = ExtResource( 17 )
 
-[sub_resource type="StyleBoxFlat" id=9]
+[sub_resource type="StyleBoxFlat" id=14]
 content_margin_left = 20.0
 content_margin_right = 20.0
 content_margin_top = 20.0
 content_margin_bottom = 20.0
 bg_color = Color( 0.231373, 0.223529, 0.262745, 1 )
 
-[sub_resource type="DynamicFont" id=10]
+[sub_resource type="DynamicFont" id=15]
 size = 20
 font_data = ExtResource( 17 )
 
-[sub_resource type="StyleBoxFlat" id=11]
+[sub_resource type="StyleBoxFlat" id=16]
 content_margin_left = 50.0
 content_margin_right = 50.0
 content_margin_top = 50.0
 content_margin_bottom = 50.0
 bg_color = Color( 0.231373, 0.223529, 0.262745, 1 )
 
-[sub_resource type="StyleBoxFlat" id=12]
+[sub_resource type="StyleBoxFlat" id=17]
 content_margin_left = 20.0
 content_margin_right = 20.0
 content_margin_top = 20.0
 content_margin_bottom = 20.0
 bg_color = Color( 0.235294, 0.227451, 0.266667, 1 )
 
-[sub_resource type="DynamicFont" id=13]
+[sub_resource type="DynamicFont" id=18]
 size = 50
 font_data = ExtResource( 17 )
 
-[sub_resource type="StyleBoxFlat" id=14]
+[sub_resource type="StyleBoxFlat" id=19]
 content_margin_left = 10.0
 content_margin_right = 10.0
 content_margin_top = 10.0
@@ -143,15 +143,15 @@ corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
-[sub_resource type="DynamicFont" id=15]
+[sub_resource type="DynamicFont" id=20]
 size = 20
 font_data = ExtResource( 17 )
 
-[sub_resource type="DynamicFont" id=16]
+[sub_resource type="DynamicFont" id=21]
 size = 20
 font_data = ExtResource( 17 )
 
-[sub_resource type="DynamicFont" id=17]
+[sub_resource type="DynamicFont" id=22]
 size = 25
 font_data = ExtResource( 17 )
 
@@ -207,7 +207,7 @@ anchor_right = 0.33
 anchor_bottom = 0.8125
 margin_top = -3.05176e-05
 rect_pivot_offset = Vector2( 200, 125 )
-custom_styles/panel = SubResource( 23 )
+custom_styles/panel = SubResource( 1 )
 script = ExtResource( 29 )
 __meta__ = {
 "_edit_use_anchors_": true
@@ -216,15 +216,15 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="BTWScreen/CentralDisplay"]
 margin_left = 20.0
 margin_top = 30.0
-margin_right = 434.0
+margin_right = 433.999
 margin_bottom = 265.0
 
 [node name="Hour" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer"]
 margin_top = 56.0
-margin_right = 414.0
+margin_right = 413.0
 margin_bottom = 178.0
 size_flags_vertical = 6
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "16:30"
 align = 1
 valign = 1
@@ -386,7 +386,7 @@ margin_top = 0.495422
 margin_right = 11.0168
 margin_bottom = 0.495544
 rect_pivot_offset = Vector2( 200, 125 )
-custom_styles/panel = SubResource( 21 )
+custom_styles/panel = SubResource( 3 )
 script = ExtResource( 13 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -403,7 +403,7 @@ margin_bottom = 161.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 size_flags_stretch_ratio = 5.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "16"
 align = 1
 valign = 1
@@ -415,7 +415,7 @@ margin_right = 243.0
 margin_bottom = 110.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 5 )
 text = "km/h"
 
 [node name="LEDs" type="PanelContainer" parent="BTWScreen"]
@@ -427,7 +427,7 @@ margin_left = -191.349
 margin_top = 57.0201
 margin_right = 223.651
 margin_bottom = 146.02
-custom_styles/panel = SubResource( 19 )
+custom_styles/panel = SubResource( 6 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -435,7 +435,7 @@ __meta__ = {
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/LEDs"]
 margin_right = 415.0
-margin_bottom = 89.0
+margin_bottom = 88.9999
 custom_constants/separation = 10
 __meta__ = {
 "_edit_use_anchors_": false
@@ -443,35 +443,35 @@ __meta__ = {
 
 [node name="Engine" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
 margin_right = 75.0
-margin_bottom = 89.0
+margin_bottom = 88.0
 texture = ExtResource( 37 )
 stretch_mode = 4
 
 [node name="Light" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
 margin_left = 85.0
 margin_right = 160.0
-margin_bottom = 89.0
+margin_bottom = 88.0
 texture = ExtResource( 36 )
 stretch_mode = 4
 
 [node name="Oil" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
 margin_left = 170.0
 margin_right = 245.0
-margin_bottom = 89.0
+margin_bottom = 88.0
 texture = ExtResource( 39 )
 stretch_mode = 4
 
 [node name="Power" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
 margin_left = 255.0
 margin_right = 330.0
-margin_bottom = 89.0
+margin_bottom = 88.0
 texture = ExtResource( 35 )
 stretch_mode = 4
 
 [node name="ABS" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
 margin_left = 340.0
 margin_right = 415.0
-margin_bottom = 89.0
+margin_bottom = 88.0
 texture = ExtResource( 38 )
 stretch_mode = 4
 
@@ -843,7 +843,7 @@ margin_left = 510.0
 margin_top = 95.0
 margin_right = 610.0
 margin_bottom = 156.0
-custom_styles/panel = SubResource( 4 )
+custom_styles/panel = SubResource( 7 )
 script = ExtResource( 10 )
 __meta__ = {
 "_edit_group_": true,
@@ -863,7 +863,7 @@ margin_left = 890.0
 margin_top = 95.0
 margin_right = 990.0
 margin_bottom = 156.0
-custom_styles/panel = SubResource( 5 )
+custom_styles/panel = SubResource( 8 )
 script = ExtResource( 15 )
 __meta__ = {
 "_edit_group_": true,
@@ -883,7 +883,7 @@ margin_left = 712.0
 margin_top = 56.0
 margin_right = 790.0
 margin_bottom = 134.0
-custom_styles/panel = SubResource( 24 )
+custom_styles/panel = SubResource( 9 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true,
@@ -1026,7 +1026,7 @@ margin_left = 1054.61
 margin_top = 575.145
 margin_right = 1144.61
 margin_bottom = 664.145
-custom_styles/panel = SubResource( 22 )
+custom_styles/panel = SubResource( 10 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1036,7 +1036,7 @@ __meta__ = {
 margin_top = 25.0
 margin_right = 90.0
 margin_bottom = 63.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 11 )
 text = "100%"
 align = 1
 valign = 1
@@ -1071,7 +1071,6 @@ __meta__ = {
 }
 
 [node name="GridContainer" type="GridContainer" parent="MultimediaScreen/PanelContainer"]
-visible = false
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 1495.0
@@ -1086,7 +1085,7 @@ margin_bottom = 305.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 12 )
 text = "GPS"
 icon = ExtResource( 42 )
 
@@ -1097,7 +1096,7 @@ margin_bottom = 305.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 12 )
 custom_constants/hseparation = -50
 text = "Music"
 icon = ExtResource( 31 )
@@ -1110,7 +1109,7 @@ margin_bottom = 350.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 12 )
 text = "Settings"
 
 [node name="Phone" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
@@ -1120,7 +1119,7 @@ margin_bottom = 700.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 12 )
 text = "Phone"
 icon = ExtResource( 43 )
 
@@ -1132,7 +1131,7 @@ margin_bottom = 700.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 12 )
 custom_constants/hseparation = -50
 text = "Statistics"
 icon = ExtResource( 41 )
@@ -1146,10 +1145,11 @@ margin_bottom = 700.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 12 )
 text = "GPS"
 
 [node name="SideSeparator" type="HBoxContainer" parent="MultimediaScreen/PanelContainer"]
+visible = false
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 1495.0
@@ -1170,7 +1170,7 @@ margin_bottom = 194.0
 rect_min_size = Vector2( 0, 130 )
 focus_mode = 1
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 13 )
 enabled_focus_mode = 1
 text = "GPS"
 icon = ExtResource( 32 )
@@ -1182,7 +1182,7 @@ margin_bottom = 393.0
 rect_min_size = Vector2( 0, 130 )
 focus_mode = 1
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 13 )
 enabled_focus_mode = 1
 text = "Music"
 icon = ExtResource( 34 )
@@ -1195,7 +1195,7 @@ margin_bottom = 472.0
 rect_min_size = Vector2( 0, 130 )
 focus_mode = 1
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 13 )
 enabled_focus_mode = 1
 text = "Settings"
 
@@ -1206,7 +1206,7 @@ margin_bottom = 591.0
 rect_min_size = Vector2( 0, 130 )
 focus_mode = 1
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 13 )
 enabled_focus_mode = 1
 text = "Phone"
 icon = ExtResource( 30 )
@@ -1218,7 +1218,7 @@ margin_bottom = 790.0
 rect_min_size = Vector2( 0, 130 )
 focus_mode = 1
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 13 )
 enabled_focus_mode = 1
 text = "Statistics"
 icon = ExtResource( 33 )
@@ -1230,7 +1230,7 @@ margin_right = 299.0
 margin_bottom = 800.0
 rect_min_size = Vector2( 0, 130 )
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 13 )
 text = "GPS"
 
 [node name="Content" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator"]
@@ -1263,7 +1263,7 @@ margin_bottom = 676.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.83
-custom_styles/panel = SubResource( 9 )
+custom_styles/panel = SubResource( 14 )
 
 [node name="LocationList" type="VBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations"]
 margin_left = 20.0
@@ -1275,7 +1275,7 @@ custom_constants/separation = 30
 [node name="Title" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList"]
 margin_right = 182.0
 margin_bottom = 25.0
-custom_fonts/font = SubResource( 10 )
+custom_fonts/font = SubResource( 15 )
 text = "Locations:"
 
 [node name="Home" type="VBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList"]
@@ -1346,7 +1346,7 @@ margin_bottom = 676.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
-custom_styles/panel = SubResource( 11 )
+custom_styles/panel = SubResource( 16 )
 
 [node name="MapField" type="Panel" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map"]
 margin_left = 50.0
@@ -2163,11 +2163,12 @@ visible = false
 margin_right = 1094.0
 
 [node name="Statistics" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content"]
+visible = false
 margin_left = 50.0
 margin_top = 50.0
 margin_right = 1094.0
 margin_bottom = 740.0
-custom_styles/panel = SubResource( 12 )
+custom_styles/panel = SubResource( 17 )
 script = ExtResource( 28 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics"]
@@ -2180,7 +2181,7 @@ custom_constants/separation = 20
 [node name="Title" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer"]
 margin_right = 1004.0
 margin_bottom = 62.0
-custom_fonts/font = SubResource( 13 )
+custom_fonts/font = SubResource( 18 )
 text = "Statistics"
 align = 1
 valign = 1
@@ -2191,7 +2192,7 @@ margin_right = 1004.0
 margin_bottom = 160.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 19 )
 
 [node name="StatKMToday" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat1"]
 margin_left = 10.0
@@ -2203,7 +2204,7 @@ margin_bottom = 68.0
 margin_top = 16.0
 margin_right = 166.0
 margin_bottom = 41.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 20 )
 text = "KM driven today: "
 align = 1
 valign = 1
@@ -2213,7 +2214,7 @@ margin_left = 170.0
 margin_top = 16.0
 margin_right = 261.0
 margin_bottom = 41.0
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 21 )
 text = "10391023"
 align = 1
 valign = 1
@@ -2230,7 +2231,7 @@ margin_left = 767.0
 margin_top = 16.0
 margin_right = 904.0
 margin_bottom = 41.0
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 21 )
 text = "Center display"
 align = 1
 valign = 1
@@ -2249,7 +2250,7 @@ margin_right = 1004.0
 margin_bottom = 258.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 19 )
 
 [node name="StatKMWeek" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat2"]
 margin_left = 10.0
@@ -2261,7 +2262,7 @@ margin_bottom = 68.0
 margin_top = 16.0
 margin_right = 166.0
 margin_bottom = 41.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 20 )
 text = "KM driven today: "
 
 [node name="Value" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat2/StatKMWeek"]
@@ -2269,7 +2270,7 @@ margin_left = 170.0
 margin_top = 16.0
 margin_right = 302.0
 margin_bottom = 41.0
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 21 )
 text = "222222222222"
 
 [node name="Control" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat2/StatKMWeek"]
@@ -2284,7 +2285,7 @@ margin_left = 767.0
 margin_top = 16.0
 margin_right = 904.0
 margin_bottom = 41.0
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 21 )
 text = "Center display"
 align = 1
 valign = 1
@@ -2303,7 +2304,7 @@ margin_right = 1004.0
 margin_bottom = 356.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 19 )
 
 [node name="StatKMMonth" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat3"]
 margin_left = 10.0
@@ -2315,7 +2316,7 @@ margin_bottom = 68.0
 margin_top = 16.0
 margin_right = 213.0
 margin_bottom = 41.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 20 )
 text = "KM driven this month: "
 
 [node name="Value" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat3/StatKMMonth"]
@@ -2323,7 +2324,7 @@ margin_left = 217.0
 margin_top = 16.0
 margin_right = 308.0
 margin_bottom = 41.0
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 21 )
 text = "10391023"
 
 [node name="Control" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat3/StatKMMonth"]
@@ -2338,7 +2339,7 @@ margin_left = 767.0
 margin_top = 16.0
 margin_right = 904.0
 margin_bottom = 41.0
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 21 )
 text = "Center display"
 align = 1
 valign = 1
@@ -2357,7 +2358,7 @@ margin_right = 1004.0
 margin_bottom = 454.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 19 )
 
 [node name="Statfuel" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat4"]
 margin_left = 10.0
@@ -2369,7 +2370,7 @@ margin_bottom = 68.0
 margin_top = 16.0
 margin_right = 258.0
 margin_bottom = 41.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 20 )
 text = "Next refuel estimated time:"
 
 [node name="Value" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat4/Statfuel"]
@@ -2377,7 +2378,7 @@ margin_left = 262.0
 margin_top = 16.0
 margin_right = 323.0
 margin_bottom = 41.0
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 21 )
 custom_colors/font_color = Color( 0.890196, 0.192157, 0.192157, 1 )
 text = "2 days"
 
@@ -2393,7 +2394,7 @@ margin_left = 767.0
 margin_top = 16.0
 margin_right = 904.0
 margin_bottom = 41.0
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 21 )
 text = "Center display"
 align = 1
 valign = 1
@@ -2412,7 +2413,7 @@ margin_right = 1004.0
 margin_bottom = 552.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 19 )
 
 [node name="StatMaintenance" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat5"]
 margin_left = 10.0
@@ -2424,7 +2425,7 @@ margin_bottom = 68.0
 margin_top = 16.0
 margin_right = 322.0
 margin_bottom = 41.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 20 )
 text = "Time since last maintenance visit: "
 
 [node name="Value" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat5/StatMaintenance"]
@@ -2432,7 +2433,7 @@ margin_left = 326.0
 margin_top = 16.0
 margin_right = 398.0
 margin_bottom = 41.0
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 21 )
 custom_colors/font_color = Color( 0.278431, 0.890196, 0.192157, 1 )
 text = "31 days"
 
@@ -2448,7 +2449,7 @@ margin_left = 767.0
 margin_top = 16.0
 margin_right = 904.0
 margin_bottom = 41.0
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 21 )
 text = "Center display"
 align = 1
 valign = 1
@@ -2467,7 +2468,7 @@ margin_right = 1004.0
 margin_bottom = 650.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/panel = SubResource( 14 )
+custom_styles/panel = SubResource( 19 )
 
 [node name="StatOil" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat6"]
 margin_left = 10.0
@@ -2479,7 +2480,7 @@ margin_bottom = 68.0
 margin_top = 16.0
 margin_right = 226.0
 margin_bottom = 41.0
-custom_fonts/font = SubResource( 15 )
+custom_fonts/font = SubResource( 20 )
 text = "Time since last oil refill: "
 
 [node name="Value" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat6/StatOil"]
@@ -2487,7 +2488,7 @@ margin_left = 230.0
 margin_top = 16.0
 margin_right = 302.0
 margin_bottom = 41.0
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 21 )
 custom_colors/font_color = Color( 0.278431, 0.890196, 0.192157, 1 )
 text = "31 days"
 align = 1
@@ -2505,7 +2506,7 @@ margin_left = 767.0
 margin_top = 16.0
 margin_right = 904.0
 margin_bottom = 41.0
-custom_fonts/font = SubResource( 16 )
+custom_fonts/font = SubResource( 21 )
 text = "Center display"
 align = 1
 valign = 1
@@ -2527,7 +2528,7 @@ margin_left = 1262.88
 margin_top = 690.439
 margin_right = 1293.88
 margin_bottom = 722.439
-custom_fonts/font = SubResource( 17 )
+custom_fonts/font = SubResource( 22 )
 custom_colors/font_color = Color( 0.945098, 0.309804, 0.188235, 1 )
 text = "R"
 align = 1
