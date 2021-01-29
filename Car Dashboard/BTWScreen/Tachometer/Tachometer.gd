@@ -29,8 +29,8 @@ func rpm_changed(new_rpm):
 		elif ((segment.get_index() + 1) * 20) - new_rpm < 20:
 			segment.value = new_rpm -  (segment.get_index() * 20)
 		else:
-			 break # not sure if good idea
+			 segment.value = 0
 	pass
 
 func _on_Accelerometer_speed_changed(new_speed):
-	rpm_changed(new_speed * 0.65)
+	rpm_changed(new_speed * 0.60)
