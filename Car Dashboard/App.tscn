@@ -1066,7 +1066,7 @@ one_shot = true
 [node name="Controls" type="PanelContainer" parent="BTWScreen"]
 margin_left = 20.0
 margin_top = 61.0
-margin_right = 128.0
+margin_right = 250.0
 margin_bottom = 561.0
 script = ExtResource( 44 )
 __meta__ = {
@@ -1076,7 +1076,7 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/Controls"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 253.0
+margin_right = 223.0
 margin_bottom = 493.0
 
 [node name="LEDControl" type="VBoxContainer" parent="BTWScreen/Controls/HBoxContainer"]
