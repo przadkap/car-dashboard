@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://BTWScreen/Accelerometer/Accelerometer.gd" type="Script" id=1]
 [ext_resource path="res://App.gd" type="Script" id=2]
@@ -34,7 +34,7 @@
 [ext_resource path="res://images/maps_small.png" type="Texture" id=32]
 [ext_resource path="res://images/statistics_small.png" type="Texture" id=33]
 [ext_resource path="res://images/music_small.png" type="Texture" id=34]
-[ext_resource path="res://images/led_power_off.png" type="Texture" id=35]
+[ext_resource path="res://images/led_battery_off.png" type="Texture" id=35]
 [ext_resource path="res://images/led_lights_on.png" type="Texture" id=36]
 [ext_resource path="res://images/led_engine_off.png" type="Texture" id=37]
 [ext_resource path="res://images/led_abs_off.png" type="Texture" id=38]
@@ -43,6 +43,11 @@
 [ext_resource path="res://images/statistics.png" type="Texture" id=41]
 [ext_resource path="res://images/maps.png" type="Texture" id=42]
 [ext_resource path="res://images/phone_green.png" type="Texture" id=43]
+[ext_resource path="res://BTWScreen/Controls.gd" type="Script" id=44]
+[ext_resource path="res://images/led_engine_on.png" type="Texture" id=45]
+[ext_resource path="res://images/led_abs_on.png" type="Texture" id=46]
+[ext_resource path="res://images/led_oil_on.png" type="Texture" id=47]
+[ext_resource path="res://images/led_battery_on.png" type="Texture" id=48]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 20.0
@@ -461,7 +466,7 @@ margin_bottom = 88.0
 texture = ExtResource( 39 )
 stretch_mode = 4
 
-[node name="Power" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
+[node name="Battery" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
 margin_left = 255.0
 margin_right = 330.0
 margin_bottom = 88.0
@@ -1052,6 +1057,198 @@ autostart = true
 wait_time = 10.0
 one_shot = true
 
+[node name="Controls" type="PanelContainer" parent="BTWScreen"]
+margin_left = 20.0
+margin_top = 61.0
+margin_right = 128.0
+margin_bottom = 561.0
+script = ExtResource( 44 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BTWScreen/Controls"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 101.0
+margin_bottom = 493.0
+
+[node name="EngineControl" type="PanelContainer" parent="BTWScreen/Controls/VBoxContainer"]
+margin_right = 94.0
+margin_bottom = 94.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/Controls/VBoxContainer/EngineControl"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 87.0
+margin_bottom = 87.0
+
+[node name="EngineButton" type="Button" parent="BTWScreen/Controls/VBoxContainer/EngineControl/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+focus_mode = 1
+toggle_mode = true
+enabled_focus_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="BTWScreen/Controls/VBoxContainer/EngineControl/HBoxContainer/EngineButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -37.5
+margin_top = -37.5
+margin_right = 37.5
+margin_bottom = 37.5
+texture = ExtResource( 45 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LightControl" type="PanelContainer" parent="BTWScreen/Controls/VBoxContainer"]
+margin_top = 98.0
+margin_right = 94.0
+margin_bottom = 192.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/Controls/VBoxContainer/LightControl"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 87.0
+margin_bottom = 87.0
+
+[node name="LightButton" type="Button" parent="BTWScreen/Controls/VBoxContainer/LightControl/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+focus_mode = 1
+toggle_mode = true
+pressed = true
+enabled_focus_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="BTWScreen/Controls/VBoxContainer/LightControl/HBoxContainer/LightButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -37.5
+margin_top = -37.5
+margin_right = 37.5
+margin_bottom = 37.5
+texture = ExtResource( 36 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OilControl" type="PanelContainer" parent="BTWScreen/Controls/VBoxContainer"]
+margin_top = 196.0
+margin_right = 94.0
+margin_bottom = 290.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/Controls/VBoxContainer/OilControl"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 87.0
+margin_bottom = 87.0
+
+[node name="OilButton" type="Button" parent="BTWScreen/Controls/VBoxContainer/OilControl/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+focus_mode = 1
+toggle_mode = true
+enabled_focus_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="BTWScreen/Controls/VBoxContainer/OilControl/HBoxContainer/OilButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -37.5
+margin_top = -37.5
+margin_right = 37.5
+margin_bottom = 37.5
+texture = ExtResource( 47 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BatteryControl" type="PanelContainer" parent="BTWScreen/Controls/VBoxContainer"]
+margin_top = 294.0
+margin_right = 94.0
+margin_bottom = 388.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/Controls/VBoxContainer/BatteryControl"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 87.0
+margin_bottom = 87.0
+
+[node name="BatteryButton" type="Button" parent="BTWScreen/Controls/VBoxContainer/BatteryControl/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+focus_mode = 1
+toggle_mode = true
+enabled_focus_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="BTWScreen/Controls/VBoxContainer/BatteryControl/HBoxContainer/BatteryButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -37.5
+margin_top = -37.5
+margin_right = 37.5
+margin_bottom = 37.5
+texture = ExtResource( 48 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ABSControl" type="PanelContainer" parent="BTWScreen/Controls/VBoxContainer"]
+margin_top = 392.0
+margin_right = 94.0
+margin_bottom = 486.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/Controls/VBoxContainer/ABSControl"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 87.0
+margin_bottom = 87.0
+
+[node name="ABSButton" type="Button" parent="BTWScreen/Controls/VBoxContainer/ABSControl/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+focus_mode = 1
+toggle_mode = true
+enabled_focus_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="BTWScreen/Controls/VBoxContainer/ABSControl/HBoxContainer/ABSButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -37.5
+margin_top = -37.5
+margin_right = 37.5
+margin_bottom = 37.5
+texture = ExtResource( 46 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="MultimediaScreen" type="Control" parent="."]
 margin_left = 1500.0
 margin_right = 3000.0
@@ -1138,10 +1335,9 @@ icon = ExtResource( 41 )
 
 [node name="Button6" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
 visible = false
-margin_left = 992.0
-margin_top = 395.0
-margin_right = 1398.0
-margin_bottom = 700.0
+margin_top = 780.0
+margin_right = 700.0
+margin_bottom = 1080.0
 rect_min_size = Vector2( 300, 300 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -2536,6 +2732,17 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ShowControl" type="Button" parent="."]
+margin_left = 20.0
+margin_top = 17.0
+margin_right = 128.0
+margin_bottom = 61.0
+toggle_mode = true
+text = "Show Controls"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="km_changed" from="." to="BTWScreen/CentralDisplay" method="_on_App_km_changed"]
 [connection signal="km_changed" from="." to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_App_km_changed"]
 [connection signal="turn_left" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_left"]
@@ -2557,6 +2764,11 @@ __meta__ = {
 [connection signal="timeout" from="BTWScreen/KMTimer" to="." method="_on_KMTimer_timeout"]
 [connection signal="timeout" from="BTWScreen/FuelTimer" to="BTWScreen/FuelMeter" method="_on_FuelTimer_timeout"]
 [connection signal="timeout" from="BTWScreen/StopDistanceTimer" to="." method="_on_StopDistanceTimer_timeout"]
+[connection signal="toggled" from="BTWScreen/Controls/VBoxContainer/EngineControl/HBoxContainer/EngineButton" to="." method="_on_EngineButton_toggled"]
+[connection signal="toggled" from="BTWScreen/Controls/VBoxContainer/LightControl/HBoxContainer/LightButton" to="." method="_on_LightButton_toggled"]
+[connection signal="toggled" from="BTWScreen/Controls/VBoxContainer/OilControl/HBoxContainer/OilButton" to="." method="_on_OilButton_toggled"]
+[connection signal="toggled" from="BTWScreen/Controls/VBoxContainer/BatteryControl/HBoxContainer/BatteryButton" to="." method="_on_BatteryButton_toggled"]
+[connection signal="toggled" from="BTWScreen/Controls/VBoxContainer/ABSControl/HBoxContainer/ABSButton" to="." method="_on_ABSButton_toggled"]
 [connection signal="content_changed" from="MultimediaScreen" to="MultimediaScreen/PanelContainer" method="_on_MultimediaScreen_content_changed"]
 [connection signal="content_changed" from="MultimediaScreen" to="MultimediaScreen/PanelContainer/SideSeparator/Content" method="_on_MultimediaScreen_content_changed"]
 [connection signal="music_toggled" from="MultimediaScreen" to="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" method="_on_MultimediaScreen_music_toggled"]
@@ -2584,3 +2796,4 @@ __meta__ = {
 [connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat5/StatMaintenance/DisplayButton5" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton5_toggled"]
 [connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat6/StatOil/DisplayButton6" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton6_toggled"]
 [connection signal="finished" from="MultimediaScreen/MusicAudio" to="MultimediaScreen" method="_on_MusicAudio_finished"]
+[connection signal="toggled" from="ShowControl" to="BTWScreen/Controls" method="_on_ShowControl_toggled"]

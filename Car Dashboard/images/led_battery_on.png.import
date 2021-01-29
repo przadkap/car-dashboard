@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/led_power_off.png-fe88ccf92eeb5cb16432a11e17098be0.stex"
+path="res://.import/led_battery_on.png-104c0031c9a5758aeafa6b48e190f730.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/led_power_off.png"
-dest_files=[ "res://.import/led_power_off.png-fe88ccf92eeb5cb16432a11e17098be0.stex" ]
+source_file="res://images/led_battery_on.png"
+dest_files=[ "res://.import/led_battery_on.png-104c0031c9a5758aeafa6b48e190f730.stex" ]
 
 [params]
 

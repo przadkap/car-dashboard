@@ -44,3 +44,39 @@ func _on_StopDistanceTimer_timeout():
 
 func _on_Accelerometer_accelerate_stop():
 	$BTWScreen/StopDistanceTimer.start()
+
+
+func _on_EngineButton_toggled(button_pressed):
+	if(button_pressed):
+		$BTWScreen/LEDs/HBoxContainer/Engine.texture = load("res://images/led_engine_on.png")
+	else:
+		$BTWScreen/LEDs/HBoxContainer/Engine.texture = load("res://images/led_engine_off.png")
+		
+
+
+func _on_LightButton_toggled(button_pressed):
+	if(button_pressed):
+		$BTWScreen/LEDs/HBoxContainer/Light.texture = load("res://images/led_lights_on.png")
+	else:
+		$BTWScreen/LEDs/HBoxContainer/Light.texture = load("res://images/led_lights_off.png")
+
+
+func _on_OilButton_toggled(button_pressed):
+	if(button_pressed):
+		$BTWScreen/LEDs/HBoxContainer/Oil.texture = load("res://images/led_oil_on.png")
+	else:
+		$BTWScreen/LEDs/HBoxContainer/Oil.texture = load("res://images/led_oil_off.png")
+
+
+func _on_BatteryButton_toggled(button_pressed):
+	if(button_pressed):
+		$BTWScreen/LEDs/HBoxContainer/Battery.texture = load("res://images/led_battery_on.png")
+	else:
+		$BTWScreen/LEDs/HBoxContainer/Battery.texture = load("res://images/led_battery_off.png")
+
+
+func _on_ABSButton_toggled(button_pressed):
+	if(button_pressed):
+		$BTWScreen/LEDs/HBoxContainer/ABS.texture = load("res://images/led_abs_on.png")
+	else:
+		$BTWScreen/LEDs/HBoxContainer/ABS.texture = load("res://images/led_abs_off.png")
