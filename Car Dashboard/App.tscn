@@ -906,6 +906,7 @@ stretch_mode = 4
 [node name="BlinkTimer" type="Timer" parent="BTWScreen/WarningLED"]
 
 [node name="AccelerateButton" type="Button" parent="BTWScreen"]
+visible = false
 margin_left = 566.979
 margin_top = 715.0
 margin_right = 699.979
@@ -918,6 +919,7 @@ __meta__ = {
 }
 
 [node name="AccelerateButton2" type="Button" parent="BTWScreen"]
+visible = false
 margin_left = 841.141
 margin_top = 715.0
 margin_right = 971.141
@@ -1068,28 +1070,31 @@ margin_right = 128.0
 margin_bottom = 561.0
 script = ExtResource( 44 )
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BTWScreen/Controls"]
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/Controls"]
 margin_left = 7.0
 margin_top = 7.0
-margin_right = 101.0
+margin_right = 253.0
 margin_bottom = 493.0
 
-[node name="EngineControl" type="PanelContainer" parent="BTWScreen/Controls/VBoxContainer"]
+[node name="LEDControl" type="VBoxContainer" parent="BTWScreen/Controls/HBoxContainer"]
+margin_right = 94.0
+margin_bottom = 486.0
+
+[node name="EngineControl" type="PanelContainer" parent="BTWScreen/Controls/HBoxContainer/LEDControl"]
 margin_right = 94.0
 margin_bottom = 94.0
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/Controls/VBoxContainer/EngineControl"]
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/Controls/HBoxContainer/LEDControl/EngineControl"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 87.0
 margin_bottom = 87.0
 
-[node name="EngineButton" type="Button" parent="BTWScreen/Controls/VBoxContainer/EngineControl/HBoxContainer"]
+[node name="EngineButton" type="Button" parent="BTWScreen/Controls/HBoxContainer/LEDControl/EngineControl/HBoxContainer"]
 margin_right = 80.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
@@ -1097,7 +1102,7 @@ focus_mode = 1
 toggle_mode = true
 enabled_focus_mode = 1
 
-[node name="TextureRect" type="TextureRect" parent="BTWScreen/Controls/VBoxContainer/EngineControl/HBoxContainer/EngineButton"]
+[node name="TextureRect" type="TextureRect" parent="BTWScreen/Controls/HBoxContainer/LEDControl/EngineControl/HBoxContainer/EngineButton"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1112,19 +1117,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LightControl" type="PanelContainer" parent="BTWScreen/Controls/VBoxContainer"]
+[node name="LightControl" type="PanelContainer" parent="BTWScreen/Controls/HBoxContainer/LEDControl"]
 margin_top = 98.0
 margin_right = 94.0
 margin_bottom = 192.0
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/Controls/VBoxContainer/LightControl"]
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/Controls/HBoxContainer/LEDControl/LightControl"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 87.0
 margin_bottom = 87.0
 
-[node name="LightButton" type="Button" parent="BTWScreen/Controls/VBoxContainer/LightControl/HBoxContainer"]
+[node name="LightButton" type="Button" parent="BTWScreen/Controls/HBoxContainer/LEDControl/LightControl/HBoxContainer"]
 margin_right = 80.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
@@ -1133,7 +1138,7 @@ toggle_mode = true
 pressed = true
 enabled_focus_mode = 1
 
-[node name="TextureRect" type="TextureRect" parent="BTWScreen/Controls/VBoxContainer/LightControl/HBoxContainer/LightButton"]
+[node name="TextureRect" type="TextureRect" parent="BTWScreen/Controls/HBoxContainer/LEDControl/LightControl/HBoxContainer/LightButton"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1148,19 +1153,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="OilControl" type="PanelContainer" parent="BTWScreen/Controls/VBoxContainer"]
+[node name="OilControl" type="PanelContainer" parent="BTWScreen/Controls/HBoxContainer/LEDControl"]
 margin_top = 196.0
 margin_right = 94.0
 margin_bottom = 290.0
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/Controls/VBoxContainer/OilControl"]
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/Controls/HBoxContainer/LEDControl/OilControl"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 87.0
 margin_bottom = 87.0
 
-[node name="OilButton" type="Button" parent="BTWScreen/Controls/VBoxContainer/OilControl/HBoxContainer"]
+[node name="OilButton" type="Button" parent="BTWScreen/Controls/HBoxContainer/LEDControl/OilControl/HBoxContainer"]
 margin_right = 80.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
@@ -1168,7 +1173,7 @@ focus_mode = 1
 toggle_mode = true
 enabled_focus_mode = 1
 
-[node name="TextureRect" type="TextureRect" parent="BTWScreen/Controls/VBoxContainer/OilControl/HBoxContainer/OilButton"]
+[node name="TextureRect" type="TextureRect" parent="BTWScreen/Controls/HBoxContainer/LEDControl/OilControl/HBoxContainer/OilButton"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1183,19 +1188,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BatteryControl" type="PanelContainer" parent="BTWScreen/Controls/VBoxContainer"]
+[node name="BatteryControl" type="PanelContainer" parent="BTWScreen/Controls/HBoxContainer/LEDControl"]
 margin_top = 294.0
 margin_right = 94.0
 margin_bottom = 388.0
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/Controls/VBoxContainer/BatteryControl"]
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/Controls/HBoxContainer/LEDControl/BatteryControl"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 87.0
 margin_bottom = 87.0
 
-[node name="BatteryButton" type="Button" parent="BTWScreen/Controls/VBoxContainer/BatteryControl/HBoxContainer"]
+[node name="BatteryButton" type="Button" parent="BTWScreen/Controls/HBoxContainer/LEDControl/BatteryControl/HBoxContainer"]
 margin_right = 80.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
@@ -1203,7 +1208,7 @@ focus_mode = 1
 toggle_mode = true
 enabled_focus_mode = 1
 
-[node name="TextureRect" type="TextureRect" parent="BTWScreen/Controls/VBoxContainer/BatteryControl/HBoxContainer/BatteryButton"]
+[node name="TextureRect" type="TextureRect" parent="BTWScreen/Controls/HBoxContainer/LEDControl/BatteryControl/HBoxContainer/BatteryButton"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1218,19 +1223,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ABSControl" type="PanelContainer" parent="BTWScreen/Controls/VBoxContainer"]
+[node name="ABSControl" type="PanelContainer" parent="BTWScreen/Controls/HBoxContainer/LEDControl"]
 margin_top = 392.0
 margin_right = 94.0
 margin_bottom = 486.0
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/Controls/VBoxContainer/ABSControl"]
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/Controls/HBoxContainer/LEDControl/ABSControl"]
 margin_left = 7.0
 margin_top = 7.0
 margin_right = 87.0
 margin_bottom = 87.0
 
-[node name="ABSButton" type="Button" parent="BTWScreen/Controls/VBoxContainer/ABSControl/HBoxContainer"]
+[node name="ABSButton" type="Button" parent="BTWScreen/Controls/HBoxContainer/LEDControl/ABSControl/HBoxContainer"]
 margin_right = 80.0
 margin_bottom = 80.0
 rect_min_size = Vector2( 80, 80 )
@@ -1238,7 +1243,7 @@ focus_mode = 1
 toggle_mode = true
 enabled_focus_mode = 1
 
-[node name="TextureRect" type="TextureRect" parent="BTWScreen/Controls/VBoxContainer/ABSControl/HBoxContainer/ABSButton"]
+[node name="TextureRect" type="TextureRect" parent="BTWScreen/Controls/HBoxContainer/LEDControl/ABSControl/HBoxContainer/ABSButton"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1252,6 +1257,52 @@ stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="VSeparator" type="VSeparator" parent="BTWScreen/Controls/HBoxContainer"]
+margin_left = 98.0
+margin_right = 118.0
+margin_bottom = 486.0
+custom_constants/separation = 20
+
+[node name="CarControl" type="VBoxContainer" parent="BTWScreen/Controls/HBoxContainer"]
+margin_left = 122.0
+margin_right = 216.0
+margin_bottom = 486.0
+rect_min_size = Vector2( 94, 0 )
+
+[node name="Accelerate" type="Button" parent="BTWScreen/Controls/HBoxContainer/CarControl"]
+margin_right = 94.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 94, 94 )
+text = "Accelerate"
+
+[node name="Decelerate" type="Button" parent="BTWScreen/Controls/HBoxContainer/CarControl"]
+margin_top = 98.0
+margin_right = 94.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 94, 94 )
+text = "Decelerate"
+
+[node name="TurnRight" type="Button" parent="BTWScreen/Controls/HBoxContainer/CarControl"]
+margin_top = 196.0
+margin_right = 94.0
+margin_bottom = 290.0
+rect_min_size = Vector2( 94, 94 )
+text = "Turn Right"
+
+[node name="TurnLeft" type="Button" parent="BTWScreen/Controls/HBoxContainer/CarControl"]
+margin_top = 294.0
+margin_right = 94.0
+margin_bottom = 388.0
+rect_min_size = Vector2( 94, 94 )
+text = "Turn Left"
+
+[node name="TurnStop" type="Button" parent="BTWScreen/Controls/HBoxContainer/CarControl"]
+margin_top = 392.0
+margin_right = 94.0
+margin_bottom = 486.0
+rect_min_size = Vector2( 94, 94 )
+text = "Stop Turning"
 
 [node name="MultimediaScreen" type="Control" parent="."]
 margin_left = 1500.0
@@ -2769,11 +2820,16 @@ __meta__ = {
 [connection signal="timeout" from="BTWScreen/KMTimer" to="." method="_on_KMTimer_timeout"]
 [connection signal="timeout" from="BTWScreen/FuelTimer" to="BTWScreen/FuelMeter" method="_on_FuelTimer_timeout"]
 [connection signal="timeout" from="BTWScreen/StopDistanceTimer" to="." method="_on_StopDistanceTimer_timeout"]
-[connection signal="toggled" from="BTWScreen/Controls/VBoxContainer/EngineControl/HBoxContainer/EngineButton" to="." method="_on_EngineButton_toggled"]
-[connection signal="toggled" from="BTWScreen/Controls/VBoxContainer/LightControl/HBoxContainer/LightButton" to="." method="_on_LightButton_toggled"]
-[connection signal="toggled" from="BTWScreen/Controls/VBoxContainer/OilControl/HBoxContainer/OilButton" to="." method="_on_OilButton_toggled"]
-[connection signal="toggled" from="BTWScreen/Controls/VBoxContainer/BatteryControl/HBoxContainer/BatteryButton" to="." method="_on_BatteryButton_toggled"]
-[connection signal="toggled" from="BTWScreen/Controls/VBoxContainer/ABSControl/HBoxContainer/ABSButton" to="." method="_on_ABSButton_toggled"]
+[connection signal="toggled" from="BTWScreen/Controls/HBoxContainer/LEDControl/EngineControl/HBoxContainer/EngineButton" to="." method="_on_EngineButton_toggled"]
+[connection signal="toggled" from="BTWScreen/Controls/HBoxContainer/LEDControl/LightControl/HBoxContainer/LightButton" to="." method="_on_LightButton_toggled"]
+[connection signal="toggled" from="BTWScreen/Controls/HBoxContainer/LEDControl/OilControl/HBoxContainer/OilButton" to="." method="_on_OilButton_toggled"]
+[connection signal="toggled" from="BTWScreen/Controls/HBoxContainer/LEDControl/BatteryControl/HBoxContainer/BatteryButton" to="." method="_on_BatteryButton_toggled"]
+[connection signal="toggled" from="BTWScreen/Controls/HBoxContainer/LEDControl/ABSControl/HBoxContainer/ABSButton" to="." method="_on_ABSButton_toggled"]
+[connection signal="pressed" from="BTWScreen/Controls/HBoxContainer/CarControl/Accelerate" to="BTWScreen/Accelerometer" method="_on_Accelerate_pressed"]
+[connection signal="pressed" from="BTWScreen/Controls/HBoxContainer/CarControl/Decelerate" to="BTWScreen/Accelerometer" method="_on_Decelerate_pressed"]
+[connection signal="pressed" from="BTWScreen/Controls/HBoxContainer/CarControl/TurnRight" to="." method="_on_TurnRight_pressed"]
+[connection signal="pressed" from="BTWScreen/Controls/HBoxContainer/CarControl/TurnLeft" to="." method="_on_TurnLeft_pressed"]
+[connection signal="pressed" from="BTWScreen/Controls/HBoxContainer/CarControl/TurnStop" to="." method="_on_TurnStop_pressed"]
 [connection signal="content_changed" from="MultimediaScreen" to="MultimediaScreen/PanelContainer" method="_on_MultimediaScreen_content_changed"]
 [connection signal="content_changed" from="MultimediaScreen" to="MultimediaScreen/PanelContainer/SideSeparator/Content" method="_on_MultimediaScreen_content_changed"]
 [connection signal="music_toggled" from="MultimediaScreen" to="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" method="_on_MultimediaScreen_music_toggled"]

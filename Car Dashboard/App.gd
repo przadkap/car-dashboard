@@ -107,3 +107,15 @@ func warning_toggled(button_pressed):
 			$BTWScreen/WarningLED/BlinkTimer.stop()
 			$BTWScreen/WarningLED.reset_texture()
 	print("active after: ", warning_leds_active)
+
+
+func _on_TurnRight_pressed():
+	emit_signal("turn_right")
+
+
+func _on_TurnLeft_pressed():
+	emit_signal("turn_left")
+
+
+func _on_TurnStop_pressed():
+	emit_signal("turn_off")
