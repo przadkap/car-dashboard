@@ -9,8 +9,12 @@ func _ready():
 
 
 func _on_Timer_timeout():
+#	animation_progress = (animation_progress + 1) % 4
+#	text = "Calling " + contact_name
+#	for _dot in range(0, animation_progress):
+#		text += "."
 	animation_progress = (animation_progress + 1) % 4
-	text = "Calling " + contact_name
+	text = "Calling"
 	for _dot in range(0, animation_progress):
 		text += "."
 
@@ -18,4 +22,5 @@ func _toggled(button_pressed):
 	if not(button_pressed):
 		text = "Call"
 	else:
-		text = "Calling " + contact_name
+		animation_progress = 0
+		text = "Calling"

@@ -4,12 +4,22 @@ signal music_toggle
 signal switch_song
 signal music_toggled
 
+var play_texture = preload("res://images/play4.png")
+var pause_texture = preload("res://images/pause2.png")
+
+var playing = false
+
 func _ready():
 	pass # Replace with function body.
 
 
 func _on_PlayPause_pressed():
 	emit_signal("music_toggle")
+	playing = !playing
+	if(playing):
+		$MasterHBox/VBoxMiddle/PlayPause/PlayPause/TextureRect.texture = pause_texture
+	else:
+		$MasterHBox/VBoxMiddle/PlayPause/PlayPause/TextureRect.texture = play_texture
 
 
 func _on_PreviousSong_pressed():
@@ -36,3 +46,4 @@ func _on_MultimediaScreen_song_data_changed(title, length):
 
 func _on_MultimediaScreen_music_toggled(song_stopped):
 	emit_signal("music_toggled", song_stopped)
+

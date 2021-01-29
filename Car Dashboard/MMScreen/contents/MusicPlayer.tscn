@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://MMScreen/SongProgress.gd" type="Script" id=1]
 [ext_resource path="res://MMScreen/MusicPlayer.gd" type="Script" id=2]
-[ext_resource path="res://images/icon.png" type="Texture" id=3]
+[ext_resource path="res://images/disc3.png" type="Texture" id=3]
 [ext_resource path="res://fonts/BaseFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://images/play4.png" type="Texture" id=5]
+[ext_resource path="res://images/forward.png" type="Texture" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_top = 20.0
@@ -52,6 +54,22 @@ focus_mode = 1
 enabled_focus_mode = 1
 text = "Previous"
 
+[node name="TextureRect" type="TextureRect" parent="MasterHBox/PreviousSong/PreviousSong"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -116.0
+margin_top = -331.0
+margin_right = 105.0
+margin_bottom = 331.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="VBoxMiddle" type="VBoxContainer" parent="MasterHBox"]
 margin_left = 270.0
 margin_right = 804.0
@@ -74,7 +92,7 @@ margin_right = 527.0
 margin_bottom = 325.0
 texture = ExtResource( 3 )
 expand = true
-stretch_mode = 6
+stretch_mode = 4
 
 [node name="SongTitle" type="PanelContainer" parent="MasterHBox/VBoxMiddle"]
 margin_top = 336.0
@@ -208,15 +226,9 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="MasterHBox/VBoxMiddle/PlayPause/PlayPause"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -32.0
-margin_top = -32.0
-margin_right = 32.0
-margin_bottom = 32.0
-texture = ExtResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
 stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
@@ -236,7 +248,21 @@ margin_right = 260.0
 margin_bottom = 669.0
 focus_mode = 1
 enabled_focus_mode = 1
-text = "Next"
+
+[node name="TextureRect" type="TextureRect" parent="MasterHBox/NextSong/NextSong"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -109.5
+margin_top = -331.0
+margin_right = 126.5
+margin_bottom = 331.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="music_toggled" from="." to="MasterHBox/VBoxMiddle/SongProgress" method="_on_MusicPlayer_music_toggled"]
 [connection signal="pressed" from="MasterHBox/PreviousSong/PreviousSong" to="." method="_on_PreviousSong_pressed"]
 [connection signal="timeout" from="MasterHBox/VBoxMiddle/SongProgress/ProgressTimer" to="MasterHBox/VBoxMiddle/SongProgress" method="_on_ProgressTimer_timeout"]

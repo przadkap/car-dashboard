@@ -7,7 +7,7 @@ extends PanelContainer
 var scenes 
 
 
-var current_scene_name = "statistics"
+var current_scene_name = "none"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,7 +15,8 @@ func _ready():
 		"gps": $GPS,
 		"music": $MusicPlayer,
 		"phone": $Phone,
-		"statistics": $Statistics
+		"statistics": $Statistics,
+		"none": null
 	}
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,8 +27,8 @@ func _ready():
 func _on_MultimediaScreen_content_changed(scene_name):
 	if current_scene_name == scene_name:
 		return
-	
-	scenes[current_scene_name].hide()
+	if scenes[current_scene_name] != null:
+		scenes[current_scene_name].hide()
 	scenes[scene_name].show()
 	
 	current_scene_name = scene_name

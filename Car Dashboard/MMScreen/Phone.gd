@@ -14,8 +14,8 @@ func _ready():
 
 func _on_Call_toggled(button_pressed):
 	if(button_pressed):
-		emit_signal("call_toggled", true)
+		emit_signal("call_toggled", button_pressed)
 		$CallAudio.play()
 	else:
-		emit_signal("call_toggled", false)
+		emit_signal("call_toggled", button_pressed)
 		$CallAudio.stop()
