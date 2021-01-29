@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/sexy.ogg-4efc16d0ad200aec1cc4b3e3559fd9f3.oggstr"
+
+[deps]
+
+source_file="res://music/sexy.ogg"
+dest_files=[ "res://.import/sexy.ogg-4efc16d0ad200aec1cc4b3e3559fd9f3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

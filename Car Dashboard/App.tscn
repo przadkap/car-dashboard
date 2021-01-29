@@ -1,0 +1,2860 @@
+[gd_scene load_steps=72 format=2]
+
+[ext_resource path="res://BTWScreen/Accelerometer/Accelerometer.gd" type="Script" id=1]
+[ext_resource path="res://App.gd" type="Script" id=2]
+[ext_resource path="res://MMScreen/Content.gd" type="Script" id=3]
+[ext_resource path="res://MMScreen/contents/MusicPlayer.tscn" type="PackedScene" id=4]
+[ext_resource path="res://MMScreen/Phone.tscn" type="PackedScene" id=5]
+[ext_resource path="res://MMScreen/styleboxes/multimedia_tiles.tres" type="StyleBox" id=6]
+[ext_resource path="res://MMScreen/styleboxes/multimedia_sidebar.tres" type="StyleBox" id=7]
+[ext_resource path="res://BTWScreen/styleboxes/level-1.tres" type="StyleBox" id=8]
+[ext_resource path="res://BTWScreen/FuelDigits.gd" type="Script" id=9]
+[ext_resource path="res://BTWScreen/TurnLeft.gd" type="Script" id=10]
+[ext_resource path="res://BTWScreen/FuelMeter/FuelMeter.gd" type="Script" id=11]
+[ext_resource path="res://BTWScreen/MultimediaScreen.gd" type="Script" id=12]
+[ext_resource path="res://BTWScreen/SpeedDigits.gd" type="Script" id=13]
+[ext_resource path="res://BTWScreen/Tachometer/Tachometer.gd" type="Script" id=14]
+[ext_resource path="res://BTWScreen/TurnRight.gd" type="Script" id=15]
+[ext_resource path="res://MMScreen/PanelContainer.gd" type="Script" id=16]
+[ext_resource path="res://fonts/Inter-V.ttf" type="DynamicFontData" id=17]
+[ext_resource path="res://images/icon.png" type="Texture" id=18]
+[ext_resource path="res://images/turn_idle.png" type="Texture" id=19]
+[ext_resource path="res://images/turn_active.png" type="Texture" id=20]
+[ext_resource path="res://images/BTWMask.png" type="Texture" id=21]
+[ext_resource path="res://images/circle_black.png" type="Texture" id=22]
+[ext_resource path="res://MMScreen/GPS.gd" type="Script" id=23]
+[ext_resource path="res://MMScreen/styleboxes/buttons/warning-normal.stylebox" type="StyleBox" id=24]
+[ext_resource path="res://MMScreen/styleboxes/inactive.stylebox" type="StyleBox" id=25]
+[ext_resource path="res://MMScreen/styleboxes/buttons/warning-hover.tres" type="StyleBox" id=26]
+[ext_resource path="res://MMScreen/styleboxes/buttons/warning-pressed.stylebox" type="StyleBox" id=27]
+[ext_resource path="res://MMScreen/Statistics.gd" type="Script" id=28]
+[ext_resource path="res://CentralDisplay.gd" type="Script" id=29]
+[ext_resource path="res://images/phone_green_small.png" type="Texture" id=30]
+[ext_resource path="res://images/music.png" type="Texture" id=31]
+[ext_resource path="res://images/maps_small.png" type="Texture" id=32]
+[ext_resource path="res://images/statistics_small.png" type="Texture" id=33]
+[ext_resource path="res://images/music_small.png" type="Texture" id=34]
+[ext_resource path="res://images/led_battery_off.png" type="Texture" id=35]
+[ext_resource path="res://images/led_lights_on.png" type="Texture" id=36]
+[ext_resource path="res://images/led_engine_off.png" type="Texture" id=37]
+[ext_resource path="res://images/led_abs_off.png" type="Texture" id=38]
+[ext_resource path="res://images/led_oil_off.png" type="Texture" id=39]
+[ext_resource path="res://images/led_warning_off.png" type="Texture" id=40]
+[ext_resource path="res://images/statistics.png" type="Texture" id=41]
+[ext_resource path="res://images/maps.png" type="Texture" id=42]
+[ext_resource path="res://images/phone_green.png" type="Texture" id=43]
+[ext_resource path="res://BTWScreen/Controls.gd" type="Script" id=44]
+[ext_resource path="res://images/led_engine_on.png" type="Texture" id=45]
+[ext_resource path="res://images/led_abs_on.png" type="Texture" id=46]
+[ext_resource path="res://images/led_oil_on.png" type="Texture" id=47]
+[ext_resource path="res://images/led_battery_on.png" type="Texture" id=48]
+[ext_resource path="res://BTWScreen/WarningLED.gd" type="Script" id=49]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_left = 20.0
+content_margin_right = 20.0
+content_margin_top = 30.0
+content_margin_bottom = 30.0
+bg_color = Color( 0.223529, 0.215686, 0.254902, 1 )
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_size = 3
+
+[sub_resource type="DynamicFont" id=2]
+size = 100
+font_data = ExtResource( 17 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.223529, 0.215686, 0.254902, 1 )
+corner_radius_top_left = 70
+corner_radius_top_right = 70
+corner_radius_bottom_right = 70
+corner_radius_bottom_left = 70
+shadow_size = 3
+
+[sub_resource type="DynamicFont" id=4]
+size = 100
+font_data = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 17 )
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.227451, 0.219608, 0.258824, 1 )
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_size = 3
+
+[sub_resource type="DynamicFont" id=11]
+size = 30
+font_data = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 50
+font_data = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 30
+font_data = ExtResource( 17 )
+
+[sub_resource type="StyleBoxFlat" id=14]
+content_margin_left = 20.0
+content_margin_right = 20.0
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+bg_color = Color( 0.231373, 0.223529, 0.262745, 1 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 20
+font_data = ExtResource( 17 )
+
+[sub_resource type="StyleBoxFlat" id=16]
+content_margin_left = 50.0
+content_margin_right = 50.0
+content_margin_top = 50.0
+content_margin_bottom = 50.0
+bg_color = Color( 0.231373, 0.223529, 0.262745, 1 )
+
+[sub_resource type="StyleBoxFlat" id=17]
+content_margin_left = 20.0
+content_margin_right = 20.0
+content_margin_top = 20.0
+content_margin_bottom = 20.0
+bg_color = Color( 0.235294, 0.227451, 0.266667, 1 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 50
+font_data = ExtResource( 17 )
+
+[sub_resource type="StyleBoxFlat" id=19]
+content_margin_left = 10.0
+content_margin_right = 10.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color( 0.152941, 0.152941, 0.203922, 1 )
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="DynamicFont" id=20]
+size = 20
+font_data = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 20
+font_data = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=22]
+size = 25
+font_data = ExtResource( 17 )
+
+[node name="App" type="Control"]
+margin_left = 2.1189
+margin_top = 1.05946
+margin_right = 3002.12
+margin_bottom = 801.059
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2( 750, 400 )
+current = true
+smoothing_enabled = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="BTWScreen" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Panel" parent="BTWScreen"]
+margin_right = 1500.0
+margin_bottom = 800.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Mask" type="TextureRect" parent="BTWScreen"]
+margin_right = 1500.0
+margin_bottom = 800.0
+texture = ExtResource( 21 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CentralDisplay" type="PanelContainer" parent="BTWScreen"]
+anchor_left = 0.178667
+anchor_top = 0.44375
+anchor_right = 0.33
+anchor_bottom = 0.8125
+margin_top = -3.05176e-05
+rect_pivot_offset = Vector2( 200, 125 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BTWScreen/CentralDisplay"]
+margin_left = 20.0
+margin_top = 30.0
+margin_right = 433.999
+margin_bottom = 265.0
+
+[node name="Hour" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer"]
+margin_top = 56.0
+margin_right = 413.0
+margin_bottom = 178.0
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 2 )
+text = "16:30"
+align = 1
+valign = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="BTWScreen/CentralDisplay/VBoxContainer"]
+visible = false
+margin_top = 193.0
+margin_right = 440.0
+margin_bottom = 235.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 433.0
+margin_bottom = 35.0
+
+[node name="Stat1" type="PanelContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer"]
+visible = false
+margin_right = 426.0
+margin_bottom = 28.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat1"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 419.0
+margin_bottom = 21.0
+
+[node name="Label" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat1/HBoxContainer"]
+margin_right = 65.0
+margin_bottom = 14.0
+text = "KM Today:"
+
+[node name="Value" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat1/HBoxContainer"]
+margin_left = 69.0
+margin_right = 93.0
+margin_bottom = 14.0
+text = "192"
+
+[node name="Stat2" type="PanelContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer"]
+visible = false
+margin_right = 426.0
+margin_bottom = 28.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat2"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 419.0
+margin_bottom = 21.0
+
+[node name="Label" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat2/HBoxContainer"]
+margin_right = 64.0
+margin_bottom = 14.0
+text = "KM Week:"
+
+[node name="Value" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat2/HBoxContainer"]
+margin_left = 68.0
+margin_right = 92.0
+margin_bottom = 14.0
+text = "222"
+
+[node name="Stat3" type="PanelContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer"]
+visible = false
+margin_right = 426.0
+margin_bottom = 28.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat3"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 419.0
+margin_bottom = 21.0
+
+[node name="Label" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat3/HBoxContainer"]
+margin_right = 69.0
+margin_bottom = 14.0
+text = "KM Month:"
+
+[node name="Value" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat3/HBoxContainer"]
+margin_left = 73.0
+margin_right = 105.0
+margin_bottom = 14.0
+text = "6345"
+
+[node name="Stat4" type="PanelContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer"]
+visible = false
+margin_right = 426.0
+margin_bottom = 28.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat4"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 419.0
+margin_bottom = 21.0
+
+[node name="Label" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat4/HBoxContainer"]
+margin_right = 44.0
+margin_bottom = 14.0
+text = "Refuel:"
+
+[node name="Value" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat4/HBoxContainer"]
+margin_left = 48.0
+margin_right = 89.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.976471, 0.152941, 0.152941, 1 )
+text = "2 days"
+
+[node name="Stat5" type="PanelContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer"]
+visible = false
+margin_right = 426.0
+margin_bottom = 28.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat5"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 419.0
+margin_bottom = 21.0
+
+[node name="Label" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat5/HBoxContainer"]
+margin_right = 121.0
+margin_bottom = 14.0
+text = "Last maintenance: "
+
+[node name="Value" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat5/HBoxContainer"]
+margin_left = 125.0
+margin_right = 200.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.282353, 0.862745, 0.160784, 1 )
+text = "31 days ago"
+
+[node name="Stat6" type="PanelContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer"]
+visible = false
+margin_right = 426.0
+margin_bottom = 28.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat6"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 419.0
+margin_bottom = 21.0
+
+[node name="Label" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat6/HBoxContainer"]
+margin_right = 103.0
+margin_bottom = 14.0
+text = "Last oil change: "
+
+[node name="Value" type="Label" parent="BTWScreen/CentralDisplay/VBoxContainer/PanelContainer/VBoxContainer/Stat6/HBoxContainer"]
+margin_left = 107.0
+margin_right = 182.0
+margin_bottom = 14.0
+custom_colors/font_color = Color( 0.282353, 0.862745, 0.160784, 1 )
+text = "31 days ago"
+
+[node name="SpeedDigits" type="PanelContainer" parent="BTWScreen"]
+anchor_left = 0.096661
+anchor_top = 0.539381
+anchor_right = 0.164661
+anchor_bottom = 0.789381
+margin_left = -28.9831
+margin_top = 0.495422
+margin_right = 11.0168
+margin_bottom = 0.495544
+rect_pivot_offset = Vector2( 200, 125 )
+custom_styles/panel = SubResource( 3 )
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/SpeedDigits"]
+margin_right = 244.0
+margin_bottom = 200.0
+
+[node name="Speed" type="Label" parent="BTWScreen/SpeedDigits/HBoxContainer"]
+margin_top = 39.0
+margin_right = 199.0
+margin_bottom = 161.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 5.0
+custom_fonts/font = SubResource( 4 )
+text = "16"
+align = 1
+valign = 1
+
+[node name="Units" type="Label" parent="BTWScreen/SpeedDigits/HBoxContainer"]
+margin_left = 203.0
+margin_top = 90.0
+margin_right = 243.0
+margin_bottom = 110.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/font = SubResource( 5 )
+text = "km/h"
+
+[node name="LEDs" type="PanelContainer" parent="BTWScreen"]
+anchor_left = 0.249783
+anchor_top = 0.222475
+anchor_right = 0.249783
+anchor_bottom = 0.222475
+margin_left = -191.349
+margin_top = 57.0201
+margin_right = 223.651
+margin_bottom = 146.02
+custom_styles/panel = SubResource( 6 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/LEDs"]
+margin_right = 415.0
+margin_bottom = 88.9999
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Engine" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
+margin_right = 75.0
+margin_bottom = 88.0
+texture = ExtResource( 37 )
+stretch_mode = 4
+
+[node name="Light" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
+margin_left = 85.0
+margin_right = 160.0
+margin_bottom = 88.0
+texture = ExtResource( 36 )
+stretch_mode = 4
+
+[node name="Oil" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
+margin_left = 170.0
+margin_right = 245.0
+margin_bottom = 88.0
+texture = ExtResource( 39 )
+stretch_mode = 4
+
+[node name="Battery" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
+margin_left = 255.0
+margin_right = 330.0
+margin_bottom = 88.0
+texture = ExtResource( 35 )
+stretch_mode = 4
+
+[node name="ABS" type="TextureRect" parent="BTWScreen/LEDs/HBoxContainer"]
+margin_left = 340.0
+margin_right = 415.0
+margin_bottom = 88.0
+texture = ExtResource( 38 )
+stretch_mode = 4
+
+[node name="Accelerometer" type="Control" parent="BTWScreen"]
+anchor_right = 0.31
+anchor_bottom = 1.006
+margin_right = 3.0
+margin_bottom = -1.80005
+rect_rotation = 0.2
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Segment1" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 20.3466
+margin_top = 793.34
+margin_right = 70.3466
+margin_bottom = 923.34
+rect_rotation = 270.0
+custom_styles/fg = ExtResource( 8 )
+max_value = 20.0
+value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment2" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 20.9765
+margin_top = 730.508
+margin_right = 70.9765
+margin_bottom = 860.508
+rect_rotation = 273.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment3" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 26.6334
+margin_top = 666.868
+margin_right = 76.6334
+margin_bottom = 796.868
+rect_rotation = 277.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment4" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 37.0164
+margin_top = 603.42
+margin_right = 87.0164
+margin_bottom = 733.42
+rect_rotation = 281.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment5" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 53.9367
+margin_top = 539.316
+margin_right = 103.937
+margin_bottom = 669.316
+rect_rotation = 287.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment6" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 76.7552
+margin_top = 476.458
+margin_right = 126.755
+margin_bottom = 606.458
+rect_rotation = 295.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment7" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 105.193
+margin_top = 417.234
+margin_right = 155.193
+margin_bottom = 547.234
+rect_rotation = 301.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment8" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 136.575
+margin_top = 365.924
+margin_right = 186.575
+margin_bottom = 495.924
+rect_rotation = 303.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment9" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 170.111
+margin_top = 318.044
+margin_right = 220.111
+margin_bottom = 448.044
+rect_rotation = 305.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment10" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 208.415
+margin_top = 271.428
+margin_right = 258.415
+margin_bottom = 401.428
+rect_rotation = 307.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment11" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 248.647
+margin_top = 225.893
+margin_right = 298.647
+margin_bottom = 355.893
+rect_rotation = 311.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment12" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 293.715
+margin_top = 183.821
+margin_right = 343.715
+margin_bottom = 313.821
+rect_rotation = 315.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment13" type="ProgressBar" parent="BTWScreen/Accelerometer"]
+margin_left = 343.985
+margin_top = 144.375
+margin_right = 393.985
+margin_bottom = 274.375
+rect_rotation = 321.0
+max_value = 20.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tachometer" type="Control" parent="BTWScreen"]
+margin_left = 1032.0
+margin_right = 1500.0
+margin_bottom = 803.0
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Segment1" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 317.653
+margin_top = 793.34
+margin_right = 367.653
+margin_bottom = 923.34
+rect_rotation = 270.0
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment2" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 447.023
+margin_top = 600.508
+margin_right = 497.023
+margin_bottom = 730.508
+rect_rotation = 267.0
+rect_pivot_offset = Vector2( 0, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment3" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 441.367
+margin_top = 536.868
+margin_right = 491.367
+margin_bottom = 666.868
+rect_rotation = 263.0
+rect_pivot_offset = Vector2( 0, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment4" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 430.0
+margin_top = 473.42
+margin_right = 480.0
+margin_bottom = 603.42
+rect_rotation = 259.0
+rect_pivot_offset = Vector2( 0, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment5" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 414.0
+margin_top = 409.316
+margin_right = 464.0
+margin_bottom = 539.316
+rect_rotation = 253.0
+rect_pivot_offset = Vector2( 0, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment6" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 391.0
+margin_top = 346.458
+margin_right = 441.0
+margin_bottom = 476.458
+rect_rotation = 245.0
+rect_pivot_offset = Vector2( 0, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment7" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 362.0
+margin_top = 287.234
+margin_right = 412.0
+margin_bottom = 417.234
+rect_rotation = 239.0
+rect_pivot_offset = Vector2( 3.05176e-05, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment8" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 331.0
+margin_top = 235.924
+margin_right = 381.0
+margin_bottom = 365.924
+rect_rotation = 237.0
+rect_pivot_offset = Vector2( 3.05176e-05, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment9" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 297.889
+margin_top = 188.044
+margin_right = 347.889
+margin_bottom = 318.044
+rect_rotation = 235.0
+rect_pivot_offset = Vector2( 3.05176e-05, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment10" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 259.585
+margin_top = 141.428
+margin_right = 309.585
+margin_bottom = 271.428
+rect_rotation = 233.0
+rect_pivot_offset = Vector2( 3.05176e-05, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment11" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 219.353
+margin_top = 95.893
+margin_right = 269.353
+margin_bottom = 225.893
+rect_rotation = 229.0
+rect_pivot_offset = Vector2( 1.52588e-05, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment12" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 174.285
+margin_top = 53.821
+margin_right = 224.285
+margin_bottom = 183.821
+rect_rotation = 225.0
+rect_pivot_offset = Vector2( 0, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment13" type="ProgressBar" parent="BTWScreen/Tachometer"]
+margin_left = 124.015
+margin_top = 14.375
+margin_right = 174.015
+margin_bottom = 144.375
+rect_rotation = 219.0
+rect_pivot_offset = Vector2( 0, 130 )
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TurnLeft" type="PanelContainer" parent="BTWScreen"]
+margin_left = 510.0
+margin_top = 95.0
+margin_right = 610.0
+margin_bottom = 156.0
+custom_styles/panel = SubResource( 7 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="BTWScreen/TurnLeft"]
+margin_right = 100.0
+margin_bottom = 61.0
+texture = ExtResource( 20 )
+stretch_mode = 1
+
+[node name="TurnTimer" type="Timer" parent="BTWScreen/TurnLeft"]
+
+[node name="TurnRight" type="PanelContainer" parent="BTWScreen"]
+margin_left = 890.0
+margin_top = 95.0
+margin_right = 990.0
+margin_bottom = 156.0
+custom_styles/panel = SubResource( 8 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="BTWScreen/TurnRight"]
+margin_right = 100.0
+margin_bottom = 61.0
+texture = ExtResource( 19 )
+flip_h = true
+
+[node name="TurnTimer" type="Timer" parent="BTWScreen/TurnRight"]
+
+[node name="WarningLED" type="PanelContainer" parent="BTWScreen"]
+margin_left = 712.0
+margin_top = 56.0
+margin_right = 790.0
+margin_bottom = 134.0
+custom_styles/panel = SubResource( 9 )
+script = ExtResource( 49 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="LED" type="TextureRect" parent="BTWScreen/WarningLED"]
+margin_right = 78.0
+margin_bottom = 78.0
+texture = ExtResource( 40 )
+stretch_mode = 4
+
+[node name="BlinkTimer" type="Timer" parent="BTWScreen/WarningLED"]
+
+[node name="AccelerateButton" type="Button" parent="BTWScreen"]
+visible = false
+margin_left = 566.979
+margin_top = 715.0
+margin_right = 699.979
+margin_bottom = 770.0
+focus_mode = 1
+enabled_focus_mode = 1
+text = "ACCELERATE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AccelerateButton2" type="Button" parent="BTWScreen"]
+visible = false
+margin_left = 841.141
+margin_top = 715.0
+margin_right = 971.141
+margin_bottom = 770.0
+focus_mode = 1
+enabled_focus_mode = 1
+text = "SLOW DOWN"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FuelMeter" type="Control" parent="BTWScreen"]
+margin_left = 1128.03
+margin_top = 500.502
+margin_right = 1261.03
+margin_bottom = 729.502
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Segment1" type="ProgressBar" parent="BTWScreen/FuelMeter"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -80.0452
+margin_top = -3.91412
+margin_right = -40.0452
+margin_bottom = 76.0859
+rect_rotation = 270.0
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment2" type="ProgressBar" parent="BTWScreen/FuelMeter"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -79.9714
+margin_top = -46.1556
+margin_right = -39.9714
+margin_bottom = 33.8444
+rect_rotation = 267.0
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment3" type="ProgressBar" parent="BTWScreen/FuelMeter"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -81.2524
+margin_top = -87.8118
+margin_right = -41.2524
+margin_bottom = -7.81183
+rect_rotation = 263.0
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment4" type="ProgressBar" parent="BTWScreen/FuelMeter"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -87.3188
+margin_top = -129.32
+margin_right = -47.3188
+margin_bottom = -49.3199
+rect_rotation = 260.0
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Segment5" type="ProgressBar" parent="BTWScreen/FuelMeter"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -94.4622
+margin_top = -170.592
+margin_right = -54.4622
+margin_bottom = -90.5923
+rect_rotation = 257.0
+max_value = 20.0
+step = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpeedCheck" type="Timer" parent="BTWScreen"]
+wait_time = 0.01
+autostart = true
+
+[node name="FuelDigits" type="PanelContainer" parent="BTWScreen"]
+margin_left = 1054.61
+margin_top = 575.145
+margin_right = 1144.61
+margin_bottom = 664.145
+custom_styles/panel = SubResource( 10 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Percentage" type="Label" parent="BTWScreen/FuelDigits"]
+margin_top = 25.0
+margin_right = 90.0
+margin_bottom = 63.0
+custom_fonts/font = SubResource( 11 )
+text = "100%"
+align = 1
+valign = 1
+
+[node name="KMTimer" type="Timer" parent="BTWScreen"]
+wait_time = 15.0
+
+[node name="FuelTimer" type="Timer" parent="BTWScreen"]
+wait_time = 10.0
+autostart = true
+
+[node name="StopDistanceTimer" type="Timer" parent="BTWScreen"]
+wait_time = 10.0
+one_shot = true
+
+[node name="Controls" type="PanelContainer" parent="BTWScreen"]
+margin_left = 20.0
+margin_top = 61.0
+margin_right = 250.0
+margin_bottom = 561.0
+script = ExtResource( 44 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/Controls"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 223.0
+margin_bottom = 493.0
+
+[node name="LEDControl" type="VBoxContainer" parent="BTWScreen/Controls/HBoxContainer"]
+margin_right = 94.0
+margin_bottom = 486.0
+
+[node name="EngineControl" type="PanelContainer" parent="BTWScreen/Controls/HBoxContainer/LEDControl"]
+margin_right = 94.0
+margin_bottom = 94.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/Controls/HBoxContainer/LEDControl/EngineControl"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 87.0
+margin_bottom = 87.0
+
+[node name="EngineButton" type="Button" parent="BTWScreen/Controls/HBoxContainer/LEDControl/EngineControl/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+focus_mode = 1
+toggle_mode = true
+enabled_focus_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="BTWScreen/Controls/HBoxContainer/LEDControl/EngineControl/HBoxContainer/EngineButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -37.5
+margin_top = -37.5
+margin_right = 37.5
+margin_bottom = 37.5
+texture = ExtResource( 45 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LightControl" type="PanelContainer" parent="BTWScreen/Controls/HBoxContainer/LEDControl"]
+margin_top = 98.0
+margin_right = 94.0
+margin_bottom = 192.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/Controls/HBoxContainer/LEDControl/LightControl"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 87.0
+margin_bottom = 87.0
+
+[node name="LightButton" type="Button" parent="BTWScreen/Controls/HBoxContainer/LEDControl/LightControl/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+focus_mode = 1
+toggle_mode = true
+pressed = true
+enabled_focus_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="BTWScreen/Controls/HBoxContainer/LEDControl/LightControl/HBoxContainer/LightButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -37.5
+margin_top = -37.5
+margin_right = 37.5
+margin_bottom = 37.5
+texture = ExtResource( 36 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OilControl" type="PanelContainer" parent="BTWScreen/Controls/HBoxContainer/LEDControl"]
+margin_top = 196.0
+margin_right = 94.0
+margin_bottom = 290.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/Controls/HBoxContainer/LEDControl/OilControl"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 87.0
+margin_bottom = 87.0
+
+[node name="OilButton" type="Button" parent="BTWScreen/Controls/HBoxContainer/LEDControl/OilControl/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+focus_mode = 1
+toggle_mode = true
+enabled_focus_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="BTWScreen/Controls/HBoxContainer/LEDControl/OilControl/HBoxContainer/OilButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -37.5
+margin_top = -37.5
+margin_right = 37.5
+margin_bottom = 37.5
+texture = ExtResource( 47 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BatteryControl" type="PanelContainer" parent="BTWScreen/Controls/HBoxContainer/LEDControl"]
+margin_top = 294.0
+margin_right = 94.0
+margin_bottom = 388.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/Controls/HBoxContainer/LEDControl/BatteryControl"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 87.0
+margin_bottom = 87.0
+
+[node name="BatteryButton" type="Button" parent="BTWScreen/Controls/HBoxContainer/LEDControl/BatteryControl/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+focus_mode = 1
+toggle_mode = true
+enabled_focus_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="BTWScreen/Controls/HBoxContainer/LEDControl/BatteryControl/HBoxContainer/BatteryButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -37.5
+margin_top = -37.5
+margin_right = 37.5
+margin_bottom = 37.5
+texture = ExtResource( 48 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ABSControl" type="PanelContainer" parent="BTWScreen/Controls/HBoxContainer/LEDControl"]
+margin_top = 392.0
+margin_right = 94.0
+margin_bottom = 486.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BTWScreen/Controls/HBoxContainer/LEDControl/ABSControl"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 87.0
+margin_bottom = 87.0
+
+[node name="ABSButton" type="Button" parent="BTWScreen/Controls/HBoxContainer/LEDControl/ABSControl/HBoxContainer"]
+margin_right = 80.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 80, 80 )
+focus_mode = 1
+toggle_mode = true
+enabled_focus_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="BTWScreen/Controls/HBoxContainer/LEDControl/ABSControl/HBoxContainer/ABSButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -37.5
+margin_top = -37.5
+margin_right = 37.5
+margin_bottom = 37.5
+texture = ExtResource( 46 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VSeparator" type="VSeparator" parent="BTWScreen/Controls/HBoxContainer"]
+margin_left = 98.0
+margin_right = 118.0
+margin_bottom = 486.0
+custom_constants/separation = 20
+
+[node name="CarControl" type="VBoxContainer" parent="BTWScreen/Controls/HBoxContainer"]
+margin_left = 122.0
+margin_right = 216.0
+margin_bottom = 486.0
+rect_min_size = Vector2( 94, 0 )
+
+[node name="Accelerate" type="Button" parent="BTWScreen/Controls/HBoxContainer/CarControl"]
+margin_right = 94.0
+margin_bottom = 94.0
+rect_min_size = Vector2( 94, 94 )
+text = "Accelerate"
+
+[node name="Decelerate" type="Button" parent="BTWScreen/Controls/HBoxContainer/CarControl"]
+margin_top = 98.0
+margin_right = 94.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 94, 94 )
+text = "Decelerate"
+
+[node name="TurnRight" type="Button" parent="BTWScreen/Controls/HBoxContainer/CarControl"]
+margin_top = 196.0
+margin_right = 94.0
+margin_bottom = 290.0
+rect_min_size = Vector2( 94, 94 )
+text = "Turn Right"
+
+[node name="TurnLeft" type="Button" parent="BTWScreen/Controls/HBoxContainer/CarControl"]
+margin_top = 294.0
+margin_right = 94.0
+margin_bottom = 388.0
+rect_min_size = Vector2( 94, 94 )
+text = "Turn Left"
+
+[node name="TurnStop" type="Button" parent="BTWScreen/Controls/HBoxContainer/CarControl"]
+margin_top = 392.0
+margin_right = 94.0
+margin_bottom = 486.0
+rect_min_size = Vector2( 94, 94 )
+text = "Stop Turning"
+
+[node name="MultimediaScreen" type="Control" parent="."]
+margin_left = 1500.0
+margin_right = 3000.0
+margin_bottom = 800.0
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="MultimediaScreen"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 7 )
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GridContainer" type="GridContainer" parent="MultimediaScreen/PanelContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1495.0
+margin_bottom = 795.0
+custom_constants/vseparation = 90
+custom_constants/hseparation = 90
+columns = 2
+
+[node name="GPS" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
+margin_right = 700.0
+margin_bottom = 305.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 12 )
+text = "GPS"
+icon = ExtResource( 42 )
+
+[node name="Music" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
+margin_left = 790.0
+margin_right = 1490.0
+margin_bottom = 305.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 12 )
+custom_constants/hseparation = -50
+text = "Music"
+icon = ExtResource( 31 )
+
+[node name="Settings" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
+visible = false
+margin_left = 1052.0
+margin_right = 1488.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 12 )
+text = "Settings"
+
+[node name="Phone" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
+margin_top = 395.0
+margin_right = 700.0
+margin_bottom = 700.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 12 )
+text = "Phone"
+icon = ExtResource( 43 )
+
+[node name="Statistics" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
+margin_left = 790.0
+margin_top = 395.0
+margin_right = 1490.0
+margin_bottom = 700.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 12 )
+custom_constants/hseparation = -50
+text = "Statistics"
+icon = ExtResource( 41 )
+
+[node name="Button6" type="Button" parent="MultimediaScreen/PanelContainer/GridContainer"]
+visible = false
+margin_top = 780.0
+margin_right = 700.0
+margin_bottom = 1080.0
+rect_min_size = Vector2( 300, 300 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 12 )
+text = "GPS"
+
+[node name="SideSeparator" type="HBoxContainer" parent="MultimediaScreen/PanelContainer"]
+visible = false
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 1495.0
+margin_bottom = 795.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Sidebar" type="VBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator"]
+margin_right = 342.0
+margin_bottom = 790.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.2
+
+[node name="GPS" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
+margin_right = 342.0
+margin_bottom = 194.0
+rect_min_size = Vector2( 0, 130 )
+focus_mode = 1
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 13 )
+enabled_focus_mode = 1
+text = "GPS"
+icon = ExtResource( 32 )
+
+[node name="Music" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
+margin_top = 198.0
+margin_right = 342.0
+margin_bottom = 393.0
+rect_min_size = Vector2( 0, 130 )
+focus_mode = 1
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 13 )
+enabled_focus_mode = 1
+text = "Music"
+icon = ExtResource( 34 )
+
+[node name="Settings" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
+visible = false
+margin_top = 317.0
+margin_right = 297.0
+margin_bottom = 472.0
+rect_min_size = Vector2( 0, 130 )
+focus_mode = 1
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 13 )
+enabled_focus_mode = 1
+text = "Settings"
+
+[node name="Phone" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
+margin_top = 397.0
+margin_right = 342.0
+margin_bottom = 591.0
+rect_min_size = Vector2( 0, 130 )
+focus_mode = 1
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 13 )
+enabled_focus_mode = 1
+text = "Phone"
+icon = ExtResource( 30 )
+
+[node name="Statistics" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
+margin_top = 595.0
+margin_right = 342.0
+margin_bottom = 790.0
+rect_min_size = Vector2( 0, 130 )
+focus_mode = 1
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 13 )
+enabled_focus_mode = 1
+text = "Statistics"
+icon = ExtResource( 33 )
+
+[node name="Button6" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Sidebar"]
+visible = false
+margin_top = 670.0
+margin_right = 299.0
+margin_bottom = 800.0
+rect_min_size = Vector2( 0, 130 )
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 13 )
+text = "GPS"
+
+[node name="Content" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator"]
+margin_left = 346.0
+margin_right = 1490.0
+margin_bottom = 790.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+custom_styles/panel = ExtResource( 6 )
+script = ExtResource( 3 )
+
+[node name="GPS" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content"]
+visible = false
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 1094.0
+margin_bottom = 740.0
+script = ExtResource( 23 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1037.0
+margin_bottom = 683.0
+
+[node name="Locations" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer"]
+margin_right = 222.0
+margin_bottom = 676.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.83
+custom_styles/panel = SubResource( 14 )
+
+[node name="LocationList" type="VBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 202.0
+margin_bottom = 656.0
+custom_constants/separation = 30
+
+[node name="Title" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList"]
+margin_right = 182.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 15 )
+text = "Locations:"
+
+[node name="Home" type="VBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList"]
+margin_top = 55.0
+margin_right = 182.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 0, 75 )
+custom_constants/separation = 7
+
+[node name="PlaceName" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList/Home"]
+margin_right = 182.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Home"
+
+[node name="Navigate" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList/Home"]
+margin_top = 21.0
+margin_right = 182.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Navigate"
+
+[node name="Work" type="VBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList"]
+margin_top = 160.0
+margin_right = 182.0
+margin_bottom = 235.0
+rect_min_size = Vector2( 0, 75 )
+custom_constants/separation = 7
+
+[node name="PlaceName" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList/Work"]
+margin_right = 182.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+text = "Work"
+
+[node name="Navigate" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList/Work"]
+margin_top = 21.0
+margin_right = 182.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Navigate"
+
+[node name="Separator" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList"]
+margin_top = 265.0
+margin_right = 182.0
+margin_bottom = 549.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="Clear" type="Button" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList"]
+margin_top = 579.0
+margin_right = 182.0
+margin_bottom = 636.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = ExtResource( 26 )
+custom_styles/pressed = ExtResource( 27 )
+custom_styles/normal = ExtResource( 24 )
+text = "Remove navigation"
+
+[node name="Map" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer"]
+margin_left = 226.0
+margin_right = 1030.0
+margin_bottom = 676.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+custom_styles/panel = SubResource( 16 )
+
+[node name="MapField" type="Panel" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 754.0
+margin_bottom = 626.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="DownerSt" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/DownerSt"]
+margin_left = -2.0
+margin_top = 513.0
+margin_right = 117.0
+margin_bottom = 535.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar2" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/DownerSt"]
+margin_left = 119.0
+margin_top = 513.0
+margin_right = 542.0
+margin_bottom = 536.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar3" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/DownerSt"]
+margin_left = 543.0
+margin_top = 513.0
+margin_right = 703.0
+margin_bottom = 536.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/DownerSt"]
+margin_left = 308.0
+margin_top = 488.145
+margin_right = 348.0
+margin_bottom = 502.145
+text = "Downer St."
+
+[node name="ParallelSt" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ParallelSt"]
+margin_left = 126.0
+margin_top = 383.0
+margin_right = 202.0
+margin_bottom = 400.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar2" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ParallelSt"]
+margin_left = 214.0
+margin_top = 383.0
+margin_right = 534.0
+margin_bottom = 400.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar3" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ParallelSt"]
+margin_left = 533.881
+margin_top = 383.0
+margin_right = 659.881
+margin_bottom = 400.0
+rect_rotation = -15.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar4" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ParallelSt"]
+margin_left = 645.881
+margin_top = 358.941
+margin_right = 771.881
+margin_bottom = 375.941
+rect_rotation = -89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar5" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ParallelSt"]
+margin_left = 645.881
+margin_top = 238.941
+margin_right = 771.881
+margin_bottom = 255.941
+rect_rotation = -120.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ParallelSt"]
+margin_left = 313.0
+margin_top = 363.0
+margin_right = 382.0
+margin_bottom = 377.0
+text = "Parallel St."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpperSt" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/UpperSt"]
+margin_top = 40.0
+margin_right = 202.0
+margin_bottom = 62.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar2" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/UpperSt"]
+margin_left = 206.0
+margin_top = 39.0
+margin_right = 701.0
+margin_bottom = 62.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/UpperSt"]
+margin_left = 294.922
+margin_top = 15.0
+margin_right = 363.922
+margin_bottom = 29.0
+text = "Upper St."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EasternSt" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+margin_top = 151.0
+margin_right = 40.0
+margin_bottom = 191.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/EasternSt"]
+margin_top = 40.0
+margin_right = 110.0
+margin_bottom = 62.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar2" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/EasternSt"]
+margin_left = 134.0
+margin_top = 39.0
+margin_right = 302.0
+margin_bottom = 62.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/EasternSt"]
+margin_left = 24.0
+margin_top = 21.0
+margin_right = 93.0
+margin_bottom = 35.0
+text = "Eastern St."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VertalSt" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/VertalSt"]
+margin_left = 109.881
+margin_top = 511.0
+margin_right = 228.881
+margin_bottom = 533.0
+rect_rotation = -89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar2" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/VertalSt"]
+margin_left = 134.0
+margin_top = 209.0
+margin_right = 315.0
+margin_bottom = 232.0
+rect_rotation = 89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar3" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/VertalSt"]
+margin_left = 109.881
+margin_top = 198.941
+margin_right = 269.881
+margin_bottom = 221.941
+rect_rotation = -59.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/VertalSt"]
+margin_left = 79.5413
+margin_top = 403.0
+margin_right = 148.541
+margin_bottom = 417.0
+rect_rotation = -89.9999
+text = "Vertal St."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LongSt" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/LongSt"]
+margin_left = 301.881
+margin_top = 198.941
+margin_right = 382.881
+margin_bottom = 213.941
+rect_rotation = -89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar2" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/LongSt"]
+margin_left = 317.881
+margin_top = 205.0
+margin_right = 419.881
+margin_bottom = 220.0
+rect_rotation = 89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar3" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/LongSt"]
+margin_left = 206.0
+margin_top = 294.941
+margin_right = 308.0
+margin_bottom = 309.941
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar4" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/LongSt"]
+margin_left = 313.0
+margin_top = 111.0
+margin_right = 438.0
+margin_bottom = 126.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar5" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/LongSt"]
+margin_left = 438.0
+margin_top = 111.0
+margin_right = 582.0
+margin_bottom = 126.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar6" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/LongSt"]
+margin_left = 589.881
+margin_top = 111.0
+margin_right = 677.881
+margin_bottom = 126.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/LongSt"]
+margin_left = 407.0
+margin_top = 85.9444
+margin_right = 476.0
+margin_bottom = 99.9444
+text = "Long St."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReachSt" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ReachSt"]
+margin_left = 534.0
+margin_top = 511.0
+margin_right = 644.0
+margin_bottom = 526.0
+rect_rotation = -89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar2" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ReachSt"]
+margin_left = 550.0
+margin_top = 336.0
+margin_right = 595.0
+margin_bottom = 351.0
+rect_rotation = 89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar3" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ReachSt"]
+margin_left = 437.881
+margin_top = 325.0
+margin_right = 539.881
+margin_bottom = 340.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar4" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ReachSt"]
+margin_left = 446.0
+margin_top = 239.0
+margin_right = 540.0
+margin_bottom = 254.0
+rect_rotation = 89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar5" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ReachSt"]
+margin_left = 446.0
+margin_top = 119.0
+margin_right = 566.0
+margin_bottom = 134.0
+rect_rotation = 89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ReachSt"]
+margin_left = 512.565
+margin_top = 488.145
+margin_right = 581.565
+margin_bottom = 502.145
+rect_rotation = -89.9999
+text = "Reach St."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/ReachSt"]
+margin_left = 403.0
+margin_top = 260.654
+margin_right = 472.0
+margin_bottom = 274.654
+rect_rotation = -89.9999
+text = "Reach St."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MinimalSt" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/MinimalSt"]
+margin_left = 198.0
+margin_top = 304.0
+margin_right = 247.0
+margin_bottom = 319.0
+rect_rotation = -89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar2" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/MinimalSt"]
+margin_left = 214.0
+margin_top = 303.0
+margin_right = 301.0
+margin_bottom = 318.0
+rect_rotation = 89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar3" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/MinimalSt"]
+margin_left = 214.0
+margin_top = 391.0
+margin_right = 279.0
+margin_bottom = 406.0
+rect_rotation = 89.9999
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label3" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/MinimalSt"]
+margin_left = 168.132
+margin_top = 340.937
+margin_right = 240.132
+margin_bottom = 354.937
+rect_rotation = -89.9999
+text = "Minimal St."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WesternSt" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/WesternSt"]
+margin_left = 446.0
+margin_top = 231.0
+margin_right = 647.0
+margin_bottom = 246.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar2" type="ProgressBar" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/WesternSt"]
+margin_left = 662.0
+margin_top = 231.0
+margin_right = 703.0
+margin_bottom = 246.0
+rect_scale = Vector2( 1, 1.04 )
+custom_styles/fg = ExtResource( 25 )
+value = 100.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/WesternSt"]
+margin_left = 503.92
+margin_top = 210.0
+margin_right = 577.92
+margin_bottom = 224.0
+text = "Western St."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Intersections" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VP" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 123.58, 390.433 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RP" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 539.881, 393 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PP1" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 653.47, 359 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PW" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 655.698, 236.501 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MP" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 206, 393 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MENDD" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 206, 456 )
+scale = Vector2( 0.365614, 0.382379 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MENDU" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 206, 248.726 )
+scale = Vector2( 0.362352, 0.372754 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LENDR" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 677.881, 118.458 )
+scale = Vector2( 0.362352, 0.372754 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="ML" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 206, 303.215 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RR1" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 542, 333 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RR2" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 438, 330.087 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RW" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 438, 237.25 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RL" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 438, 119.784 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LL" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 308, 301.062 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LE" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 308, 201.847 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LL2" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 313, 118.1 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PL" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 589.881, 119.784 )
+scale = Vector2( 0.564935, 0.564477 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VD" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 121.436, 524 )
+scale = Vector2( 0.617076, 0.637476 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="RD" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 542, 524 )
+scale = Vector2( 0.617076, 0.637476 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VE" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 122.027, 201.822 )
+scale = Vector2( 0.73295, 0.769909 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VU" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField/Intersections"]
+position = Vector2( 208.914, 54.1784 )
+scale = Vector2( 0.73295, 0.769909 )
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Home" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+position = Vector2( 673.776, 153.515 )
+scale = Vector2( 0.381676, 0.395856 )
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Work" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+position = Vector2( 258.276, 255.313 )
+rotation = 3.14159
+scale = Vector2( 0.381676, 0.395856 )
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Car" type="Sprite" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Map/MapField"]
+position = Vector2( 11.8042, 524 )
+rotation = 4.71238
+scale = Vector2( 0.381676, 0.395856 )
+texture = ExtResource( 18 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="MusicPlayer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content" instance=ExtResource( 4 )]
+visible = false
+
+[node name="Phone" parent="MultimediaScreen/PanelContainer/SideSeparator/Content" instance=ExtResource( 5 )]
+visible = false
+margin_right = 1094.0
+
+[node name="Statistics" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content"]
+visible = false
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 1094.0
+margin_bottom = 740.0
+custom_styles/panel = SubResource( 17 )
+script = ExtResource( 28 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1024.0
+margin_bottom = 670.0
+custom_constants/separation = 20
+
+[node name="Title" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer"]
+margin_right = 1004.0
+margin_bottom = 62.0
+custom_fonts/font = SubResource( 18 )
+text = "Statistics"
+align = 1
+valign = 1
+
+[node name="Stat1" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer"]
+margin_top = 82.0
+margin_right = 1004.0
+margin_bottom = 160.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 19 )
+
+[node name="StatKMToday" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat1"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 994.0
+margin_bottom = 68.0
+
+[node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat1/StatKMToday"]
+margin_top = 16.0
+margin_right = 166.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 20 )
+text = "KM driven today: "
+align = 1
+valign = 1
+
+[node name="Value" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat1/StatKMToday"]
+margin_left = 170.0
+margin_top = 16.0
+margin_right = 261.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 21 )
+text = "10391023"
+align = 1
+valign = 1
+
+[node name="Control" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat1/StatKMToday"]
+margin_left = 265.0
+margin_right = 763.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Display" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat1/StatKMToday"]
+margin_left = 767.0
+margin_top = 16.0
+margin_right = 904.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 21 )
+text = "Center display"
+align = 1
+valign = 1
+
+[node name="DisplayButton1" type="CheckButton" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat1/StatKMToday"]
+margin_left = 908.0
+margin_right = 984.0
+margin_bottom = 58.0
+focus_mode = 1
+action_mode = 0
+enabled_focus_mode = 1
+
+[node name="Stat2" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer"]
+margin_top = 180.0
+margin_right = 1004.0
+margin_bottom = 258.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 19 )
+
+[node name="StatKMWeek" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat2"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 994.0
+margin_bottom = 68.0
+
+[node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat2/StatKMWeek"]
+margin_top = 16.0
+margin_right = 166.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 20 )
+text = "KM driven today: "
+
+[node name="Value" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat2/StatKMWeek"]
+margin_left = 170.0
+margin_top = 16.0
+margin_right = 302.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 21 )
+text = "222222222222"
+
+[node name="Control" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat2/StatKMWeek"]
+margin_left = 306.0
+margin_right = 763.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Display" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat2/StatKMWeek"]
+margin_left = 767.0
+margin_top = 16.0
+margin_right = 904.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 21 )
+text = "Center display"
+align = 1
+valign = 1
+
+[node name="DisplayButton2" type="CheckButton" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat2/StatKMWeek"]
+margin_left = 908.0
+margin_right = 984.0
+margin_bottom = 58.0
+focus_mode = 1
+action_mode = 0
+enabled_focus_mode = 1
+
+[node name="Stat3" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer"]
+margin_top = 278.0
+margin_right = 1004.0
+margin_bottom = 356.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 19 )
+
+[node name="StatKMMonth" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat3"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 994.0
+margin_bottom = 68.0
+
+[node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat3/StatKMMonth"]
+margin_top = 16.0
+margin_right = 213.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 20 )
+text = "KM driven this month: "
+
+[node name="Value" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat3/StatKMMonth"]
+margin_left = 217.0
+margin_top = 16.0
+margin_right = 308.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 21 )
+text = "10391023"
+
+[node name="Control" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat3/StatKMMonth"]
+margin_left = 312.0
+margin_right = 763.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Display" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat3/StatKMMonth"]
+margin_left = 767.0
+margin_top = 16.0
+margin_right = 904.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 21 )
+text = "Center display"
+align = 1
+valign = 1
+
+[node name="DisplayButton3" type="CheckButton" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat3/StatKMMonth"]
+margin_left = 908.0
+margin_right = 984.0
+margin_bottom = 58.0
+focus_mode = 1
+action_mode = 0
+enabled_focus_mode = 1
+
+[node name="Stat4" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer"]
+margin_top = 376.0
+margin_right = 1004.0
+margin_bottom = 454.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 19 )
+
+[node name="Statfuel" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat4"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 994.0
+margin_bottom = 68.0
+
+[node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat4/Statfuel"]
+margin_top = 16.0
+margin_right = 258.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 20 )
+text = "Next refuel estimated time:"
+
+[node name="Value" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat4/Statfuel"]
+margin_left = 262.0
+margin_top = 16.0
+margin_right = 323.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 21 )
+custom_colors/font_color = Color( 0.890196, 0.192157, 0.192157, 1 )
+text = "2 days"
+
+[node name="Control" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat4/Statfuel"]
+margin_left = 327.0
+margin_right = 763.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Display" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat4/Statfuel"]
+margin_left = 767.0
+margin_top = 16.0
+margin_right = 904.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 21 )
+text = "Center display"
+align = 1
+valign = 1
+
+[node name="DisplayButton4" type="CheckButton" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat4/Statfuel"]
+margin_left = 908.0
+margin_right = 984.0
+margin_bottom = 58.0
+focus_mode = 1
+action_mode = 0
+enabled_focus_mode = 1
+
+[node name="Stat5" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer"]
+margin_top = 474.0
+margin_right = 1004.0
+margin_bottom = 552.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 19 )
+
+[node name="StatMaintenance" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat5"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 994.0
+margin_bottom = 68.0
+
+[node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat5/StatMaintenance"]
+margin_top = 16.0
+margin_right = 322.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 20 )
+text = "Time since last maintenance visit: "
+
+[node name="Value" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat5/StatMaintenance"]
+margin_left = 326.0
+margin_top = 16.0
+margin_right = 398.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 21 )
+custom_colors/font_color = Color( 0.278431, 0.890196, 0.192157, 1 )
+text = "31 days"
+
+[node name="Control" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat5/StatMaintenance"]
+margin_left = 402.0
+margin_right = 763.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Display" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat5/StatMaintenance"]
+margin_left = 767.0
+margin_top = 16.0
+margin_right = 904.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 21 )
+text = "Center display"
+align = 1
+valign = 1
+
+[node name="DisplayButton5" type="CheckButton" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat5/StatMaintenance"]
+margin_left = 908.0
+margin_right = 984.0
+margin_bottom = 58.0
+focus_mode = 1
+action_mode = 0
+enabled_focus_mode = 1
+
+[node name="Stat6" type="PanelContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer"]
+margin_top = 572.0
+margin_right = 1004.0
+margin_bottom = 650.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 19 )
+
+[node name="StatOil" type="HBoxContainer" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat6"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 994.0
+margin_bottom = 68.0
+
+[node name="Label" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat6/StatOil"]
+margin_top = 16.0
+margin_right = 226.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 20 )
+text = "Time since last oil refill: "
+
+[node name="Value" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat6/StatOil"]
+margin_left = 230.0
+margin_top = 16.0
+margin_right = 302.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 21 )
+custom_colors/font_color = Color( 0.278431, 0.890196, 0.192157, 1 )
+text = "31 days"
+align = 1
+valign = 1
+
+[node name="Control" type="Control" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat6/StatOil"]
+margin_left = 306.0
+margin_right = 763.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Display" type="Label" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat6/StatOil"]
+margin_left = 767.0
+margin_top = 16.0
+margin_right = 904.0
+margin_bottom = 41.0
+custom_fonts/font = SubResource( 21 )
+text = "Center display"
+align = 1
+valign = 1
+
+[node name="DisplayButton6" type="CheckButton" parent="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat6/StatOil"]
+margin_left = 908.0
+margin_right = 984.0
+margin_bottom = 58.0
+focus_mode = 1
+action_mode = 0
+enabled_focus_mode = 1
+
+[node name="MusicAudio" type="AudioStreamPlayer" parent="MultimediaScreen"]
+volume_db = -10.0
+stream_paused = true
+
+[node name="Reserve" type="Label" parent="."]
+margin_left = 1262.88
+margin_top = 690.439
+margin_right = 1293.88
+margin_bottom = 722.439
+custom_fonts/font = SubResource( 22 )
+custom_colors/font_color = Color( 0.945098, 0.309804, 0.188235, 1 )
+text = "R"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShowControl" type="Button" parent="."]
+margin_left = 20.0
+margin_top = 17.0
+margin_right = 128.0
+margin_bottom = 61.0
+toggle_mode = true
+text = "Show Controls"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="km_changed" from="." to="BTWScreen/CentralDisplay" method="_on_App_km_changed"]
+[connection signal="km_changed" from="." to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_App_km_changed"]
+[connection signal="turn_left" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_left"]
+[connection signal="turn_left" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
+[connection signal="turn_off" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
+[connection signal="turn_off" from="." to="BTWScreen/TurnRight" method="_on_App_turn_off"]
+[connection signal="turn_right" from="." to="BTWScreen/TurnLeft" method="_on_App_turn_off"]
+[connection signal="turn_right" from="." to="BTWScreen/TurnRight" method="_on_App_turn_right"]
+[connection signal="accelerate_start" from="BTWScreen/Accelerometer" to="." method="_on_Accelerometer_accelerate_start"]
+[connection signal="accelerate_stop" from="BTWScreen/Accelerometer" to="." method="_on_Accelerometer_accelerate_stop"]
+[connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/SpeedDigits" method="_on_Accelerometer_speed_changed"]
+[connection signal="speed_changed" from="BTWScreen/Accelerometer" to="BTWScreen/Tachometer" method="_on_Accelerometer_speed_changed"]
+[connection signal="timeout" from="BTWScreen/TurnLeft/TurnTimer" to="BTWScreen/TurnLeft" method="_on_TurnTimer_timeout"]
+[connection signal="timeout" from="BTWScreen/TurnRight/TurnTimer" to="BTWScreen/TurnRight" method="_on_TurnTimer_timeout"]
+[connection signal="timeout" from="BTWScreen/WarningLED/BlinkTimer" to="BTWScreen/WarningLED" method="_on_BlinkTimer_timeout"]
+[connection signal="pressed" from="BTWScreen/AccelerateButton" to="BTWScreen/Accelerometer" method="_on_Accelerate_pressed"]
+[connection signal="pressed" from="BTWScreen/AccelerateButton2" to="BTWScreen/Accelerometer" method="_on_Decelerate_pressed"]
+[connection signal="fuel_changed" from="BTWScreen/FuelMeter" to="BTWScreen/FuelDigits" method="_on_FuelMeter_fuel_changed"]
+[connection signal="timeout" from="BTWScreen/SpeedCheck" to="BTWScreen/Accelerometer" method="_on_SpeedCheck_timeout"]
+[connection signal="timeout" from="BTWScreen/KMTimer" to="." method="_on_KMTimer_timeout"]
+[connection signal="timeout" from="BTWScreen/FuelTimer" to="BTWScreen/FuelMeter" method="_on_FuelTimer_timeout"]
+[connection signal="timeout" from="BTWScreen/StopDistanceTimer" to="." method="_on_StopDistanceTimer_timeout"]
+[connection signal="toggled" from="BTWScreen/Controls/HBoxContainer/LEDControl/EngineControl/HBoxContainer/EngineButton" to="." method="_on_EngineButton_toggled"]
+[connection signal="toggled" from="BTWScreen/Controls/HBoxContainer/LEDControl/LightControl/HBoxContainer/LightButton" to="." method="_on_LightButton_toggled"]
+[connection signal="toggled" from="BTWScreen/Controls/HBoxContainer/LEDControl/OilControl/HBoxContainer/OilButton" to="." method="_on_OilButton_toggled"]
+[connection signal="toggled" from="BTWScreen/Controls/HBoxContainer/LEDControl/BatteryControl/HBoxContainer/BatteryButton" to="." method="_on_BatteryButton_toggled"]
+[connection signal="toggled" from="BTWScreen/Controls/HBoxContainer/LEDControl/ABSControl/HBoxContainer/ABSButton" to="." method="_on_ABSButton_toggled"]
+[connection signal="pressed" from="BTWScreen/Controls/HBoxContainer/CarControl/Accelerate" to="BTWScreen/Accelerometer" method="_on_Accelerate_pressed"]
+[connection signal="pressed" from="BTWScreen/Controls/HBoxContainer/CarControl/Decelerate" to="BTWScreen/Accelerometer" method="_on_Decelerate_pressed"]
+[connection signal="pressed" from="BTWScreen/Controls/HBoxContainer/CarControl/TurnRight" to="." method="_on_TurnRight_pressed"]
+[connection signal="pressed" from="BTWScreen/Controls/HBoxContainer/CarControl/TurnLeft" to="." method="_on_TurnLeft_pressed"]
+[connection signal="pressed" from="BTWScreen/Controls/HBoxContainer/CarControl/TurnStop" to="." method="_on_TurnStop_pressed"]
+[connection signal="content_changed" from="MultimediaScreen" to="MultimediaScreen/PanelContainer" method="_on_MultimediaScreen_content_changed"]
+[connection signal="content_changed" from="MultimediaScreen" to="MultimediaScreen/PanelContainer/SideSeparator/Content" method="_on_MultimediaScreen_content_changed"]
+[connection signal="music_toggled" from="MultimediaScreen" to="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" method="_on_MultimediaScreen_music_toggled"]
+[connection signal="song_data_changed" from="MultimediaScreen" to="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" method="_on_MultimediaScreen_song_data_changed"]
+[connection signal="pressed" from="MultimediaScreen/PanelContainer/GridContainer/GPS" to="MultimediaScreen" method="_on_GPS_pressed"]
+[connection signal="pressed" from="MultimediaScreen/PanelContainer/GridContainer/Music" to="MultimediaScreen" method="_on_Music_pressed"]
+[connection signal="pressed" from="MultimediaScreen/PanelContainer/GridContainer/Phone" to="MultimediaScreen" method="_on_Phone_pressed"]
+[connection signal="pressed" from="MultimediaScreen/PanelContainer/GridContainer/Statistics" to="MultimediaScreen" method="_on_Statistics_pressed"]
+[connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Sidebar/GPS" to="MultimediaScreen" method="_on_GPS_pressed"]
+[connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Sidebar/Music" to="MultimediaScreen" method="_on_Music_pressed"]
+[connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Sidebar/Settings" to="MultimediaScreen" method="_on_Settings_pressed"]
+[connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Sidebar/Phone" to="MultimediaScreen" method="_on_Phone_pressed"]
+[connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Sidebar/Statistics" to="MultimediaScreen" method="_on_Statistics_pressed"]
+[connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList/Home/Navigate" to="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS" method="_on_NavigateHome_pressed"]
+[connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList/Work/Navigate" to="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS" method="_on_NavigateWork_pressed"]
+[connection signal="pressed" from="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS/HBoxContainer/Locations/LocationList/Clear" to="MultimediaScreen/PanelContainer/SideSeparator/Content/GPS" method="_on_Clear_pressed"]
+[connection signal="music_toggle" from="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" to="MultimediaScreen" method="_on_MusicPlayer_music_toggle"]
+[connection signal="switch_song" from="MultimediaScreen/PanelContainer/SideSeparator/Content/MusicPlayer" to="MultimediaScreen" method="_on_MusicPlayer_switch_song"]
+[connection signal="call_toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Phone" to="MultimediaScreen" method="_on_Phone_call_toggled"]
+[connection signal="stat_visibility_changed" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" to="BTWScreen/CentralDisplay" method="_on_Statistics_stat_visibility_changed"]
+[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat1/StatKMToday/DisplayButton1" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton1_toggled"]
+[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat2/StatKMWeek/DisplayButton2" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton2_toggled"]
+[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat3/StatKMMonth/DisplayButton3" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton3_toggled"]
+[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat4/Statfuel/DisplayButton4" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton4_toggled"]
+[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat5/StatMaintenance/DisplayButton5" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton5_toggled"]
+[connection signal="toggled" from="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics/VBoxContainer/Stat6/StatOil/DisplayButton6" to="MultimediaScreen/PanelContainer/SideSeparator/Content/Statistics" method="_on_DisplayButton6_toggled"]
+[connection signal="finished" from="MultimediaScreen/MusicAudio" to="MultimediaScreen" method="_on_MusicAudio_finished"]
+[connection signal="toggled" from="ShowControl" to="BTWScreen/Controls" method="_on_ShowControl_toggled"]

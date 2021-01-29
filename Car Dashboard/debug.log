@@ -1,0 +1,5 @@
+[1211/114157.406:ERROR:settings.cc(326)] Settings version is not 1
+[1211/114602.701:ERROR:settings.cc(326)] Settings version is not 1
+[1211/114602.701:ERROR:settings.cc(326)] Settings version is not 1
+[1211/115157.681:ERROR:filesystem_win.cc(129)] GetFileAttributes E:\Program Files (x86)\Steam\dumps\attachments\773ec65b-0571-408d-b673-b137c1a468d8: System nie mo¿e odnaleŸæ okreœlonej œcie¿ki. (0x3)
+[1211/115157.682:ERROR:directory_reader_win.cc(43)] FindFirstFile: System nie mo¿e odnaleŸæ okreœlonej œcie¿ki. (0x3)

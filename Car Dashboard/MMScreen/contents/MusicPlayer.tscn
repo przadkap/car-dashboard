@@ -1,0 +1,270 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://MMScreen/SongProgress.gd" type="Script" id=1]
+[ext_resource path="res://MMScreen/MusicPlayer.gd" type="Script" id=2]
+[ext_resource path="res://images/disc3.png" type="Texture" id=3]
+[ext_resource path="res://fonts/BaseFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://images/play4.png" type="Texture" id=5]
+[ext_resource path="res://images/forward.png" type="Texture" id=6]
+
+[sub_resource type="StyleBoxFlat" id=1]
+content_margin_top = 20.0
+bg_color = Color( 0.227451, 0.219608, 0.258824, 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.0784314, 0.423529, 0.607843, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+content_margin_left = 150.0
+content_margin_right = 150.0
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color( 0.145098, 0.145098, 0.164706, 1 )
+
+[node name="MusicPlayer" type="PanelContainer"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 1139.0
+margin_bottom = 740.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MasterHBox" type="HBoxContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 1082.0
+margin_bottom = 683.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PreviousSong" type="PanelContainer" parent="MasterHBox"]
+margin_right = 266.0
+margin_bottom = 676.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PreviousSong" type="Button" parent="MasterHBox/PreviousSong"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 259.0
+margin_bottom = 669.0
+focus_mode = 1
+enabled_focus_mode = 1
+text = "Previous"
+
+[node name="TextureRect" type="TextureRect" parent="MasterHBox/PreviousSong/PreviousSong"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -116.0
+margin_top = -331.0
+margin_right = 105.0
+margin_bottom = 331.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxMiddle" type="VBoxContainer" parent="MasterHBox"]
+margin_left = 270.0
+margin_right = 804.0
+margin_bottom = 676.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="AlbumCover" type="PanelContainer" parent="MasterHBox/VBoxMiddle"]
+margin_right = 534.0
+margin_bottom = 332.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="TextureRect" type="TextureRect" parent="MasterHBox/VBoxMiddle/AlbumCover"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 527.0
+margin_bottom = 325.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 4
+
+[node name="SongTitle" type="PanelContainer" parent="MasterHBox/VBoxMiddle"]
+margin_top = 336.0
+margin_right = 534.0
+margin_bottom = 419.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Label" type="Label" parent="MasterHBox/VBoxMiddle/SongTitle"]
+margin_left = 7.0
+margin_top = 31.0
+margin_right = 527.0
+margin_bottom = 51.0
+custom_fonts/font = ExtResource( 4 )
+text = "This will be a song title eventually"
+align = 1
+
+[node name="SongProgress" type="PanelContainer" parent="MasterHBox/VBoxMiddle"]
+margin_top = 423.0
+margin_right = 534.0
+margin_bottom = 506.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MasterHBox/VBoxMiddle/SongProgress"]
+margin_top = 20.0
+margin_right = 534.0
+margin_bottom = 83.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MasterHBox/VBoxMiddle/SongProgress/VBoxContainer"]
+margin_right = 534.0
+margin_bottom = 10.0
+
+[node name="Control" type="Control" parent="MasterHBox/VBoxMiddle/SongProgress/VBoxContainer/HBoxContainer"]
+margin_right = 75.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ProgressBar" type="ProgressBar" parent="MasterHBox/VBoxMiddle/SongProgress/VBoxContainer/HBoxContainer"]
+margin_left = 79.0
+margin_right = 454.0
+margin_bottom = 10.0
+rect_min_size = Vector2( 0, 10 )
+size_flags_horizontal = 3
+size_flags_vertical = 2
+size_flags_stretch_ratio = 5.0
+custom_styles/fg = SubResource( 2 )
+step = 0.1
+value = 70.0
+percent_visible = false
+
+[node name="Control2" type="Control" parent="MasterHBox/VBoxMiddle/SongProgress/VBoxContainer/HBoxContainer"]
+margin_left = 458.0
+margin_right = 534.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MasterHBox/VBoxMiddle/SongProgress/VBoxContainer"]
+margin_top = 14.0
+margin_right = 534.0
+margin_bottom = 28.0
+
+[node name="Control3" type="Control" parent="MasterHBox/VBoxMiddle/SongProgress/VBoxContainer/HBoxContainer2"]
+margin_top = 7.0
+margin_right = 51.0
+margin_bottom = 7.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+
+[node name="SongBegin" type="Label" parent="MasterHBox/VBoxMiddle/SongProgress/VBoxContainer/HBoxContainer2"]
+margin_left = 55.0
+margin_right = 107.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "0:00"
+align = 1
+
+[node name="Control" type="Control" parent="MasterHBox/VBoxMiddle/SongProgress/VBoxContainer/HBoxContainer2"]
+margin_left = 111.0
+margin_top = 7.0
+margin_right = 422.0
+margin_bottom = 7.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 6.0
+
+[node name="SongEnd" type="Label" parent="MasterHBox/VBoxMiddle/SongProgress/VBoxContainer/HBoxContainer2"]
+margin_left = 426.0
+margin_right = 478.0
+margin_bottom = 14.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "4:20"
+align = 1
+
+[node name="Control2" type="Control" parent="MasterHBox/VBoxMiddle/SongProgress/VBoxContainer/HBoxContainer2"]
+margin_left = 482.0
+margin_top = 7.0
+margin_right = 534.0
+margin_bottom = 7.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+
+[node name="ProgressTimer" type="Timer" parent="MasterHBox/VBoxMiddle/SongProgress"]
+wait_time = 0.1
+
+[node name="PlayPause" type="PanelContainer" parent="MasterHBox/VBoxMiddle"]
+margin_top = 510.0
+margin_right = 534.0
+margin_bottom = 676.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 3 )
+
+[node name="PlayPause" type="Button" parent="MasterHBox/VBoxMiddle/PlayPause"]
+margin_left = 150.0
+margin_top = 10.0
+margin_right = 384.0
+margin_bottom = 156.0
+focus_mode = 1
+enabled_focus_mode = 1
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="MasterHBox/VBoxMiddle/PlayPause/PlayPause"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NextSong" type="PanelContainer" parent="MasterHBox"]
+margin_left = 808.0
+margin_right = 1075.0
+margin_bottom = 676.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NextSong" type="Button" parent="MasterHBox/NextSong"]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 260.0
+margin_bottom = 669.0
+focus_mode = 1
+enabled_focus_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="MasterHBox/NextSong/NextSong"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -109.5
+margin_top = -331.0
+margin_right = 126.5
+margin_bottom = 331.0
+texture = ExtResource( 6 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="music_toggled" from="." to="MasterHBox/VBoxMiddle/SongProgress" method="_on_MusicPlayer_music_toggled"]
+[connection signal="pressed" from="MasterHBox/PreviousSong/PreviousSong" to="." method="_on_PreviousSong_pressed"]
+[connection signal="timeout" from="MasterHBox/VBoxMiddle/SongProgress/ProgressTimer" to="MasterHBox/VBoxMiddle/SongProgress" method="_on_ProgressTimer_timeout"]
+[connection signal="pressed" from="MasterHBox/VBoxMiddle/PlayPause/PlayPause" to="." method="_on_PlayPause_pressed"]
+[connection signal="pressed" from="MasterHBox/NextSong/NextSong" to="." method="_on_NextSong_pressed"]
