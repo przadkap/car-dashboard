@@ -10,6 +10,7 @@ var song_info = [
 
 var songs = []
 var current_song_index = 0
+var music_was_playing = false
 
 signal song_data_changed
 signal music_toggled
@@ -23,12 +24,13 @@ func _ready():
 
 
 func _on_MusicPlayer_music_toggle():
-	print("BEFORE playing= ", $MusicAudio.playing, "| stream_paused = " ,$MusicAudio.stream_paused)
 	if $MusicAudio.playing:
 		if $MusicAudio.stream_paused:
 			$MusicAudio.stream_paused = false
+			music_was_playing = true
 		else:
 			$MusicAudio.stream_paused = true
+			music_was_playing = false
 #			$MusicAudio.playing = false
 #			$MusicAudio.stop()
 	else:
@@ -36,7 +38,7 @@ func _on_MusicPlayer_music_toggle():
 		$MusicAudio.playing = true
 		print($MusicAudio.playing)
 		$MusicAudio.stream_paused = false
-	print("AFTER playing= ", $MusicAudio.playing, " | stream_paused = " ,$MusicAudio.stream_paused)
+		music_was_playing = true
 	emit_signal("music_toggled", $MusicAudio.stream_paused)
 
 
@@ -82,16 +84,16 @@ func _on_MusicAudio_finished():
 
 
 func _on_Phone_call_toggled(calling):
-	if(calling && !$MusicAudio.stream_paused):
+	if(calling and !$MusicAudio.stream_paused):
 		$MusicAudio.stream_paused = true
 		emit_signal("music_toggled", true)
 		print_debug("calling && not paused")
-	elif($MusicAudio.playing):
+		music_was_playing = true
+	elif(!calling and $MusicAudio.playing and music_was_playing):
 #		$MusicAudio.stream_paused = false
 		$MusicAudio.stream_paused = false
 		emit_signal("music_toggled", false)
 		print_debug("playing")
-		pass
 
 
 func _on_GPS_pressed():
